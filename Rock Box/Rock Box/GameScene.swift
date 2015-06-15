@@ -15,33 +15,53 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var labelAngulo:SKLabelNode!
     var teste:SKSpriteNode!
     var teste2 = SKSpriteNode()
+    var teste3 = SKSpriteNode()
     var player = SKSpriteNode()
+    var cameraNode = SKSpriteNode()
     
     override func didMoveToView(view: SKView) {
         self.physicsWorld.gravity = CGVectorMake(0.0, 0.0)
         self.physicsWorld.contactDelegate = self
         
-        teste = self.criarPlanetasComPosicao(CGPointMake(self.frame.width / 2, self.frame.height / 3), raio: 20, habilitarRegiao:true,raioAtmosfera:100, falloff: 1, strenght: 1, imagem: "4.png")
+        
+        cameraNode = SKSpriteNode(color: UIColor.blueColor(), size: self.size)
+        
+        cameraNode.xScale = 2.0
+        cameraNode.yScale = 2.0
+        
+        self.addChild(cameraNode)
+        
+        cameraNode.position = CGPoint(x: self.frame.width/2, y: self.frame.height/15)
+//        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+
+        
+        
+        teste = self.criarPlanetasComPosicao(CGPointMake(0.0,0.0), raio: 200, habilitarRegiao:true,raioAtmosfera:100, falloff: 1, strenght: 1, imagem: "4.png")
         
         //Metodos.criarPlanetas(self, posicao: CGPointMake(self.frame.width / 2, self.frame.height), raio: 100,habilitarRegiao:false, raioAtmosfera:40, falloff: 1, strenght: 1, imagem: "2.png")
         //Metodos.criarPlanetas(self, posicao: CGPointMake(self.frame.width / 2, 0), raio: 100,habilitarRegiao:true,  raioAtmosfera:40 ,falloff: 1, strenght: 1, imagem: "3.png")
         
-        teste2 = self.criarPlanetasComPosicao(CGPointMake(self.frame.width / 3 , 2/3 * self.frame.height), raio: 100, habilitarRegiao:true,raioAtmosfera:10000, falloff: 1, strenght: 2, imagem: "4.png")
+        teste2 = self.criarPlanetasComPosicao(CGPointMake(self.frame.width / 6 , 1/3 * self.frame.height), raio: 60, habilitarRegiao:true,raioAtmosfera:200, falloff: 0, strenght: 2, imagem: "4.png")
+        
+        teste3 = self.criarPlanetasComPosicao(CGPointMake(self.frame.width / 2 , 1/15 * self.frame.height), raio: 40, habilitarRegiao:true,raioAtmosfera:200, falloff: 0, strenght: 2, imagem: "3.png")
         
         
         let spriteTeste = SKSpriteNode(imageNamed: "5.png")
         spriteTeste.size = CGSize(width: 299/10, height: 703/10)
-        spriteTeste.position = CGPointMake(self.frame.width / 2, teste.parent!.position.y + teste.frame.size.height/2 + 40)
+//        spriteTeste.position = CGPointMake(self.frame.width / 2, teste.parent!.position.y + teste.frame.size.height/2 + 40)
+        spriteTeste.position = cameraNode.position
+        spriteTeste.position.y = cameraNode.position.y + 55.0
         spriteTeste.name = "personagens"
         spriteTeste.physicsBody?.allowsRotation = false
         spriteTeste.physicsBody = SKPhysicsBody(rectangleOfSize: spriteTeste.size)
         spriteTeste.physicsBody?.affectedByGravity = true
         spriteTeste.physicsBody?.dynamic = false
         spriteTeste.physicsBody?.mass = 100
-        spriteTeste.physicsBody?.velocity = CGVector(dx: -100, dy: -20)
+        spriteTeste.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
         //spriteTeste.physicsBody?.applyForce(CGVector(dx: 10000, dy: 0))
         //spriteTeste.physicsBody?.applyImpulse(CGVector(dx: -100000, dy: 0))
         player = spriteTeste
+        player.physicsBody?.fieldBitMask = 0x0
         
         addChild(player)
         
@@ -68,27 +88,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             if location.x > self.size.width/2 {
                 player.xScale = -1.0
-                teste.physicsBody?.applyAngularImpulse(5.0)
+                teste.runAction(SKAction.rotateByAngle(CGFloat(M_PI_2 / 5), duration: 1.0))
+                cameraNode.runAction(SKAction.rotateByAngle(CGFloat(M_PI_2 / 5), duration: 1.0))
             }
             else {
                 player.xScale = 1.0
-                teste.physicsBody?.applyAngularImpulse(-5.0)
+                teste.runAction(SKAction.rotateByAngle(CGFloat(-M_PI_2 / 5), duration: 1.0))
+                cameraNode.runAction(SKAction.rotateByAngle(CGFloat(-M_PI_2 / 5), duration: 1.0))
             }
             
             player.physicsBody?.dynamic = true
             player.physicsBody?.affectedByGravity = false
             let dx = player.position.x - teste2.parent!.position.x
             let dy = -(player.position.y - teste2.parent!.position.y)
-            player.physicsBody?.velocity = CGVector(dx: 0, dy: -10*dy)
-            
-            println(dx)
-            println(dy)
-            
-            let rotationAngle = atan2(dy, dx) - CGFloat(M_PI_2)
-            println(rotationAngle)
-            player.runAction(SKAction.rotateToAngle(rotationAngle, duration: 0.01, shortestUnitArc: true))
-//            player.physicsBody?.dynamic = false
-            
+//            player.physicsBody?.velocity = CGVector(dx: 0, dy: -10*dy)
+
+
             spriteTeste.size = CGSize(width: 299/10, height: 703/10)
             spriteTeste.position = location
             spriteTeste.name = "personagens"
@@ -104,15 +119,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     override func update(currentTime: CFTimeInterval) {
         let dx = player.position.x - teste2.parent!.position.x
-        let dy = -(player.position.y - teste2.parent!.position.y)
+        let dy = (player.position.y - teste2.parent!.position.y)
+        
+        println("dx: \(dx) dy: \(dy)")
 //        player.physicsBody?.velocity = CGVector(dx: 0, dy: -10*dy)
+
+        let rotationAngle = atan(dy/dx)
+
         
-        println(dx)
-        println(dy)
-        
-        let rotationAngle = atan2(dy, dx) - CGFloat(M_PI_2)
-        println(rotationAngle)
-        player.runAction(SKAction.rotateToAngle(rotationAngle, duration: 0.01, shortestUnitArc: true))
+//        player.runAction(SKAction.rotateToAngle(rotationAngle, duration: 0.01, shortestUnitArc: true))
         
     }
     
@@ -144,7 +159,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         imageFieldNode.physicsBody?.affectedByGravity = false
         imageFieldNode.physicsBody?.applyAngularImpulse(100)
         fieldNode.addChild(imageFieldNode)
-        self.addChild(fieldNode)
+        
+        fieldNode.zPosition = 10.0
+        
+        cameraNode.addChild(fieldNode)
+
         return imageFieldNode
         
     }
