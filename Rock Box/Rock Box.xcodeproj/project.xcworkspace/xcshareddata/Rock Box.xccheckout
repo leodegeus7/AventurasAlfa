@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0E19148E-81F6-4E11-8FE2-40BA498EA8A2</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Rock Box</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D987C00D8FC0931FBEFAA6054DF87B862EB2588E</key>
+		<string>https://bitbucket.org/spritekitgit/spritekitgitllll.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Rock Box/Rock Box.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D987C00D8FC0931FBEFAA6054DF87B862EB2588E</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://bitbucket.org/spritekitgit/spritekitgitllll.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D987C00D8FC0931FBEFAA6054DF87B862EB2588E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D987C00D8FC0931FBEFAA6054DF87B862EB2588E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>spritekitgitllll</string>
+		</dict>
+	</array>
+</dict>
+</plist>
