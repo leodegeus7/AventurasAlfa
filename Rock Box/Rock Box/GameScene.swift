@@ -12,6 +12,7 @@ struct BitMasks {
     static let planeta:UInt32 = 0x01
     static let personagem:UInt32 = 0x02
     static let letra:UInt32 = 0x03
+    static let regiao:UInt32 = 0x04
 }
 
 
@@ -21,27 +22,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     var labelAngulo:SKLabelNode!
-    var teste:SKSpriteNode!
-    var teste2 = SKSpriteNode()
-    var teste3 = SKSpriteNode()
-    var player = SKSpriteNode()
+    var planeta1:SKSpriteNode!
+    var planeta2 = SKSpriteNode()
+    var planeta3 = SKSpriteNode()
+
     var planetaTeste = SKSpriteNode()
     var cameraNode = SKSpriteNode()
     var gameNode = SKSpriteNode()
+    var contador:Float = 0
+    var jogador = SKSpriteNode(imageNamed: "5.png")
     
     override func didMoveToView(view: SKView) {
         self.physicsWorld.gravity = CGVectorMake(0.0, 0.0)
         self.physicsWorld.contactDelegate = self
-        
         self.addChild(gameNode)
-        
         gameNode.position = CGPoint(x: self.frame.size.width/2, y: self.frame.size.height/15)
-        
-        cameraNode = SKSpriteNode(color: UIColor.blueColor(), size: self.size)
-        
         gameNode.xScale = 1.5
         gameNode.yScale = 1.5
-        
+        cameraNode = SKSpriteNode(color: UIColor.blueColor(), size: self.size)
         gameNode.addChild(cameraNode)
         
 //        cameraNode.position = CGPoint(x: gameNode.frame.width/2, y: gameNode.frame.height/2)
@@ -49,68 +47,50 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         
         
-        teste = self.criarPlanetasComPosicao(CGPointMake(0.0,0.0), raio: 200, habilitarRegiao:true,raioAtmosfera:100, falloff: 1, strenght: 1, imagem: "4.png")
-        //Metodos.criarPlanetas(self, posicao: CGPointMake(self.frame.width / 2, self.frame.height), raio: 100,habilitarRegiao:false, raioAtmosfera:40, falloff: 1, strenght: 1, imagem: "2.png")
-        //Metodos.criarPlanetas(self, posicao: CGPointMake(self.frame.width / 2, 0), raio: 100,habilitarRegiao:true,  raioAtmosfera:40 ,falloff: 1, strenght: 1, imagem: "3.png")
         
-        teste2 = self.criarPlanetasComPosicao(CGPointMake(self.frame.width / 6 , 1/3 * self.frame.height), raio: 60, habilitarRegiao:true,raioAtmosfera:20, falloff: 0, strenght: 2, imagem: "4.png")
+        //CRIAR PLANETAS
         
-        teste3 = self.criarPlanetasComPosicao(CGPointMake(self.frame.width / 2 , 1/15 * self.frame.height), raio: 40, habilitarRegiao:true,raioAtmosfera:20, falloff: 0, strenght: 2, imagem: "3.png")
-        
-
+        planeta1 = self.criarPlanetasComPosicao(CGPointMake(0.0,0.0), raio: 200, habilitarRegiao:true,raioAtmosfera:703/10, falloff: 1, strenght: 1, imagem: "4.png", nome: "1")
+        planeta2 = self.criarPlanetasComPosicao(CGPointMake(self.frame.width / 3.2 , 1/3 * self.frame.height), raio: 60, habilitarRegiao:true,raioAtmosfera:703/10, falloff: 0, strenght: 2, imagem: "4.png", nome: "2")
+        //planeta3 = self.criarPlanetasComPosicao(CGPointMake(self.frame.width / 2 , 1/15 * self.frame.height), raio: 40, habilitarRegiao:true,raioAtmosfera:70, falloff: 0, strenght: 2, imagem: "3.png")
         
         
         
+        //CRIAR PERSONAGEM
+    
         
-        let spriteTeste = SKSpriteNode(imageNamed: "5.png")
-        spriteTeste.size = CGSize(width: 299/10, height: 703/10)
-//        spriteTeste.position = CGPointMake(self.frame.width / 2, teste.parent!.position.y + teste.frame.size.height/2 + 40)
-        spriteTeste.position = cameraNode.position
-        spriteTeste.position.y = cameraNode.position.y + 55.0
-        spriteTeste.name = "personagens"
-        spriteTeste.physicsBody?.allowsRotation = false
-        spriteTeste.physicsBody = SKPhysicsBody(rectangleOfSize: spriteTeste.size)
-        spriteTeste.physicsBody?.affectedByGravity = true
-        spriteTeste.physicsBody?.dynamic = false
-        spriteTeste.physicsBody?.mass = 100
-        spriteTeste.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
         
-        //spriteTeste.physicsBody?.applyForce(CGVector(dx: 10000, dy: 0))
-        //spriteTeste.physicsBody?.applyImpulse(CGVector(dx: -100000, dy: 0))
-        player = spriteTeste
-        player.physicsBody?.fieldBitMask = BitMasks.personagem
-        player.physicsBody?.contactTestBitMask = BitMasks.personagem
-        player.physicsBody?.collisionBitMask = BitMasks.personagem
-        player.physicsBody?.categoryBitMask = BitMasks.personagem
+        jogador.size = CGSize(width: 299/10, height: 703/10)
+        jogador.position = CGPoint(x: 0, y: 200 + (jogador.size.height / 2))
+        jogador.name = "jogador"
+        jogador.physicsBody = SKPhysicsBody(rectangleOfSize: jogador.size)
+        jogador.physicsBody?.dynamic = true
+        jogador.physicsBody?.mass = 1000
+        jogador.physicsBody?.categoryBitMask = BitMasks.personagem
+        jogador.physicsBody?.collisionBitMask = BitMasks.personagem
+        jogador.physicsBody?.contactTestBitMask = BitMasks.letra | BitMasks.regiao
+        jogador.physicsBody?.allowsRotation = false
+        jogador.physicsBody?.affectedByGravity = true
         
-        gameNode.addChild(player)
-        
-        labelAngulo = SKLabelNode(fontNamed: "Arial")
-        labelAngulo.position = CGPointMake(self.frame.width / 2, 30)
-        labelAngulo.text = "testee"
-        labelAngulo.fontSize = 40
-        labelAngulo.color = UIColor.blackColor()
-        gameNode.addChild(labelAngulo)
-        
+        gameNode.addChild(jogador)
         
 
-        criarLetras(teste2, angulo: 1.047, imagem: "6.png")
+    
+        
+        
+        
+        //CRIAR LETRAS
+        
+
+        criarLetras(planeta2, angulo: 1.047, imagem: "6.png")
+        criarLetras(planeta1, angulo: 0.047, imagem: "6.png")
+        criarLetras(planeta1, angulo: 2.047, imagem: "6.png")
+        criarLetras(planeta2, angulo: 3.047, imagem: "6.png")
+        criarLetras(planeta2, angulo: 2.647, imagem: "6.png")
+        criarLetras(planeta1, angulo: 0.447, imagem: "6.png")
 
         
-        criarLetras(teste, angulo: 0.047, imagem: "6.png")
-
-        
-        criarLetras(teste, angulo: 2.047, imagem: "6.png")
-
-        
-        criarLetras(teste2, angulo: 3.047, imagem: "6.png")
-
-        
-        criarLetras(teste2, angulo: 2.647, imagem: "6.png")
-
-        
-        criarLetras(teste, angulo: 0.447, imagem: "6.png")
-
+        //OUTROS
 
 
         let pular = UISwipeGestureRecognizer(target: self, action: Selector("swipeUp:"))
@@ -119,7 +99,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         
-        
+    
         
         
         
@@ -130,38 +110,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         for touch: AnyObject in touches {
             
             let location = touch.locationInNode(self)
-
-            
-            
-            let spriteTeste = SKSpriteNode(imageNamed: "5.png")
-            
-            teste.physicsBody?.angularVelocity = CGFloat(0.0)
-            
+            planeta1.physicsBody?.angularVelocity = CGFloat(0.0)
             if location.x > self.size.width/2 {
-                player.xScale = -1.0
-                teste.runAction(SKAction.rotateByAngle(CGFloat(M_PI_2 / 5), duration: 1.0))
+                jogador.xScale = -1.0
+                planeta1.runAction(SKAction.rotateByAngle(CGFloat(M_PI_2 / 5), duration: 1.0))
                 cameraNode.runAction(SKAction.rotateByAngle(CGFloat(M_PI_2 / 5), duration: 1.0))
             }
             else {
-                player.xScale = 1.0
-                teste.runAction(SKAction.rotateByAngle(CGFloat(-M_PI_2 / 5), duration: 1.0))
+                jogador.xScale = 1.0
+                planeta1.runAction(SKAction.rotateByAngle(CGFloat(-M_PI_2 / 5), duration: 1.0))
                 cameraNode.runAction(SKAction.rotateByAngle(CGFloat(-M_PI_2 / 5), duration: 1.0))
             }
             
-            player.physicsBody?.dynamic = true
-            player.physicsBody?.affectedByGravity = false
-            let dx = player.position.x - teste2.parent!.position.x
-            let dy = -(player.position.y - teste2.parent!.position.y)
-//            player.physicsBody?.velocity = CGVector(dx: 0, dy: -10*dy)
+//            player.physicsBody?.dynamic = true
+//            player.physicsBody?.affectedByGravity = false
+            let dx = jogador.position.x - planeta2.parent!.position.x
+            let dy = -(jogador.position.y - planeta2.parent!.position.y)
 
-
-            spriteTeste.size = CGSize(width: 299/10, height: 703/10)
-            spriteTeste.position = location
-            spriteTeste.name = "personagens"
-            spriteTeste.physicsBody?.allowsRotation = true
-
-            spriteTeste.physicsBody = SKPhysicsBody(rectangleOfSize: spriteTeste.size)
-            spriteTeste.physicsBody?.affectedByGravity = true
 
 
         }
@@ -186,34 +151,65 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         }
 
+        if contact.bodyA.categoryBitMask == BitMasks.regiao && contact.bodyB.categoryBitMask == BitMasks.personagem {
+            var bodyA = contact.bodyA
+            var bodyB = contact.bodyB
+            if bodyA.node?.name == "1"{
+                println("1")
+            
+            }
+            if bodyB.node?.name == "2"{
+                println("2")
+                
+            }
+            
+            
+        }
+
+        if contact.bodyA.categoryBitMask == BitMasks.personagem && contact.bodyB.categoryBitMask == BitMasks.regiao {
+            var bodyA = contact.bodyA
+            var bodyB = contact.bodyB
+            if bodyB.node?.name == "1"{
+                println("1")
+                
+            }
+            if bodyB.node?.name == "2"{
+                println("2")
+                
+            }
+            
+        }
+        
+
     }
    
 
     override func update(currentTime: CFTimeInterval) {
         
-        var campo1 = (teste.parent as! SKFieldNode)
-        var campo2 = (teste2.parent as! SKFieldNode)
-        var campo3 = (teste3.parent as! SKFieldNode)
+        var campo1 = (planeta1.parent as! SKFieldNode)
+        var campo2 = (planeta2.parent as! SKFieldNode)
+        //var campo3 = (planeta3.parent as! SKFieldNode)
 //
-        let dx = player.position.x - teste2.parent!.position.x
-        let dy = (player.position.y - teste2.parent!.position.y)
+        let dx = jogador.position.x - jogador.parent!.position.x
+        let dy = (jogador.position.y - jogador.parent!.position.y)
         
-        if (campo1.region.containsPoint(CGPoint(x: dx, y: dy))){
-            println("PLANETA 1")
+        var x = jogador.position.x
+        var y = jogador.position.y
         
-        }
-        if (campo2.region.containsPoint(CGPoint(x: dx, y: dy))){
-            println("PLANETA 2")
-            
-        }
-        if (campo3.region.containsPoint(CGPoint(x: dx, y: dy))){
-            println("PLANETA 3")
-            
-        }
+//        if (campo1.region.containsPoint(CGPoint(x: x, y: y))){
+//            println("PLANETA 1")
+//        }
+//        if (campo2.region.containsPoint(CGPoint(x: x, y: y))){
+//            contador++
+//            println("PLANETA 2        \(contador)")
+//        }
+//        if (campo3.region.containsPoint(CGPoint(x: x, y: y))){
+//            println("PLANETA 3")
+//        }
 
         
-        println("dx: \(dx) dy: \(dy)")
-        player.physicsBody?.velocity = CGVector(dx: 0, dy: -10*dy)
+//        println("dx: \(dx) dy: \(dy)")
+        //jogador.physicsBody?.velocity = CGVector(dx: 0, dy: -10*dy)
 
         let rotationAngle = atan(dy/dx)
         
@@ -223,23 +219,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    func criarPlanetasComPosicao(posicao: CGPoint, raio:CGFloat, habilitarRegiao:Bool, raioAtmosfera:Float, falloff:Float, strenght:Float, imagem: String) -> SKSpriteNode {
+    func criarPlanetasComPosicao(posicao: CGPoint, raio:CGFloat, habilitarRegiao:Bool, raioAtmosfera:Float, falloff:Float, strenght:Float, imagem: String, nome: String) -> SKSpriteNode {
         var fieldNode = SKFieldNode.radialGravityField()
         fieldNode.falloff = falloff
         fieldNode.strength = strenght;
         fieldNode.animationSpeed = 0.5
         fieldNode.name = "fieldNode"
-        if (habilitarRegiao){
-            fieldNode.region = SKRegion(radius: Float(raio) + raioAtmosfera)
-        }
+        if (habilitarRegiao){fieldNode.region = SKRegion(radius: Float(raio) + raioAtmosfera)}
         fieldNode.position = posicao
         fieldNode.enabled = true
         fieldNode.physicsBody = SKPhysicsBody(circleOfRadius: raio)
         fieldNode.physicsBody?.dynamic = false
         let fieldCategory: UInt32 = 0x1 << 1
         fieldNode.categoryBitMask = BitMasks.planeta
-        
-        fieldNode.physicsBody?.allowsRotation = true
+        fieldNode.physicsBody?.allowsRotation = false
         fieldNode.physicsBody?.applyAngularImpulse(100)
         var imageFieldNode = SKSpriteNode(imageNamed: imagem)
         imageFieldNode.size = CGSizeMake(raio*2, raio*2)
@@ -253,10 +246,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         imageFieldNode.physicsBody?.affectedByGravity = false
         imageFieldNode.physicsBody?.applyAngularImpulse(100)
         fieldNode.addChild(imageFieldNode)
-        
         fieldNode.zPosition = 10.0
-        
         cameraNode.addChild(fieldNode)
+        
+        var regiaoPlaneta = SKSpriteNode()
+        regiaoPlaneta.position = CGPoint(x: 0, y: 0)
+        regiaoPlaneta.physicsBody = SKPhysicsBody(circleOfRadius: raio + CGFloat(raioAtmosfera))
+        regiaoPlaneta.color = UIColor.redColor()
+        regiaoPlaneta.physicsBody?.dynamic = false
+        regiaoPlaneta.physicsBody?.affectedByGravity = false
+        regiaoPlaneta.physicsBody?.fieldBitMask = 0x0
+        regiaoPlaneta.physicsBody?.categoryBitMask = BitMasks.regiao
+        regiaoPlaneta.physicsBody?.contactTestBitMask = BitMasks.regiao | BitMasks.personagem
+        regiaoPlaneta.physicsBody?.collisionBitMask = BitMasks.regiao
+        regiaoPlaneta.name = nome
+        fieldNode.addChild(regiaoPlaneta)
+        
+        
+        
 
         return imageFieldNode
     }
@@ -269,10 +276,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         letra.physicsBody = SKPhysicsBody(rectangleOfSize: letra.size)
         letra.physicsBody?.affectedByGravity = false
         letra.physicsBody?.dynamic = false
+        letra.physicsBody?.mass = 1
         var anguloF = (3.1415 - angulo) + CGFloat(M_PI)
         letra.zRotation = CGFloat(anguloF)
-        letra.physicsBody?.collisionBitMask = BitMasks.letra
-        letra.physicsBody?.contactTestBitMask = BitMasks.letra
+        letra.physicsBody?.collisionBitMask = BitMasks.letra | BitMasks.personagem
+        letra.physicsBody?.contactTestBitMask = BitMasks.letra | BitMasks.personagem
         letra.physicsBody?.categoryBitMask = BitMasks.letra
         letra.physicsBody?.fieldBitMask = BitMasks.letra
         node.addChild(letra)
@@ -285,7 +293,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func swipeUp (sender:UISwipeGestureRecognizer){
         
-        player.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 10000))
+        jogador.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 100000))
     }
     
     
