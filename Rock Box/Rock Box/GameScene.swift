@@ -27,7 +27,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var player = SKSpriteNode()
     var planetaTeste = SKSpriteNode()
     var cameraNode = SKSpriteNode()
-
+    var gameNode = SKSpriteNode()
     
     override func didMoveToView(view: SKView) {
         self.physicsWorld.gravity = CGVectorMake(0.0, 0.0)
