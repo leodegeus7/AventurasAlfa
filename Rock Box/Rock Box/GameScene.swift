@@ -33,15 +33,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.gravity = CGVectorMake(0.0, 0.0)
         self.physicsWorld.contactDelegate = self
         
+        self.addChild(gameNode)
+        
+        gameNode.position = CGPoint(x: self.frame.size.width/2, y: self.frame.size.height/15)
         
         cameraNode = SKSpriteNode(color: UIColor.blueColor(), size: self.size)
         
-        cameraNode.xScale = 2.0
-        cameraNode.yScale = 2.0
+        gameNode.xScale = 1.5
+        gameNode.yScale = 1.5
         
-        self.addChild(cameraNode)
+        gameNode.addChild(cameraNode)
         
-        cameraNode.position = CGPoint(x: self.frame.width/2, y: self.frame.height/15)
+//        cameraNode.position = CGPoint(x: gameNode.frame.width/2, y: gameNode.frame.height/2)
 //        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
 
         
@@ -80,14 +83,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.physicsBody?.collisionBitMask = BitMasks.personagem
         player.physicsBody?.categoryBitMask = BitMasks.personagem
         
-        addChild(player)
+        gameNode.addChild(player)
         
         labelAngulo = SKLabelNode(fontNamed: "Arial")
         labelAngulo.position = CGPointMake(self.frame.width / 2, 30)
         labelAngulo.text = "testee"
         labelAngulo.fontSize = 40
         labelAngulo.color = UIColor.blackColor()
-        addChild(labelAngulo)
+        gameNode.addChild(labelAngulo)
         
         
 
