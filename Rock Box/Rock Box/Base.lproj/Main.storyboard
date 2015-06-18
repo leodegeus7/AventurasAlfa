@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="41e-L6-GeB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="41e-L6-GeB">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Escolha Da Fase View Controller-->
         <scene sceneID="8T9-Yw-whY">
             <objects>
-                <viewController id="41e-L6-GeB" sceneMemberID="viewController">
+                <viewController id="41e-L6-GeB" customClass="EscolhaDaFaseViewController" customModule="Rock_Box" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fFw-Jk-tNz"/>
                         <viewControllerLayoutGuide type="bottom" id="LbX-ri-BAN"/>
@@ -26,6 +26,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="irParaFase1:" destination="41e-L6-GeB" eventType="touchUpInside" id="1Jw-dm-bZp"/>
                                     <segue destination="BV1-FR-VrT" kind="show" id="JCQ-5i-kpV"/>
                                 </connections>
                             </button>
@@ -38,6 +39,9 @@
                                 <state key="normal" title="Button" image="4.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="irParaFase2:" destination="41e-L6-GeB" eventType="touchUpInside" id="Oba-Kb-hqo"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i2P-VR-Ezo">
                                 <rect key="frame" x="635" y="81" width="218" height="222"/>
@@ -48,6 +52,9 @@
                                 <state key="normal" title="Button" image="4.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="irParaFase3:" destination="41e-L6-GeB" eventType="touchUpInside" id="XRY-LU-4cX"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L26-cI-GKt">
                                 <rect key="frame" x="341" y="343" width="218" height="222"/>
@@ -58,6 +65,9 @@
                                 <state key="normal" title="Button" image="4.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="irParaFase5:" destination="41e-L6-GeB" eventType="touchUpInside" id="knp-Md-7eS"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dS7-jF-VEJ">
                                 <rect key="frame" x="635" y="343" width="218" height="222"/>
@@ -68,6 +78,9 @@
                                 <state key="normal" title="Button" image="4.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="irParaFase6:" destination="41e-L6-GeB" eventType="touchUpInside" id="Z9E-be-2h2"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHu-t2-ZKX">
                                 <rect key="frame" x="47" y="343" width="218" height="222"/>
@@ -78,6 +91,9 @@
                                 <state key="normal" title="Button" image="4.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="irParaFase4:" destination="41e-L6-GeB" eventType="touchUpInside" id="xce-Xh-XXd"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

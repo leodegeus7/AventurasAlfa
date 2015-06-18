@@ -8,6 +8,7 @@
 
 import SpriteKit
 
+
 struct BitMasks {
     static let planeta:UInt32 = 0x01
     static let personagem:UInt32 = 0x02
@@ -32,25 +33,54 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var jogador = SKSpriteNode(imageNamed: "5.png")
     var planetaUser = ""
     
+    
+    
+    
+  
+    
     override func didMoveToView(view: SKView) {
         
+        println(DataManager.instance.faseEscolhida)
+        
         //Lendo arquivo Json
-        
-        
-        let path = NSBundle.mainBundle().pathForResource("data", ofType: "json")
-        let jsonData = NSData(contentsOfFile: path!)
-        jsonResult = NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
-        var meuArray = jsonResult["local"] as! NSArray!
-        var fase1: NSMutableDictionary = meuArray[0] as! NSMutableDictionary
-        var planetasFase1 = fase1["planetas"] as! NSArray!
-        var planet1: NSMutableDictionary = planetasFase1[0] as! NSMutableDictionary
-        var planet2: NSMutableDictionary = planetasFase1[1] as! NSMutableDictionary
-        var planet3: NSMutableDictionary = planetasFase1[2] as! NSMutableDictionary
+//        
+//        
+//        let path = NSBundle.mainBundle().pathForResource("data", ofType: "json")
+//        let jsonData = NSData(contentsOfFile: path!)
+//        jsonResult = NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
+//        var meuArray = jsonResult["local"] as! NSArray!
+//        var fase1: NSMutableDictionary = meuArray[0] as! NSMutableDictionary
+//        var planetasFase1 = fase1["planetas"] as! NSArray!
+//        var planet1: NSMutableDictionary = planetasFase1[0] as! NSMutableDictionary
+//        var planet2: NSMutableDictionary = planetasFase1[1] as! NSMutableDictionary
+//        var planet3: NSMutableDictionary = planetasFase1[2] as! NSMutableDictionary
 
+        
+       
+        
+        
+//        var meuArray = DataManager.instance.lerArquivoJson()
+//        var fase1 = meuArray[0] as! Dictionary<String,AnyObject>
+//        var planetasFase1 = fase1["planetas"] as! Array<AnyObject>
+//        var planet1 = planetasFase1[0] as! Dictionary<String, AnyObject>
+//        var planet2 = planetasFase1[1] as! Dictionary<String, AnyObject>
+//        var planet3 = planetasFase1[2] as! Dictionary<String, AnyObject>
         
         // println("Json: \(jsonResult)")
         
+       
         
+        
+        var teste = DataManager.instance.arrayDaFase(1)
+    
+        var teste2 = teste[0]  as! Dictionary<String, AnyObject>
+        
+        println(teste2["estrelas"])
+        
+        var planet1 = (DataManager.instance.arrayDaFase(1)[0] as! Dictionary <String, AnyObject>)
+         var planet2 = (DataManager.instance.arrayDaFase(1)[1] as! Dictionary <String, AnyObject>)
+         var planet3 = (DataManager.instance.arrayDaFase(1)[2] as! Dictionary <String, AnyObject>)
+        // Configuracoes do mundo e a camera
         self.physicsWorld.gravity = CGVectorMake(0.0, 0.0)
         self.physicsWorld.contactDelegate = self
         self.addChild(gameNode)
@@ -340,7 +370,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     
-    
+ 
     
 }
 

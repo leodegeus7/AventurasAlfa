@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1AE4A36E1B3371DA00C21087 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE4A36D1B3371DA00C21087 /* DataManager.swift */; };
+		1AE4A3721B3387E900C21087 /* EscolhaDaFaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE4A3711B3387E900C21087 /* EscolhaDaFaseViewController.swift */; };
 		A730E7FB1B334D740081E2BD /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = A730E7FA1B334D740081E2BD /* data.json */; };
 		CD4B9C941B30A03100C307C2 /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = CD4B9C931B30A03100C307C2 /* 6.png */; };
 		CD4B9C961B30A27000C307C2 /* 7.png in Resources */ = {isa = PBXBuildFile; fileRef = CD4B9C951B30A27000C307C2 /* 7.png */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1AE4A36D1B3371DA00C21087 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		1AE4A3711B3387E900C21087 /* EscolhaDaFaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EscolhaDaFaseViewController.swift; sourceTree = "<group>"; };
 		A730E7FA1B334D740081E2BD /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		CD4B9C931B30A03100C307C2 /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6.png; sourceTree = "<group>"; };
 		CD4B9C951B30A27000C307C2 /* 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 7.png; sourceTree = "<group>"; };
@@ -128,6 +132,8 @@
 				CD8BFA801B2A1BFF00FB3356 /* SpriteNode.swift */,
 				CDFE36E91B319983008FFAF2 /* MyParticle.sks */,
 				CDFE36EA1B319983008FFAF2 /* spark.png */,
+				1AE4A36D1B3371DA00C21087 /* DataManager.swift */,
+				1AE4A3711B3387E900C21087 /* EscolhaDaFaseViewController.swift */,
 			);
 			path = "Rock Box";
 			sourceTree = "<group>";
@@ -270,10 +276,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD9A5FD71B2B5C1A0043415D /* Metodos.swift in Sources */,
+				1AE4A36E1B3371DA00C21087 /* DataManager.swift in Sources */,
 				CD8BFA5F1B2A1A4500FB3356 /* GameScene.swift in Sources */,
 				CD8BFA811B2A1BFF00FB3356 /* SpriteNode.swift in Sources */,
 				CD8BFA611B2A1A4500FB3356 /* GameViewController.swift in Sources */,
 				CD8BFA5B1B2A1A4500FB3356 /* AppDelegate.swift in Sources */,
+				1AE4A3721B3387E900C21087 /* EscolhaDaFaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
