@@ -19,7 +19,7 @@ struct BitMasks {
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    
+    var jsonResult:NSDictionary!
     
     var labelAngulo:SKLabelNode!
     var planeta1:SKSpriteNode!
@@ -33,32 +33,52 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var jogador = SKSpriteNode(imageNamed: "5.png")
     
     override func didMoveToView(view: SKView) {
+        
+        //Lendo arquivo Json
+        
+        
+        let path = NSBundle.mainBundle().pathForResource("data", ofType: "json")
+        let jsonData = NSData(contentsOfFile: path!)
+        jsonResult = NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
+        var meuArray = jsonResult["local"] as! NSArray!
+        var fase1: NSMutableDictionary = meuArray[0] as! NSMutableDictionary
+        var planetasFase1 = fase1["planetas"] as! NSArray!
+        var planet1: NSMutableDictionary = planetasFase1[0] as! NSMutableDictionary
+        var planet2: NSMutableDictionary = planetasFase1[1] as! NSMutableDictionary
+        var planet3: NSMutableDictionary = planetasFase1[2] as! NSMutableDictionary
+
+        
+        // println("Json: \(jsonResult)")
+        
+        
         self.physicsWorld.gravity = CGVectorMake(0.0, 0.0)
         self.physicsWorld.contactDelegate = self
         self.addChild(gameNode)
         gameNode.position = CGPoint(x: self.frame.size.width/2, y: self.frame.size.height/15)
-        gameNode.xScale = 1.5
-        gameNode.yScale = 1.5
+        gameNode.xScale = 1.0
+        gameNode.yScale = 1.0
         cameraNode = SKSpriteNode(color: UIColor.blueColor(), size: self.size)
         gameNode.addChild(cameraNode)
         
 //        cameraNode.position = CGPoint(x: gameNode.frame.width/2, y: gameNode.frame.height/2)
 //        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-
-        
         
         
         //CRIAR PLANETAS
+//        
+        planeta1 = criarPlanetasComPosicao(CGPoint(x: CGFloat(planet1["coordenadaX"] as! CGFloat), y: CGFloat(planet1["coordenadaY"] as! CGFloat)), raio: CGFloat(planet1["raioPlaneta"] as! CGFloat), habilitarRegiao: true, raioAtmosfera: Float(planet1["raioAtmosfera"] as! Float), falloff: 0.5, strenght: 0.5, imagem: "2.png", nome: "Planeta 1")
+        planeta2 = criarPlanetasComPosicao(CGPoint(x: CGFloat(planet2["coordenadaX"] as! CGFloat), y: CGFloat(planet2["coordenadaY"] as! CGFloat)), raio: CGFloat(planet2["raioPlaneta"] as! CGFloat), habilitarRegiao: true, raioAtmosfera: Float(planet2["raioAtmosfera"] as! Float), falloff: 0.5, strenght: 0.5, imagem: "1.png", nome: "Planeta 1")
+        planeta3 = criarPlanetasComPosicao(CGPoint(x: CGFloat(planet3["coordenadaX"] as! CGFloat), y: CGFloat(planet3["coordenadaY"] as! CGFloat)), raio: CGFloat(planet3["raioPlaneta"] as! CGFloat), habilitarRegiao: true, raioAtmosfera: Float(planet3["raioAtmosfera"] as! Float), falloff: 0.5, strenght: 0.5, imagem: "3.png", nome: "Planeta 1")
         
-        planeta1 = self.criarPlanetasComPosicao(CGPointMake(0.0,0.0), raio: 200, habilitarRegiao:true,raioAtmosfera:703/10, falloff: 1, strenght: 1, imagem: "4.png", nome: "1")
-        planeta2 = self.criarPlanetasComPosicao(CGPointMake(self.frame.width / 3.2 , 1/3 * self.frame.height), raio: 60, habilitarRegiao:true,raioAtmosfera:703/10, falloff: 0, strenght: 2, imagem: "4.png", nome: "2")
+        
+      //  planeta1 = self.criarPlanetasComPosicao(CGPointMake(0.0,0.0), raio: 200, habilitarRegiao:true,raioAtmosfera:703/10, falloff: 1, strenght: 1, imagem: "4.png", nome: "1")
+      //  planeta2 = self.criarPlanetasComPosicao(CGPointMake(self.frame.width / 3.2 , 1/3 * self.frame.height), raio: 60, habilitarRegiao:true,raioAtmosfera:703/10, falloff: 0, strenght: 2, imagem: "4.png", nome: "2")
         //planeta3 = self.criarPlanetasComPosicao(CGPointMake(self.frame.width / 2 , 1/15 * self.frame.height), raio: 40, habilitarRegiao:true,raioAtmosfera:70, falloff: 0, strenght: 2, imagem: "3.png")
         
-        
+   
         
         //CRIAR PERSONAGEM
     
-        
         
         jogador.size = CGSize(width: 299/10, height: 703/10)
         jogador.position = CGPoint(x: 0, y: 200 + (jogador.size.height / 2))
@@ -74,11 +94,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         gameNode.addChild(jogador)
         
-
     
-        
-        
-        
         //CRIAR LETRAS
         
 
