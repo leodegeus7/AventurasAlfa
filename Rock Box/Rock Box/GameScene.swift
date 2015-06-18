@@ -71,11 +71,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         planeta3 = criarPlanetasComPosicao(CGPoint(x: CGFloat(planet3["coordenadaX"] as! CGFloat), y: CGFloat(planet3["coordenadaY"] as! CGFloat)), raio: CGFloat(planet3["raioPlaneta"] as! CGFloat), habilitarRegiao: true, raioAtmosfera: Float(planet3["raioAtmosfera"] as! Float), falloff: 0.5, strenght: 0.5, imagem: "3.png", nome: "Planeta 1")
         
         
-      //  planeta1 = self.criarPlanetasComPosicao(CGPointMake(0.0,0.0), raio: 200, habilitarRegiao:true,raioAtmosfera:703/10, falloff: 1, strenght: 1, imagem: "4.png", nome: "1")
-      //  planeta2 = self.criarPlanetasComPosicao(CGPointMake(self.frame.width / 3.2 , 1/3 * self.frame.height), raio: 60, habilitarRegiao:true,raioAtmosfera:703/10, falloff: 0, strenght: 2, imagem: "4.png", nome: "2")
-        //planeta3 = self.criarPlanetasComPosicao(CGPointMake(self.frame.width / 2 , 1/15 * self.frame.height), raio: 40, habilitarRegiao:true,raioAtmosfera:70, falloff: 0, strenght: 2, imagem: "3.png")
+    
         
-   
+        //        planeta1 = self.criarPlanetasComPosicao(CGPointMake(0,0), raio: 200, habilitarRegiao:true,raioAtmosfera:703/10, falloff: 1, strenght: 1, imagem: "4.png", nome: "planeta1")
+        //        planeta2 = self.criarPlanetasComPosicao(CGPointMake(cameraNode.frame.size.width / 5 , cameraNode.frame.size.height / 5), raio: 60, habilitarRegiao:true,raioAtmosfera:703/10, falloff: 1, strenght: 1, imagem: "3.png", nome: "planeta2")
+        //        //planeta3 = self.criarPlanetasComPosicao(CGPointMake(self.frame.width / 2 , 1/15 * self.frame.height), raio: 40, habilitarRegiao:true,raioAtmosfera:70, falloff: 0, strenght: 2, imagem: "3.png")
         
         //CRIAR PERSONAGEM
     
