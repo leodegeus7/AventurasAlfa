@@ -4,72 +4,79 @@
               "palavra": "casa",
               "jaJogou": true,
               "quantasEstrelasPegou": 0,
+              "letras": [
+                         {
+                         "angulo": 3.1459,
+                         "nome": "K",
+                         "planeta": "planeta1",
+                         "imagem": "k.png"
+                         },
+                         {
+                         "nome": "A",
+                         "planeta": "planeta3",
+                         "angulo": 4.7123889804,
+                         "imagem": "a.png"
+                         },
+                         {
+                         "nome": "A2",
+                         "angulo": 1.57079,
+                         "planeta": "planeta2",
+                         "imagem": "a.png"
+                         },
+                         {
+                         "nome": "Z",
+                         "angulo": 1.5707,
+                         "planeta": "planeta2",
+                         "imagem": "z.png"
+                         },
+                         {
+                         "nome": "C",
+                         "planeta": "planeta1",
+                         "angulo": 0,
+                         "imagem": "c.png"
+                         },
+                         {
+                         "nome": "S",
+                         "planeta": "planeta1",
+                         "angulo": 4.71238,
+                         "imagem": "s.png"
+                         }
+                         ],
+              "estrelas": [
+                           {
+                           "angulo": 3.159,
+                           "planeta": "planeta3",
+                           "imagem": "estrela.png"
+                           },
+                           {
+                           "angulo": 3.3459,
+                           "planeta": "planeta2",
+                           "imagem": "estrela.png"
+                           },
+                           {
+                           "planeta": "planeta1",
+                           "angulo": 1.57079,
+                           "imagem": "estrela.png"
+                           }
+                           ],
               "planetas": [
                            {
-                           "coordenadaX": -100,
-                           "coordenadaY": 300,
+                           "coordenadaX": -400,
+                           "coordenadaY": 500,
                            "raioPlaneta": 50,
-                           "raioAtmosfera": 100,
-                           "letras": [
-                                      {
-                                      "angulo": 0,
-                                      "imagem": "c.png"
-                                      },
-                                      {
-                                      "angulo": 3.1459,
-                                      "imagem": "k.png"
-                                      }
-                                      ],
-                           "estrelas": [
-                                        {
-                                        "angulo": 1.57079,
-                                        "imagem": "estrela.png"
-                                        }
-                                        ]
+                           "raioAtmosfera": 100
                            },
                            {
                            "coordenadaX": 0,
                            "coordenadaY": 0,
-                           "raioPlaneta": 50,
-                           "raioAtmosfera": 100,
-                           "letras": [
-                                      {
-                                      "angulo": 1.57079,
-                                      "imagem": "a.png"
-                                      },
-                                      {
-                                      "angulo": 4.7123889804,
-                                      "imagem": "a.png"
-                                      }
-                                      ],
-                           "estrelas": [
-                                        {
-                                        "angulo": 3.1459,
-                                        "imagem": "estrela.png"
-                                        }
-                                        ]
+                           "raioPlaneta": 200,
+                           "raioAtmosfera": 100
                            },
                            {
-                           "coordenadaX": 300,
-                           "coordenadaY": 200,
+                           "coordenadaX": 500,
+                           "coordenadaY": 500,
                            "raioPlaneta": 200,
-                           "raioAtmosfera": 80,
-                           "letras": [
-                                      {
-                                      "angulo": 1.5707,
-                                      "imagem": "z.png"
-                                      },
-                                      {
-                                      "angulo": 4.71238,
-                                      "imagem": "s.png"
-                                      }
-                                      ],
-                           "estrelas": [
-                                        {
-                                        "angulo": 3.1459,
-                                        "imagem": "estrela.png"
-                                        }
-                                        ]
+                           "raioAtmosfera": 80
                            }
                            ]
               }
