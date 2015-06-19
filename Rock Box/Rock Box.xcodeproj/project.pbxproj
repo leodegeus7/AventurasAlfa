@@ -31,8 +31,6 @@
 		CD8BFAB91B2B57C600FB3356 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = CD8BFAB81B2B57C600FB3356 /* 3.png */; };
 		CD8BFABB1B2B594600FB3356 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = CD8BFABA1B2B594600FB3356 /* 4.png */; };
 		CD9A5FD91B2B635F0043415D /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = CD9A5FD81B2B635F0043415D /* 5.png */; };
-		CDFE36EB1B319983008FFAF2 /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = CDFE36E91B319983008FFAF2 /* MyParticle.sks */; };
-		CDFE36EC1B319983008FFAF2 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = CDFE36EA1B319983008FFAF2 /* spark.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,8 +72,6 @@
 		CD8BFAB81B2B57C600FB3356 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
 		CD8BFABA1B2B594600FB3356 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
 		CD9A5FD81B2B635F0043415D /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
-		CDFE36E91B319983008FFAF2 /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
-		CDFE36EA1B319983008FFAF2 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +92,81 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CD6A5AA01B34C1E500C9E48C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1AE4A36D1B3371DA00C21087 /* DataManager.swift */,
+				CD8BFA5C1B2A1A4500FB3356 /* GameScene.sks */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		CD6A5AA11B34C1EE00C9E48C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CD8BFA621B2A1A4500FB3356 /* Main.storyboard */,
+				CD8BFA651B2A1A4500FB3356 /* Images.xcassets */,
+				CD8BFA671B2A1A4500FB3356 /* LaunchScreen.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		CD6A5AA21B34C1FC00C9E48C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CD6A5AA61B34C24C00C9E48C /* Data */,
+				CD6A5AA41B34C21000C9E48C /* Sounds */,
+				CD6A5AA31B34C20200C9E48C /* Images */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		CD6A5AA31B34C20200C9E48C /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				CD8BFA7E1B2A1BD800FB3356 /* star.png */,
+				CD8BFAB61B2B451300FB3356 /* 2.png */,
+				CD8BFAB81B2B57C600FB3356 /* 3.png */,
+				CD8BFABA1B2B594600FB3356 /* 4.png */,
+				CD9A5FD81B2B635F0043415D /* 5.png */,
+				CD4B9C931B30A03100C307C2 /* 6.png */,
+				CD4B9C951B30A27000C307C2 /* 7.png */,
+				CD6A5A961B34AAE400C9E48C /* volume.png */,
+				CD6A5A981B34ADB000C9E48C /* x.gif */,
+				CD6A5A941B34896600C9E48C /* estrela.png */,
+				CD6A5A9C1B34BA7A00C9E48C /* Mask.png */,
+				CD6A5A9E1B34BD4000C9E48C /* background.jpg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		CD6A5AA41B34C21000C9E48C /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Sounds;
+			sourceTree = "<group>";
+		};
+		CD6A5AA51B34C21800C9E48C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CD8BFA5A1B2A1A4500FB3356 /* AppDelegate.swift */,
+				CD8BFA5E1B2A1A4500FB3356 /* GameScene.swift */,
+				CD8BFA801B2A1BFF00FB3356 /* SpriteNode.swift */,
+				1AE4A3711B3387E900C21087 /* EscolhaDaFaseViewController.swift */,
+				CD8BFA601B2A1A4500FB3356 /* GameViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		CD6A5AA61B34C24C00C9E48C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				A730E7FA1B334D740081E2BD /* data.json */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
 		CD8BFA4C1B2A1A4500FB3356 = {
 			isa = PBXGroup;
 			children = (
@@ -117,32 +188,11 @@
 		CD8BFA571B2A1A4500FB3356 /* Rock Box */ = {
 			isa = PBXGroup;
 			children = (
-				CD8BFA5A1B2A1A4500FB3356 /* AppDelegate.swift */,
-				CD8BFA7E1B2A1BD800FB3356 /* star.png */,
-				CD8BFA5C1B2A1A4500FB3356 /* GameScene.sks */,
-				CD8BFA5E1B2A1A4500FB3356 /* GameScene.swift */,
-				A730E7FA1B334D740081E2BD /* data.json */,
-				CD8BFA601B2A1A4500FB3356 /* GameViewController.swift */,
-				CD8BFAB61B2B451300FB3356 /* 2.png */,
-				CD8BFAB81B2B57C600FB3356 /* 3.png */,
-				CD8BFABA1B2B594600FB3356 /* 4.png */,
-				CD9A5FD81B2B635F0043415D /* 5.png */,
-				CD4B9C931B30A03100C307C2 /* 6.png */,
-				CD4B9C951B30A27000C307C2 /* 7.png */,
-				CD6A5A961B34AAE400C9E48C /* volume.png */,
-				CD6A5A981B34ADB000C9E48C /* x.gif */,
-				CD6A5A941B34896600C9E48C /* estrela.png */,
-				CD6A5A9C1B34BA7A00C9E48C /* Mask.png */,
-				CD6A5A9E1B34BD4000C9E48C /* background.jpg */,
-				CD8BFA621B2A1A4500FB3356 /* Main.storyboard */,
-				CD8BFA651B2A1A4500FB3356 /* Images.xcassets */,
-				CD8BFA671B2A1A4500FB3356 /* LaunchScreen.xib */,
+				CD6A5AA51B34C21800C9E48C /* Controller */,
+				CD6A5AA21B34C1FC00C9E48C /* Resources */,
+				CD6A5AA11B34C1EE00C9E48C /* View */,
+				CD6A5AA01B34C1E500C9E48C /* Model */,
 				CD8BFA581B2A1A4500FB3356 /* Supporting Files */,
-				CD8BFA801B2A1BFF00FB3356 /* SpriteNode.swift */,
-				CDFE36E91B319983008FFAF2 /* MyParticle.sks */,
-				CDFE36EA1B319983008FFAF2 /* spark.png */,
-				1AE4A36D1B3371DA00C21087 /* DataManager.swift */,
-				1AE4A3711B3387E900C21087 /* EscolhaDaFaseViewController.swift */,
 			);
 			path = "Rock Box";
 			sourceTree = "<group>";
@@ -256,13 +306,11 @@
 				CD8BFA691B2A1A4500FB3356 /* LaunchScreen.xib in Resources */,
 				CD6A5A991B34ADB000C9E48C /* x.gif in Resources */,
 				CD8BFA7F1B2A1BD800FB3356 /* star.png in Resources */,
-				CDFE36EC1B319983008FFAF2 /* spark.png in Resources */,
 				CD8BFA661B2A1A4500FB3356 /* Images.xcassets in Resources */,
 				CD8BFA5D1B2A1A4500FB3356 /* GameScene.sks in Resources */,
 				CD4B9C941B30A03100C307C2 /* 6.png in Resources */,
 				CD8BFABB1B2B594600FB3356 /* 4.png in Resources */,
 				CD6A5A9D1B34BA7A00C9E48C /* Mask.png in Resources */,
-				CDFE36EB1B319983008FFAF2 /* MyParticle.sks in Resources */,
 				CD8BFAB71B2B451300FB3356 /* 2.png in Resources */,
 				CD4B9C961B30A27000C307C2 /* 7.png in Resources */,
 				CD9A5FD91B2B635F0043415D /* 5.png in Resources */,

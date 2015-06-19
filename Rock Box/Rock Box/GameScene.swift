@@ -38,25 +38,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var arrayEstrelas = Array<SKSpriteNode>()
     var pausar = false
     var hud = SKSpriteNode()
-    var estrelaDoHud1 = SKSpriteNode(imageNamed: "estrel.png")
-    var estrelaDoHud2 = SKSpriteNode(imageNamed: "estrel.png")
-    var estrelaDoHud3 = SKSpriteNode(imageNamed: "estrel.png")
+    var estrelaDoHud1 = SKSpriteNode(imageNamed: "estrelaApagada.png")
+    var estrelaDoHud2 = SKSpriteNode(imageNamed: "estrelaApagada.png")
+    var estrelaDoHud3 = SKSpriteNode(imageNamed: "estrelaApagada.png")
+    var planetaAtual = SKSpriteNode()
     
     
     override func didMoveToView(view: SKView) {
         
         println(DataManager.instance.faseEscolhida)
         
-        //Lendo arquivo Json
         
-        //DataManager.instance.moverJsonParaDocuments()
-        
-//        var planet1 = (DataManager.instance.arrayDaFase(DataManager.instance.faseEscolhida)[0] as! Dictionary <String, AnyObject>)
-//        var planet2 = (DataManager.instance.arrayDaFase(1)[1] as! Dictionary <String, AnyObject>)
-//        var planet3 = (DataManager.instance.arrayDaFase(1)[2] as! Dictionary <String, AnyObject>)
-        
-        
-        // Configuracoes do mundo e a camera
+// Configuracoes do mundo e a camera
         
         
         self.physicsWorld.gravity = CGVectorMake(0.0, 0.0)
@@ -70,18 +63,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         backgroundNode.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
         backgroundNode.size = self.size
         backgroundNode.zPosition = -10
-      //  backgroundNode.position = CGPoint(x: 0, y: self.size.height/2)
-        
         self.addChild(backgroundNode)
-       // gameNode.addChild(backgroundNode)
-
-
         
         
-        //CRIAR PLANETAS
+//CRIAR PLANETAS
         var fase = DataManager.instance.arrayDaFase(DataManager.instance.faseEscolhida)
-        
-        
         for planetas in fase {
             var planetasDic = planetas as! Dictionary<String,AnyObject>
             var planetasSprite:SKSpriteNode = criarPlanetasComPosicao(CGPoint(x: CGFloat(planetasDic["coordenadaX"] as! CGFloat), y: CGFloat(planetasDic["coordenadaY"] as! CGFloat)), raio: CGFloat(planetasDic["raioPlaneta"] as! CGFloat), habilitarRegiao: true, raioAtmosfera: Float(planetasDic["raioAtmosfera"] as! Float), falloff: 0.5, strenght: 0.5, imagem: "2.png", nome: "Planeta 1")
@@ -89,24 +75,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         
+
         
-        
-        planeta1 = arrayPlanetas[0]
-        
-        
-        
-//        planeta1 = criarPlanetasComPosicao(CGPoint(x: CGFloat(planet1["coordenadaX"] as! CGFloat), y: CGFloat(planet1["coordenadaY"] as! CGFloat)), raio: CGFloat(planet1["raioPlaneta"] as! CGFloat), habilitarRegiao: true, raioAtmosfera: Float(planet1["raioAtmosfera"] as! Float), falloff: 0.5, strenght: 0.5, imagem: "2.png", nome: "Planeta 1")
-//        planeta2 = criarPlanetasComPosicao(CGPoint(x: CGFloat(planet2["coordenadaX"] as! CGFloat), y: CGFloat(planet2["coordenadaY"] as! CGFloat)), raio: CGFloat(planet2["raioPlaneta"] as! CGFloat), habilitarRegiao: true, raioAtmosfera: Float(planet2["raioAtmosfera"] as! Float), falloff: 0.5, strenght: 0.5, imagem: "4.png", nome: "Planeta 1")
-//        planeta3 = criarPlanetasComPosicao(CGPoint(x: CGFloat(planet3["coordenadaX"] as! CGFloat), y: CGFloat(planet3["coordenadaY"] as! CGFloat)), raio: CGFloat(planet3["raioPlaneta"] as! CGFloat), habilitarRegiao: true, raioAtmosfera: Float(planet3["raioAtmosfera"] as! Float), falloff: 0.5, strenght: 0.5, imagem: "3.png", nome: "Planeta 1")
-        
-        
-    
-        
-        //        planeta1 = self.criarPlanetasComPosicao(CGPointMake(0,0), raio: 200, habilitarRegiao:true,raioAtmosfera:703/10, falloff: 1, strenght: 1, imagem: "4.png", nome: "planeta1")
-        //        planeta2 = self.criarPlanetasComPosicao(CGPointMake(cameraNode.frame.size.width / 5 , cameraNode.frame.size.height / 5), raio: 60, habilitarRegiao:true,raioAtmosfera:703/10, falloff: 1, strenght: 1, imagem: "3.png", nome: "planeta2")
-        //        //planeta3 = self.criarPlanetasComPosicao(CGPointMake(self.frame.width / 2 , 1/15 * self.frame.height), raio: 40, habilitarRegiao:true,raioAtmosfera:70, falloff: 0, strenght: 2, imagem: "3.png")
-        
-        //CRIAR PERSONAGEM
+//CRIAR PERSONAGEM
     
         
         jogador.size = CGSize(width: 299/10, height: 703/10)
@@ -125,7 +96,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameNode.addChild(jogador)
         
     
-        //CRIAR LETRAS
+//CRIAR LETRAS
         
         var letras = DataManager.instance.arrayDasLetras(DataManager.instance.faseEscolhida)
         
@@ -154,11 +125,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
 
         }
+        planetaAtual = arrayPlanetas[0]
         
         
         
         
-        //CRIAR ESTRELAS
+//CRIAR ESTRELAS
         
         var estrelas = DataManager.instance.arrayDasEstrelas(DataManager.instance.faseEscolhida)
         
@@ -191,7 +163,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
 
         
-        //OUTROS
+//OUTROS
 
 
         let pular = UISwipeGestureRecognizer(target: self, action: Selector("swipeUp:"))
@@ -199,7 +171,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         view.addGestureRecognizer(pular)
         
         
-        //HUD NODE
+        
+        
+//HUD NODE
         
         
         self.addChild(hud)
@@ -223,24 +197,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             jogador.physicsBody?.dynamic = true
             let location = touch.locationInNode(self)
-            planeta1.physicsBody?.angularVelocity = CGFloat(0.0)
+            planetaAtual.physicsBody?.angularVelocity = CGFloat(0.0)
             if location.x > self.size.width/2 && location.y < self.size.height/2 {
                 jogador.xScale = -1.0
-                planeta1.runAction(SKAction.rotateByAngle(CGFloat(M_PI_2 / 5), duration: 1.0))
+                planetaAtual.runAction(SKAction.rotateByAngle(CGFloat(M_PI_2 / 5), duration: 1.0))
                 cameraNode.runAction(SKAction.rotateByAngle(CGFloat(M_PI_2 / 5), duration: 1.0))
-                //planeta2.runAction(SKAction.rotateByAngle(CGFloat(M_PI_2 / 5), duration: 1.0))
+
             }
             else if location.x < self.size.width/2 && location.y < self.size.height/2 {
                 jogador.xScale = 1.0
-                planeta1.runAction(SKAction.rotateByAngle(CGFloat(-M_PI_2 / 5), duration: 1.0))
+                planetaAtual.runAction(SKAction.rotateByAngle(CGFloat(-M_PI_2 / 5), duration: 1.0))
                 cameraNode.runAction(SKAction.rotateByAngle(CGFloat(-M_PI_2 / 5), duration: 1.0))
-                //planeta2.runAction(SKAction.rotateByAngle(CGFloat(M_PI_2 / 5), duration: 1.0))
+
             }
             
-//            player.physicsBody?.dynamic = true
-//            player.physicsBody?.affectedByGravity = false
-            let dx = jogador.position.x - planeta1.parent!.position.x
-            let dy = -(jogador.position.y - planeta1.parent!.position.y)
+
+            let dx = jogador.position.x - planetaAtual.parent!.position.x
+            let dy = -(jogador.position.y - planetaAtual.parent!.position.y)
 
 
 
@@ -318,17 +291,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 println("planeta2")
                 planetaUser = "planeta2"
                 
-                let dx = (planeta2.parent!.position.x - planeta1.parent!.position.x)
-                let dy = (planeta2.parent!.position.y - planeta1.parent!.position.y - planeta1.parent!.frame.size.height/2 + planeta2.parent!.frame.size.height/2)
+                let dx = (planeta2.parent!.position.x - planetaAtual.parent!.position.x)
+                let dy = (planeta2.parent!.position.y - planetaAtual.parent!.position.y - planetaAtual.parent!.frame.size.height/2 + planeta2.parent!.frame.size.height/2)
                 
                 println("\(dx) \(dy)")
                 
                 println(planeta2.parent!.position)
                 gameNode.position = CGPoint(x: dx, y: dy)
-              //  planeta1.parent!.position = CGPoint(x: planeta1.parent!.position.x - dx, y: planeta1.parent!.position.y - dy)
+              //  planetaAtual.parent!.position = CGPoint(x: planetaAtual.parent!.position.x - dx, y: planetaAtual.parent!.position.y - dy)
                // planeta2.parent!.position = CGPoint(x: planeta2.parent!.position.x - dx, y: planeta2.parent!.position.y - dy)
                 
-                println("\(planeta1.parent!.position ) \(planeta2.parent!.position)")
+                println("\(planetaAtual.parent!.position ) \(planeta2.parent!.position)")
                 
             }
             
@@ -340,30 +313,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     override func update(currentTime: CFTimeInterval) {
         
-        var campo1 = (planeta1.parent as! SKFieldNode)
-        //var campo2 = (planeta2.parent as! SKFieldNode)
-        //var campo3 = (planeta3.parent as! SKFieldNode)
-//
         let dx = jogador.position.x - jogador.parent!.position.x
         let dy = (jogador.position.y - jogador.parent!.position.y)
         
         var x = jogador.position.x
         var y = jogador.position.y
 
-//        if (campo1.region.containsPoint(CGPoint(x: x, y: y))){
-//            println("PLANETA 1")
-//        }
-//        if (campo2.region.containsPoint(CGPoint(x: x, y: y))){
-//            contador++
-//            println("PLANETA 2        \(contador)")
-//        }
-//        if (campo3.region.containsPoint(CGPoint(x: x, y: y))){
-//            println("PLANETA 3")
-//        }
-
-        
-//        println("dx: \(dx) dy: \(dy)")
-        //jogador.physicsBody?.velocity = CGVector(dx: 0, dy: -10*dy)
 
         let rotationAngle = atan(dy/dx)
         
@@ -378,11 +333,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         
-
-        
-//        player.runAction(SKAction.rotateToAngle(rotationAngle, duration: 0.01, shortestUnitArc: true))
         
     }
+    
+///FUNCAO DE CRIAR OS NODES - PLANETAS,ESTRELAS E LETRAS
     
     func criarPlanetasComPosicao(posicao: CGPoint, raio:CGFloat, habilitarRegiao:Bool, raioAtmosfera:Float, falloff:Float, strenght:Float, imagem: String, nome: String) -> SKSpriteNode {
         var fieldNode = SKFieldNode.radialGravityField()
