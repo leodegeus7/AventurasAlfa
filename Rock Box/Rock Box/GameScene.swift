@@ -295,8 +295,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let dy = fabs(swipePoints.final.y - swipePoints.initial.y)
             
             if (dx > 20 || dy > 20) {
-                let jumpVectorSize = CGFloat(70000)
+                let jumpVectorSize = CGFloat(120000)
                 let jumpVector = CGVector(dx: jumpVectorSize * cos(anguloAtual), dy: jumpVectorSize * sin(anguloAtual))
+                
+                personagemPulando()
                 
                 jogador.physicsBody?.applyImpulse(jumpVector)
                 
@@ -570,10 +572,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         switch (direction) {
         case .left:
             anguloAtual+=0.10
-            jogador.xScale = 1.0
+            jogador.xScale = -1.0
         case .right:
             anguloAtual-=0.10
-            jogador.xScale = -1.0
+            jogador.xScale = 1.0
         case .planet:
             anguloAtual -= CGFloat(M_PI)
             moveDuration = 10 * moveDelay
