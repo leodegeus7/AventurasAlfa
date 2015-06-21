@@ -10,6 +10,7 @@
 		1A8B7F911B365E5C00315FF3 /* FimDaFaseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B7F901B365E5C00315FF3 /* FimDaFaseScene.swift */; };
 		1ADD85881B375FD100E26261 /* Line.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD85871B375FD100E26261 /* Line.png */; };
 		1ADD858A1B376E0300E26261 /* sound copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD85891B376E0300E26261 /* sound copy.png */; };
+		1ADD858C1B3770FC00E26261 /* estrelaApagada.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD858B1B3770FC00E26261 /* estrelaApagada.png */; };
 		1AE4A36E1B3371DA00C21087 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE4A36D1B3371DA00C21087 /* DataManager.swift */; };
 		1AE4A3721B3387E900C21087 /* EscolhaDaFaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE4A3711B3387E900C21087 /* EscolhaDaFaseViewController.swift */; };
 		AFB7D27C1B363B0B0073C367 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = AFB7D27B1B363B0B0073C367 /* data.json */; };
@@ -72,6 +73,7 @@
 		1A8B7F901B365E5C00315FF3 /* FimDaFaseScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FimDaFaseScene.swift; sourceTree = "<group>"; };
 		1ADD85871B375FD100E26261 /* Line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Line.png; sourceTree = "<group>"; };
 		1ADD85891B376E0300E26261 /* sound copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sound copy.png"; sourceTree = "<group>"; };
+		1ADD858B1B3770FC00E26261 /* estrelaApagada.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = estrelaApagada.png; sourceTree = "<group>"; };
 		1AE4A36D1B3371DA00C21087 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		1AE4A3711B3387E900C21087 /* EscolhaDaFaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EscolhaDaFaseViewController.swift; sourceTree = "<group>"; };
 		AFB7D27B1B363B0B0073C367 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				CD6A5A961B34AAE400C9E48C /* volume.png */,
 				CD6A5A981B34ADB000C9E48C /* x.gif */,
 				CD6A5A941B34896600C9E48C /* estrela.png */,
+				1ADD858B1B3770FC00E26261 /* estrelaApagada.png */,
 				CD6A5A9C1B34BA7A00C9E48C /* Mask.png */,
 				CD6A5A9E1B34BD4000C9E48C /* background.jpg */,
 			);
@@ -426,6 +429,7 @@
 				CDD691CA1B374D17002A64C7 /* Personagem_feliz_2.png in Resources */,
 				CD6A5A991B34ADB000C9E48C /* x.gif in Resources */,
 				CD8BFA7F1B2A1BD800FB3356 /* star.png in Resources */,
+				1ADD858C1B3770FC00E26261 /* estrelaApagada.png in Resources */,
 				CD8BFA661B2A1A4500FB3356 /* Images.xcassets in Resources */,
 				CDD691C21B374610002A64C7 /* Personagem_voando_1.png in Resources */,
 				CDD691C51B374610002A64C7 /* Personagem_voando_4.png in Resources */,

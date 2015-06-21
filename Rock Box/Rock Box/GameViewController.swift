@@ -35,6 +35,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var estrela2: UIImageView!
     @IBOutlet weak var estrela3: UIImageView!
     
+    @IBOutlet weak var botaoDoSom: UIButton!
     var audioPlayer = AVAudioPlayer()
     
     override func viewDidLoad() {
@@ -47,14 +48,16 @@ class GameViewController: UIViewController {
         var palavraFase = Array(arquivo)
         
         
-        
+      
         var divisoes = viewPalavra.bounds.width/(CGFloat(2*palavraFase.count))
         
         for var i = 0; i < Int(palavraFase.count); i++
 
         {
             var riscoDasLetras = UIImageView(image: UIImage(named: "Line.png"))
-            riscoDasLetras.frame = CGRect(origin: CGPoint(x: viewPalavra.bounds.width/10 + (riscoDasLetras.bounds.width + 10)*CGFloat(i) , y: viewPalavra.bounds.height*0.6), size: riscoDasLetras.bounds.size)
+            riscoDasLetras.bounds.size = CGSize(width: riscoDasLetras.bounds.size.width*0.5, height: riscoDasLetras.bounds.size.height)
+            
+            riscoDasLetras.frame = CGRect(origin: CGPoint(x: viewPalavra.bounds.width/10 + (riscoDasLetras.bounds.width + 10)*CGFloat(i) , y: botaoDoSom.frame.origin.y + botaoDoSom.bounds.height), size: riscoDasLetras.bounds.size)
              viewPalavra.addSubview(riscoDasLetras)
         }
         
