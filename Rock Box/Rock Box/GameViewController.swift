@@ -35,14 +35,42 @@ class GameViewController: UIViewController {
     @IBOutlet weak var estrela2: UIImageView!
     @IBOutlet weak var estrela3: UIImageView!
     
+    @IBOutlet weak var botaoDoSom: UIButton!
     var audioPlayer = AVAudioPlayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        var arquivo = (((DataManager.instance.lerArquivoJson())[DataManager.instance.faseEscolhida - 1] as! Dictionary<String,AnyObject>)["palavra"] as! String)
+        
+        var palavraFase = Array(arquivo)
+        
+        
+      
+        var divisoes = viewPalavra.bounds.width/(CGFloat(2*palavraFase.count))
+        
+        for var i = 0; i < Int(palavraFase.count); i++
+
+        {
+            var riscoDasLetras = UIImageView(image: UIImage(named: "Line.png"))
+            riscoDasLetras.bounds.size = CGSize(width: riscoDasLetras.bounds.size.width*0.5, height: riscoDasLetras.bounds.size.height)
+            
+            riscoDasLetras.frame = CGRect(origin: CGPoint(x: viewPalavra.bounds.width/10 + (riscoDasLetras.bounds.width + 10)*CGFloat(i) , y: botaoDoSom.frame.origin.y + botaoDoSom.bounds.height), size: riscoDasLetras.bounds.size)
+             viewPalavra.addSubview(riscoDasLetras)
+        }
+        
+        
+        
+        
+    
         viewPalavra.layer.cornerRadius = 20
         viewPalavra.layer.masksToBounds = true
         
         viewPalavra.alpha = 1
+        
+       
 //        var cor = UIColor(red: 154.0/255, green: 114.0/255, blue: 218.0/255, alpha: 0.45).CGColor
 //        
 //        
@@ -85,6 +113,7 @@ class GameViewController: UIViewController {
             scene.scaleMode = .AspectFill
             
             skView.presentScene(scene)
+        
             
         }
     }
