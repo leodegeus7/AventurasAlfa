@@ -15,6 +15,7 @@ struct BitMasks {
     static let letra:UInt32 = 0x03
     static let regiao:UInt32 = 0x04
     static let estrela:UInt32 = 0x05
+    static let particulas:UInt32 = 0x06
 }
 
 
@@ -232,6 +233,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         hud.addChild(estrelaDoHud1)
         hud.addChild(estrelaDoHud2)
         hud.addChild(estrelaDoHud3)
+        
+        //ESTRELAS PARTÍCULAS
+        
+        var particulasEstrelas = SKEmitterNode(fileNamed: "stars.sks")
+        
+
+        particulasEstrelas.position = CGPoint(x: 0, y: self.frame.height / 2)
+        particulasEstrelas.zPosition = -1
+        gameNode.addChild(particulasEstrelas)
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
@@ -378,6 +388,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             println(regiao.name)
             
         }
+
+        if contact.bodyA.categoryBitMask == BitMasks.particulas && contact.bodyB.categoryBitMask == BitMasks.regiao {
+            var bodyA = contact.bodyA
+            var bodyB = contact.bodyB
+            bodyA.node?.removeFromParent()
+        }
+        if contact.bodyA.categoryBitMask == BitMasks.regiao && contact.bodyB.categoryBitMask == BitMasks.particulas {
+            var bodyA = contact.bodyA
+            var bodyB = contact.bodyB
+            bodyB.node?.removeFromParent()
+
+            
+            
+        }
         
         
     }
@@ -440,7 +464,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         regiaoPlaneta.physicsBody?.affectedByGravity = false
         regiaoPlaneta.physicsBody?.fieldBitMask = 0x0
         regiaoPlaneta.physicsBody?.categoryBitMask = BitMasks.regiao
-        regiaoPlaneta.physicsBody?.contactTestBitMask = BitMasks.regiao | BitMasks.personagem
+        regiaoPlaneta.physicsBody?.contactTestBitMask = BitMasks.regiao | BitMasks.personagem | BitMasks.particulas
         regiaoPlaneta.physicsBody?.collisionBitMask = BitMasks.regiao
         regiaoPlaneta.name = nome
         fieldNode.addChild(regiaoPlaneta)
@@ -466,9 +490,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         particulas.position = CGPoint(x: 0, y: 0)
         particulas.zPosition = -1
         if raio >= 80 {
-                particulas.particlePositionRange = CGVector(dx: imageFieldNode.size.width + imageFieldNode.size.width*0.25, dy: imageFieldNode.size.height + imageFieldNode.size.height*0.25)
+            particulas.particlePositionRange = CGVector(dx: imageFieldNode.size.width + imageFieldNode.size.width*0.25, dy: imageFieldNode.size.height + imageFieldNode.size.height*0.25)
         }
         particulas.alpha = 0.7
+        particulas.physicsBody?.categoryBitMask = BitMasks.particulas
+        particulas.physicsBody?.collisionBitMask = BitMasks.regiao | BitMasks.particulas
+        particulas.physicsBody?.contactTestBitMask = BitMasks.particulas | BitMasks.regiao
+        
         regiaoPlaneta.addChild(particulas)
         return imageFieldNode
     }

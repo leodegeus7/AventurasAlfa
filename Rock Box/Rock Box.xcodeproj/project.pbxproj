@@ -36,6 +36,7 @@
 		CDD691A01B37082F002A64C7 /* azul.sks in Resources */ = {isa = PBXBuildFile; fileRef = CDD6919C1B37082F002A64C7 /* azul.sks */; };
 		CDD691A11B37082F002A64C7 /* vermelho.sks in Resources */ = {isa = PBXBuildFile; fileRef = CDD6919D1B37082F002A64C7 /* vermelho.sks */; };
 		CDD691A21B37082F002A64C7 /* amarelo.sks in Resources */ = {isa = PBXBuildFile; fileRef = CDD6919E1B37082F002A64C7 /* amarelo.sks */; };
+		CDD691A51B371557002A64C7 /* stars.sks in Resources */ = {isa = PBXBuildFile; fileRef = CDD691A41B371557002A64C7 /* stars.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		CDD6919C1B37082F002A64C7 /* azul.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = azul.sks; sourceTree = "<group>"; };
 		CDD6919D1B37082F002A64C7 /* vermelho.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = vermelho.sks; sourceTree = "<group>"; };
 		CDD6919E1B37082F002A64C7 /* amarelo.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = amarelo.sks; sourceTree = "<group>"; };
+		CDD691A41B371557002A64C7 /* stars.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = stars.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				CDD6919B1B37082F002A64C7 /* spark.png */,
+				CDD691A41B371557002A64C7 /* stars.sks */,
 				CDD6919C1B37082F002A64C7 /* azul.sks */,
 				CDD6919D1B37082F002A64C7 /* vermelho.sks */,
 				CDD6919E1B37082F002A64C7 /* amarelo.sks */,
@@ -346,6 +349,7 @@
 				CD6A5A951B34896600C9E48C /* estrela.png in Resources */,
 				CD6A5A9F1B34BD4000C9E48C /* background.jpg in Resources */,
 				CD8BFA641B2A1A4500FB3356 /* Main.storyboard in Resources */,
+				CDD691A51B371557002A64C7 /* stars.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
