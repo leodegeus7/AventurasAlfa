@@ -23,6 +23,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var jsonResult:NSDictionary!
     
+    var planetaIndex = 0
+    
     var labelAngulo:SKLabelNode!
     var planeta1:SKSpriteNode!
     var planeta2 = SKSpriteNode()
@@ -41,24 +43,43 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var estrelaDoHud1 = SKSpriteNode(imageNamed: "estrelaApagada.png")
     var estrelaDoHud2 = SKSpriteNode(imageNamed: "estrelaApagada.png")
     var estrelaDoHud3 = SKSpriteNode(imageNamed: "estrelaApagada.png")
-    var planetaAtual = SKSpriteNode()
     
+    var planetaAtual = SKSpriteNode()
+    var anguloAtual = CGFloat(M_PI_2)
+    
+    var swipePoints = (initial:CGPoint(), final:CGPoint(), actual:CGPoint())
+    
+    var isTouched = false
+    var longPressMinInterval = 0.5
+    var lastUntouchedTime = CFTimeInterval()
+    
+    var moveDelay = 0.1
+    var lastMoveTime = CFTimeInterval()
+    
+    enum moveDirection{
+        case left
+        case right
+        case planet
+    }
     
     override func didMoveToView(view: SKView) {
         
         println(DataManager.instance.faseEscolhida)
         
         
-// Configuracoes do mundo e a camera
+        // Configuracoes do mundo e a camera
         
         
         self.physicsWorld.gravity = CGVectorMake(0.0, 0.0)
         self.physicsWorld.contactDelegate = self
         self.addChild(gameNode)
-        gameNode.position = CGPoint(x: self.frame.size.width/2, y: self.frame.size.height/15)
-        gameNode.xScale = 1.0
-        gameNode.yScale = 1.0
+        gameNode.position = CGPoint(x: self.frame.size.width/2, y: self.frame.size.height/4)
+        gameNode.size = self.size
+        gameNode.xScale = 0.6
+        gameNode.yScale = 0.6
         gameNode.addChild(cameraNode)
+        
+        
         let backgroundNode = SKSpriteNode(imageNamed: "background.jpg")
         backgroundNode.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
         backgroundNode.size = self.size
@@ -66,25 +87,37 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(backgroundNode)
         
         
-//CRIAR PLANETAS
+        //CRIAR PLANETAS
         var fase = DataManager.instance.arrayDaFase(DataManager.instance.faseEscolhida)
         for planetas in fase {
             var planetasDic = planetas as! Dictionary<String,AnyObject>
-            var planetasSprite:SKSpriteNode = criarPlanetasComPosicao(CGPoint(x: CGFloat(planetasDic["coordenadaX"] as! CGFloat), y: CGFloat(planetasDic["coordenadaY"] as! CGFloat)), raio: CGFloat(planetasDic["raioPlaneta"] as! CGFloat), habilitarRegiao: true, raioAtmosfera: Float(planetasDic["raioAtmosfera"] as! Float), falloff: 0.5, strenght: 0.5, imagem: "2.png", nome: "Planeta 1")
+            var planetasSprite:SKSpriteNode = criarPlanetasComPosicao(CGPoint(x: CGFloat(planetasDic["coordenadaX"] as! CGFloat), y: CGFloat(planetasDic["coordenadaY"] as! CGFloat)), raio: CGFloat(planetasDic["raioPlaneta"] as! CGFloat), habilitarRegiao: true, raioAtmosfera: Float(planetasDic["raioAtmosfera"] as! Float), falloff: 0.5, strenght: 0.5, imagem: "2.png", nome: "Planeta \(arrayPlanetas.count)")
             arrayPlanetas.append(planetasSprite)
         }
+        planetaAtual = arrayPlanetas[1]
         
         
-
         
-//CRIAR PERSONAGEM
-    
+        
+        //CRIAR PERSONAGEM
+        
+        
         
         jogador.size = CGSize(width: 299/10, height: 703/10)
-        jogador.position = CGPoint(x: 0, y: 200 + (jogador.size.height / 2) + 4)
+        
+        let origem = planetaAtual.position
+        let raio  = planetaAtual.frame.size.height/2 + jogador.size.height/2
+        
+        let posX = cameraNode.position.x + origem.x + raio * cos(anguloAtual)
+        let posY = cameraNode.position.y + origem.y + raio * sin(anguloAtual)
+        
+        jogador.zRotation = anguloAtual - CGFloat(M_PI_2)
+        
+        jogador.position = CGPoint(x: posX, y: posY)
+        
         jogador.name = "jogador"
         jogador.physicsBody = SKPhysicsBody(rectangleOfSize: jogador.size)
-        jogador.physicsBody?.dynamic = false
+        jogador.physicsBody?.dynamic = true
         jogador.physicsBody?.mass = 1000
         jogador.physicsBody?.categoryBitMask = BitMasks.personagem
         jogador.physicsBody?.collisionBitMask = BitMasks.personagem
@@ -95,8 +128,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         gameNode.addChild(jogador)
         
-    
-//CRIAR LETRAS
+        
+        
+        
+        //CRIAR LETRAS
         
         var letras = DataManager.instance.arrayDasLetras(DataManager.instance.faseEscolhida)
         
@@ -123,14 +158,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 var letraSprite:SKSpriteNode =  criarLetras(arrayPlanetas[3], angulo: letrasDic["angulo"] as! CGFloat, imagem: letrasDic["imagem"] as! String, nome: letrasDic["nome"] as! String)
                 arrayPlanetas.append(letraSprite)
             }
-
+            
         }
-        planetaAtual = arrayPlanetas[0]
         
         
         
         
-//CRIAR ESTRELAS
+        
+        //CRIAR ESTRELAS
         
         var estrelas = DataManager.instance.arrayDasEstrelas(DataManager.instance.faseEscolhida)
         
@@ -160,20 +195,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         }
         
-    
-
-        
-//OUTROS
-
-
-        let pular = UISwipeGestureRecognizer(target: self, action: Selector("swipeUp:"))
-        pular.direction = .Up
-        view.addGestureRecognizer(pular)
         
         
+        //OUTROS
         
         
-//HUD NODE
+        //        let pular = UISwipeGestureRecognizer(target: self, action: Selector("swipeUp:"))
+        //        pular.direction = .Up
+        //        view.addGestureRecognizer(pular)
+        //
+        
+        
+        
+        //HUD NODE
         
         
         self.addChild(hud)
@@ -194,32 +228,51 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         for touch: AnyObject in touches {
             
-            
-            jogador.physicsBody?.dynamic = true
             let location = touch.locationInNode(self)
-            planetaAtual.physicsBody?.angularVelocity = CGFloat(0.0)
-            if location.x > self.size.width/2 && location.y < self.size.height/2 {
-                jogador.xScale = -1.0
-                planetaAtual.runAction(SKAction.rotateByAngle(CGFloat(M_PI_2 / 5), duration: 1.0))
-                cameraNode.runAction(SKAction.rotateByAngle(CGFloat(M_PI_2 / 5), duration: 1.0))
-
-            }
-            else if location.x < self.size.width/2 && location.y < self.size.height/2 {
-                jogador.xScale = 1.0
-                planetaAtual.runAction(SKAction.rotateByAngle(CGFloat(-M_PI_2 / 5), duration: 1.0))
-                cameraNode.runAction(SKAction.rotateByAngle(CGFloat(-M_PI_2 / 5), duration: 1.0))
-
-            }
             
-
-            let dx = jogador.position.x - planetaAtual.parent!.position.x
-            let dy = -(jogador.position.y - planetaAtual.parent!.position.y)
-
-
-
+            swipePoints.initial = location
+            
+            swipePoints.actual = swipePoints.initial
+            
+            isTouched = true
+            
+            
         }
     }
     
+    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
+        for touch: AnyObject in touches {
+            
+            let location = touch.locationInNode(self)
+            
+            swipePoints.actual = location
+            
+        }
+    }
+    
+    
+    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+        for touch: AnyObject in touches {
+            
+            let location = touch.locationInNode(self)
+            
+            swipePoints.final = location
+            
+            isTouched = false
+            
+            let dx = fabs(swipePoints.final.x - swipePoints.initial.x)
+            let dy = fabs(swipePoints.final.y - swipePoints.initial.y)
+            
+            if (dx > 20 || dy > 20) {
+                let jumpVectorSize = CGFloat(70000)
+                let jumpVector = CGVector(dx: jumpVectorSize * cos(anguloAtual), dy: jumpVectorSize * sin(anguloAtual))
+                
+                jogador.physicsBody?.applyImpulse(jumpVector)
+                
+            }
+            
+        }
+    }
     
     
     
@@ -236,17 +289,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             var bodyA = contact.bodyA
             var bodyB = contact.bodyB
             bodyA.node?.removeFromParent()
-
+            
         }
-
+        
         if contact.bodyA.categoryBitMask == BitMasks.regiao && contact.bodyB.categoryBitMask == BitMasks.personagem {
+            
             var bodyA = contact.bodyA
             var bodyB = contact.bodyB
             if bodyA.node?.name == "planeta1"{
                 println("planeta1")
                 planetaUser = "planeta1"
-
-            
+                
+                
             }
             if bodyB.node?.name == "planeta2"{
                 println("planeta1")
@@ -268,7 +322,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             
         }
-
+        
         if contact.bodyA.categoryBitMask == BitMasks.personagem && contact.bodyB.categoryBitMask == BitMasks.estrela {
             var bodyA = contact.bodyA
             var bodyB = contact.bodyB
@@ -278,55 +332,46 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             
         }
-
+        
         if contact.bodyA.categoryBitMask == BitMasks.personagem && contact.bodyB.categoryBitMask == BitMasks.regiao {
-            var bodyA = contact.bodyA
-            var bodyB = contact.bodyB
-            if bodyB.node?.name == "planeta1"{
-                println("planeta1")
-                planetaUser = "planeta1"
-                
+            var personagem = SKSpriteNode()
+            var regiao = SKSpriteNode()
+            
+            if contact.bodyA.categoryBitMask == BitMasks.personagem {
+                personagem = contact.bodyA.node as! SKSpriteNode
+                regiao = contact.bodyB.node as! SKSpriteNode
             }
-            if bodyB.node?.name == "planeta2"{
-                println("planeta2")
-                planetaUser = "planeta2"
-                
-                let dx = (planeta2.parent!.position.x - planetaAtual.parent!.position.x)
-                let dy = (planeta2.parent!.position.y - planetaAtual.parent!.position.y - planetaAtual.parent!.frame.size.height/2 + planeta2.parent!.frame.size.height/2)
-                
-                println("\(dx) \(dy)")
-                
-                println(planeta2.parent!.position)
-                gameNode.position = CGPoint(x: dx, y: dy)
-              //  planetaAtual.parent!.position = CGPoint(x: planetaAtual.parent!.position.x - dx, y: planetaAtual.parent!.position.y - dy)
-               // planeta2.parent!.position = CGPoint(x: planeta2.parent!.position.x - dx, y: planeta2.parent!.position.y - dy)
-                
-                println("\(planetaAtual.parent!.position ) \(planeta2.parent!.position)")
+            else {
+                personagem = contact.bodyB.node as! SKSpriteNode
+                regiao = contact.bodyA.node as! SKSpriteNode
+            }
+            
+            if planetaAtual.name != regiao.name {
+                for planeta in arrayPlanetas {
+                    if planeta.name == regiao.name {
+                        planetaAtual = planeta
+                        println("trocou para \(planeta.name)")
+                        movePlayerWithDirection(.planet)
+                    }
+                }
                 
             }
             
+            println(regiao.name)
+            
         }
         
-
+        
     }
-   
-
+    
+    
     override func update(currentTime: CFTimeInterval) {
         
-        let dx = jogador.position.x - jogador.parent!.position.x
-        let dy = (jogador.position.y - jogador.parent!.position.y)
-        
-        var x = jogador.position.x
-        var y = jogador.position.y
-
-
-        let rotationAngle = atan(dy/dx)
-        
-        
+        handleLongPressWithUpdate(currentTime)
         
         if DataManager.instance.pausar {
             self.paused = true
-        
+            
         }
         else {
             self.paused = false
@@ -336,7 +381,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-///FUNCAO DE CRIAR OS NODES - PLANETAS,ESTRELAS E LETRAS
+    ///FUNCAO DE CRIAR OS NODES - PLANETAS,ESTRELAS E LETRAS
     
     func criarPlanetasComPosicao(posicao: CGPoint, raio:CGFloat, habilitarRegiao:Bool, raioAtmosfera:Float, falloff:Float, strenght:Float, imagem: String, nome: String) -> SKSpriteNode {
         var fieldNode = SKFieldNode.radialGravityField()
@@ -354,6 +399,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         fieldNode.physicsBody?.allowsRotation = false
         fieldNode.physicsBody?.applyAngularImpulse(100)
         var imageFieldNode = SKSpriteNode(imageNamed: imagem)
+        imageFieldNode.name = nome
         imageFieldNode.size = CGSizeMake(raio*2, raio*2)
         imageFieldNode.physicsBody = SKPhysicsBody(circleOfRadius: raio)
         imageFieldNode.physicsBody?.dynamic = false
@@ -383,7 +429,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         
-
+        
         return imageFieldNode
     }
     
@@ -405,7 +451,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         node.addChild(letra)
         
         return letra
-    
+        
     }
     
     func criarEstrelas(node:SKSpriteNode, angulo:CGFloat) -> SKSpriteNode{
@@ -428,14 +474,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return estrela
     }
     
-
     
-//////////  METODOS QUE CRIAMOOS   
     
-    func swipeUp (sender:UISwipeGestureRecognizer){
-        
-        jogador.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 900000))
-    }
     
     
     
@@ -450,27 +490,71 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         }
         else if DataManager.instance.numeroEstrelas >= 3 {
-        estrelaDoHud1.texture = SKTexture(imageNamed: "estrela.png")
+            estrelaDoHud1.texture = SKTexture(imageNamed: "estrela.png")
             estrelaDoHud2.texture = SKTexture(imageNamed: "estrela.png")
             estrelaDoHud3.texture = SKTexture(imageNamed: "estrela.png")
             
         }
     }
     
+    func movePlayerWithDirection (direction : moveDirection) {
+        
+        var moveDuration = moveDelay
+        
+        switch (direction) {
+        case .left:
+            anguloAtual+=0.10
+            jogador.xScale = 1.0
+        case .right:
+            anguloAtual-=0.10
+            jogador.xScale = -1.0
+        case .planet:
+            anguloAtual -= CGFloat(M_PI)
+            moveDuration = 10 * moveDelay
+        }
+        
+        
+        let origem = planetaAtual.parent!.position
+        let raio  = planetaAtual.frame.size.height/2 + jogador.size.height/2
+        let posX = origem.x + raio * cos(anguloAtual)
+        let posY = origem.y + raio * sin(anguloAtual)
+        
+        let posX2 = cameraNode.position.x + origem.x + raio * cos(anguloAtual)
+        let posY2 = cameraNode.position.y + origem.y + raio * sin(anguloAtual)
+        
+        
+        let translacao = SKAction.moveTo(CGPoint(x: posX, y: posY), duration: moveDuration)
+        
+        let rotacao = SKAction.rotateToAngle(anguloAtual - CGFloat(M_PI_2), duration: moveDuration, shortestUnitArc: true)
+        
+        jogador.runAction(SKAction.group([translacao,rotacao]))
+        
+    }
     
+    func handleLongPressWithUpdate(currentTime: CFTimeInterval) {
+        if(!isTouched) {
+            lastUntouchedTime = currentTime
+            return
+        }
+        else {
+            if (currentTime - lastUntouchedTime > longPressMinInterval) {
+                println("longPress!!!")
+                
+                if (currentTime - lastMoveTime > moveDelay) {
+                    println(swipePoints.initial.x)
+                    println((jogador.position.x * gameNode.xScale))
+                    if swipePoints.actual.x > self.size.height/2 {
+                        movePlayerWithDirection(moveDirection.right)
+                        
+                    }
+                    else if swipePoints.actual.x < self.size.height/2 {
+                        movePlayerWithDirection(moveDirection.left)
+                    }
+                    lastMoveTime = currentTime
+                }
+            }
+        }
+    }
     
- 
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
