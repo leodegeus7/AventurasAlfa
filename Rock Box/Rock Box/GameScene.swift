@@ -44,6 +44,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var estrelaDoHud2 = SKSpriteNode(imageNamed: "estrelaApagada.png")
     var estrelaDoHud3 = SKSpriteNode(imageNamed: "estrelaApagada.png")
     
+    var palavraDaFaseArray:Array<Character>!
+    var numeroDaLetraAtual = 0
+    
     var planetaAtual = SKSpriteNode()
     var anguloAtual = CGFloat(M_PI_2)
     
@@ -195,6 +198,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         }
         
+        var arquivo = (((DataManager.instance.lerArquivoJson())[DataManager.instance.faseEscolhida - 1] as! Dictionary<String,AnyObject>)["palavra"] as! String)
+        
+        
+        palavraDaFaseArray = Array(arquivo)
+        
         
         
         //OUTROS
@@ -281,14 +289,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             var bodyA = contact.bodyA
             var bodyB = contact.bodyB
             
-            bodyB.node?.removeFromParent()
+            if String(palavraDaFaseArray[numeroDaLetraAtual]) == bodyB.node!.name && (numeroDaLetraAtual < palavraDaFaseArray.count)
+            {
+                bodyB.node?.removeFromParent()
+                numeroDaLetraAtual++
+            }
             
         }
         
         if contact.bodyA.categoryBitMask == BitMasks.letra && contact.bodyB.categoryBitMask == BitMasks.personagem {
             var bodyA = contact.bodyA
             var bodyB = contact.bodyB
-            bodyA.node?.removeFromParent()
+            
+            if String(palavraDaFaseArray[0]) == bodyB.node!.name && (numeroDaLetraAtual < palavraDaFaseArray.count)
+            {
+                bodyA.node?.removeFromParent()
+                numeroDaLetraAtual++
+            }
             
         }
         
@@ -448,6 +465,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         letra.physicsBody?.contactTestBitMask = BitMasks.letra | BitMasks.personagem
         letra.physicsBody?.categoryBitMask = BitMasks.letra
         letra.physicsBody?.fieldBitMask = BitMasks.letra
+        letra.name = nome
         node.addChild(letra)
         
         return letra
@@ -526,7 +544,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let translacao = SKAction.moveTo(CGPoint(x: posX, y: posY), duration: moveDuration)
         
         let rotacao = SKAction.rotateToAngle(anguloAtual - CGFloat(M_PI_2), duration: moveDuration, shortestUnitArc: true)
-        
+    
         jogador.runAction(SKAction.group([translacao,rotacao]))
         
     }

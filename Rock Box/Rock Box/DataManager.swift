@@ -136,7 +136,7 @@ class DataManager: NSObject {
     
     func caminhoDocs() -> String {
         let pathToDocumentsFolder = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
-        
+        println(pathToDocumentsFolder)
         return pathToDocumentsFolder.stringByAppendingPathComponent("/data.json")
         
     }

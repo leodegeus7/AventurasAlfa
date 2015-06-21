@@ -7,36 +7,36 @@
               "letras": [
                          {
                          "angulo": 3.1459,
-                         "nome": "K",
+                         "nome": "k",
                          "planeta": "planeta1",
                          "imagem": "k.png"
                          },
                          {
-                         "nome": "A",
+                         "nome": "a",
                          "planeta": "planeta3",
                          "angulo": 4.7123889804,
                          "imagem": "a.png"
                          },
                          {
-                         "nome": "A2",
-                         "angulo": 1.57079,
+                         "nome": "a",
+                         "angulo": 1.9000,
                          "planeta": "planeta2",
                          "imagem": "a.png"
                          },
                          {
-                         "nome": "Z",
+                         "nome": "z",
                          "angulo": 1.5707,
                          "planeta": "planeta2",
                          "imagem": "z.png"
                          },
                          {
-                         "nome": "C",
+                         "nome": "c",
                          "planeta": "planeta1",
                          "angulo": 0,
                          "imagem": "c.png"
                          },
                          {
-                         "nome": "S",
+                         "nome": "s",
                          "planeta": "planeta1",
                          "angulo": 4.71238,
                          "imagem": "s.png"
