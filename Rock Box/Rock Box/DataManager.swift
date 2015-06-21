@@ -147,7 +147,7 @@ class DataManager: NSObject {
         
        var dicionario = arquivoAnterior[fase - 1] as! Dictionary<String,AnyObject>
     
-        dicionario["jaJogou"] = false
+        dicionario["jaJogou"] = true
         dicionario["quantasEstrelasPegou"] = quantasEstrelasPegou
         
         arquivoAnterior[fase - 1] = dicionario
