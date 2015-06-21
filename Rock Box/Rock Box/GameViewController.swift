@@ -8,6 +8,7 @@
 
 import UIKit
 import SpriteKit
+import AVFoundation
 
 
 extension SKNode {
@@ -33,6 +34,8 @@ class GameViewController: UIViewController {
     @IBOutlet weak var estrela1: UIImageView!
     @IBOutlet weak var estrela2: UIImageView!
     @IBOutlet weak var estrela3: UIImageView!
+    
+    var audioPlayer = AVAudioPlayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,8 +109,45 @@ class GameViewController: UIViewController {
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
+    
+    
     @IBAction func somPalavra(sender: UIButton) {
+        var fase = DataManager.instance.arrayDaFaseAntes(DataManager.instance.faseEscolhida)
+        var stringFase = fase["palavra"] as! String
+//        var som = NSURL()
+        switch stringFase {
+            case "casa":
+                var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("casa", ofType: "wav")!)
+                audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
+            case "olho":
+                var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("casa", ofType: "wav")!)
+                audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
+            case "calca":
+                var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("calca", ofType: "wav")!)
+                audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
+            case "agua":
+                var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("agua", ofType: "wav")!)
+                audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
+            case "carro":
+                var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("carro", ofType: "wav")!)
+                audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
+            case "hospital":
+                var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("hospital", ofType: "wav")!)
+                audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
+            default:
+                println("NAO ACHOU SOOM")
+                var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("casa", ofType: "wav")!)
+                audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
+            
+        }
+
+        
+        audioPlayer.prepareToPlay()
+        audioPlayer.play()
+        
     }
+    
+    
     @IBAction func exitButton(sender: AnyObject) {
         viewPalavra.hidden = true
         DataManager.instance.pausar = false
