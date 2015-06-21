@@ -41,7 +41,19 @@ class DataManager: NSObject {
     }
    
     
-
+    func arrayDaFaseAntes(fase: Int) -> Dictionary<String, AnyObject>
+    {
+        
+        
+        var arrayComAsFases = lerArquivoJson()
+        // println(arrayComAsFases)
+        var dictionaryDaFase = arrayComAsFases[fase - 1] as! Dictionary<String, AnyObject>
+        
+        
+        
+        return dictionaryDaFase
+        
+    }
     
     
     func arrayDaFase(fase: Int) -> Array<AnyObject>
