@@ -9,13 +9,274 @@
                          "angulo": 3.1459,
                          "nome": "k",
                          "planeta": "planeta1",
-                         "imagem": "k.png"
+                         "imagem": "K.png"
                          },
                          {
                          "nome": "a",
                          "planeta": "planeta3",
                          "angulo": 4.7123889804,
-                         "imagem": "a.png"
+                         "imagem": "A.png"
+                         },
+                         {
+                         "nome": "a",
+                         "angulo": 1.9,
+                         "planeta": "planeta2",
+                         "imagem": "A.png"
+                         },
+                         {
+                         "nome": "z",
+                         "angulo": 1.5707,
+                         "planeta": "planeta2",
+                         "imagem": "Z.png"
+                         },
+                         {
+                         "nome": "c",
+                         "planeta": "planeta1",
+                         "angulo": 0,
+                         "imagem": "C.png"
+                         },
+                         {
+                         "nome": "s",
+                         "planeta": "planeta1",
+                         "angulo": 4.71238,
+                         "imagem": "S.png"
+                         }
+                         ],
+              "estrelas": [
+                           {
+                           "angulo": 3.159,
+                           "planeta": "planeta3",
+                           "imagem": "estrela.png"
+                           },
+                           {
+                           "angulo": 3.3459,
+                           "planeta": "planeta2",
+                           "imagem": "estrela.png"
+                           },
+                           {
+                           "planeta": "planeta1",
+                           "angulo": 1.57079,
+                           "imagem": "estrela.png"
+                           }
+                           ],
+              "planetas": [
+                           {
+                           "imagem": "planetaazul.png",
+                           "coordenadaX": -400,
+                           "coordenadaY": 400,
+                           "raioPlaneta": 50,
+                           "raioAtmosfera": 220
+                           },
+                           {
+                           "imagem": "planetaverde.png",
+                           "coordenadaX": 0,
+                           "coordenadaY": 0,
+                           "raioPlaneta": 200,
+                           "raioAtmosfera": 200
+                           },
+                           {
+                           "imagem": "planetavermelho.png",
+                           "coordenadaX": 500,
+                           "coordenadaY": 500,
+                           "raioPlaneta": 200,
+                           "raioAtmosfera": 200
+                           }
+                           ]
+              },
+              {
+              "palavra": "agua",
+              "jaJogou": false,
+              "quantasEstrelasPegou": 0,
+              "letras": [
+                         {
+                         "angulo": 3.1459,
+                         "nome": "k",
+                         "planeta": "planeta1",
+                         "imagem": "K.png"
+                         },
+                         {
+                         "nome": "a",
+                         "planeta": "planeta3",
+                         "angulo": 4.7123889804,
+                         "imagem": "A.png"
+                         },
+                         {
+                         "nome": "a",
+                         "angulo": 1.9,
+                         "planeta": "planeta2",
+                         "imagem": "A.png"
+                         },
+                         {
+                         "nome": "g",
+                         "angulo": 1.5707,
+                         "planeta": "planeta2",
+                         "imagem": "G.png"
+                         },
+                         {
+                         "nome": "u",
+                         "planeta": "planeta1",
+                         "angulo": 0,
+                         "imagem": "U.png"
+                         },
+                         {
+                         "nome": "h",
+                         "planeta": "planeta1",
+                         "angulo": 4.71238,
+                         "imagem": "H.png"
+                         }
+                         ],
+              "estrelas": [
+                           {
+                           "angulo": 3.159,
+                           "planeta": "planeta3",
+                           "imagem": "estrela.png"
+                           },
+                           {
+                           "angulo": 3.3459,
+                           "planeta": "planeta2",
+                           "imagem": "estrela.png"
+                           },
+                           {
+                           "planeta": "planeta1",
+                           "angulo": 1.57079,
+                           "imagem": "estrela.png"
+                           }
+                           ],
+              "planetas": [
+                           {
+                           "imagem": "planetaazul.png",
+                           "coordenadaX": -400,
+                           "coordenadaY": 400,
+                           "raioPlaneta": 50,
+                           "raioAtmosfera": 220
+                           },
+                           {
+                           "imagem": "planetaverde.png",
+                           "coordenadaX": 0,
+                           "coordenadaY": 0,
+                           "raioPlaneta": 200,
+                           "raioAtmosfera": 200
+                           },
+                           {
+                           "imagem": "planetavermelho.png",
+                           "coordenadaX": 500,
+                           "coordenadaY": 500,
+                           "raioPlaneta": 200,
+                           "raioAtmosfera": 200
+                           }
+                           ]
+              },
+              {
+              "palavra": "cenoura",
+              "jaJogou": false,
+              "quantasEstrelasPegou": 0,
+              "letras": [
+                         {
+                         "angulo": 3.1459,
+                         "nome": "c",
+                         "planeta": "planeta1",
+                         "imagem": "C.png"
+                         },
+                         {
+                         "nome": "e",
+                         "planeta": "planeta3",
+                         "angulo": 4.7123889804,
+                         "imagem": "E.png"
+                         },
+                         {
+                         "nome": "n",
+                         "angulo": 1.9,
+                         "planeta": "planeta2",
+                         "imagem": "N.png"
+                         },
+                         {
+                         "nome": "o",
+                         "angulo": 1.5707,
+                         "planeta": "planeta2",
+                         "imagem": "O.png"
+                         },
+                         {
+                         "nome": "u",
+                         "planeta": "planeta1",
+                         "angulo": 0,
+                         "imagem": "U.png"
+                         },
+                         {
+                         "nome": "r",
+                         "planeta": "planeta1",
+                         "angulo": 4.71238,
+                         "imagem": "R.png"
+                         },
+                         {
+                         "nome": "a",
+                         "planeta": "planeta2",
+                         "angulo": 4.71238,
+                         "imagem": "R.png"
+                         },
+                         {
+                         "nome": "S",
+                         "planeta": "planeta3",
+                         "angulo": 3.1459,
+                         "imagem": "S.png"
+                         }
+                         ],
+              "estrelas": [
+                           {
+                           "angulo": 3.3459,
+                           "planeta": "planeta3",
+                           "imagem": "estrela.png"
+                           },
+                           {
+                           "angulo": 3.3459,
+                           "planeta": "planeta2",
+                           "imagem": "estrela.png"
+                           },
+                           {
+                           "planeta": "planeta1",
+                           "angulo": 1.57079,
+                           "imagem": "estrela.png"
+                           }
+                           ],
+              "planetas": [
+                           {
+                           "imagem": "planetaazul.png",
+                           "coordenadaX": -400,
+                           "coordenadaY": 400,
+                           "raioPlaneta": 50,
+                           "raioAtmosfera": 220
+                           },
+                           {
+                           "imagem": "planetaverde.png",
+                           "coordenadaX": 0,
+                           "coordenadaY": 0,
+                           "raioPlaneta": 200,
+                           "raioAtmosfera": 200
+                           },
+                           {
+                           "imagem": "planetavermelho.png",
+                           "coordenadaX": 500,
+                           "coordenadaY": 500,
+                           "raioPlaneta": 200,
+                           "raioAtmosfera": 200
+                           }
+                           ]
+              },
+              {
+              "palavra": "calca",
+              "jaJogou": false,
+              "quantasEstrelasPegou": 0,
+              "letras": [
+                         {
+                         "angulo": 3.1459,
+                         "nome": "c",
+                         "planeta": "planeta1",
+                         "imagem": "C.png"
+                         },
+                         {
+                         "nome": "k",
+                         "planeta": "planeta3",
+                         "angulo": 4.7123889804,
+                         "imagem": "K.png"
                          },
                          {
                          "nome": "a",
@@ -24,27 +285,401 @@
                          "imagem": "a.png"
                          },
                          {
-                         "nome": "z",
+                         "nome": "l",
                          "angulo": 1.5707,
                          "planeta": "planeta2",
-                         "imagem": "z.png"
+                         "imagem": "L.png"
                          },
                          {
-                         "nome": "c",
+                         "nome": "u",
                          "planeta": "planeta1",
                          "angulo": 0,
-                         "imagem": "c.png"
+                         "imagem": "U.png"
                          },
                          {
-                         "nome": "s",
+                         "nome": "ç",
                          "planeta": "planeta1",
                          "angulo": 4.71238,
-                         "imagem": "s.png"
+                         "imagem": "Ç.png"
+                         },
+                         {
+                         "nome": "S",
+                         "planeta": "planeta3",
+                         "angulo": 3.1459,
+                         "imagem": "S.png"
                          }
                          ],
               "estrelas": [
                            {
-                           "angulo": 3.159,
+                           "angulo": 3.3459,
+                           "planeta": "planeta3",
+                           "imagem": "estrela.png"
+                           },
+                           {
+                           "angulo": 3.3459,
+                           "planeta": "planeta2",
+                           "imagem": "estrela.png"
+                           },
+                           {
+                           "planeta": "planeta1",
+                           "angulo": 1.57079,
+                           "imagem": "estrela.png"
+                           }
+                           ],
+              "planetas": [
+                           {
+                           "imagem": "planetaazul.png",
+                           "coordenadaX": -400,
+                           "coordenadaY": 400,
+                           "raioPlaneta": 50,
+                           "raioAtmosfera": 220
+                           },
+                           {
+                           "imagem": "planetaverde.png",
+                           "coordenadaX": 0,
+                           "coordenadaY": 0,
+                           "raioPlaneta": 200,
+                           "raioAtmosfera": 200
+                           },
+                           {
+                           "imagem": "planetavermelho.png",
+                           "coordenadaX": 500,
+                           "coordenadaY": 500,
+                           "raioPlaneta": 200,
+                           "raioAtmosfera": 200
+                           }
+                           ]
+              },
+              {
+              "palavra": "carro",
+              "jaJogou": false,
+              "quantasEstrelasPegou": 0,
+              "letras": [
+                         {
+                         "angulo": 3.1459,
+                         "nome": "a",
+                         "planeta": "planeta1",
+                         "imagem": "A.png"
+                         },
+                         {
+                         "nome": "c",
+                         "planeta": "planeta3",
+                         "angulo": 4.7123889804,
+                         "imagem": "C.png"
+                         },
+                         {
+                         "nome": "r",
+                         "angulo": 1.9,
+                         "planeta": "planeta2",
+                         "imagem": "R.png"
+                         },
+                         {
+                         "nome": "l",
+                         "angulo": 1.5707,
+                         "planeta": "planeta2",
+                         "imagem": "L.png"
+                         },
+                         {
+                         "nome": "r",
+                         "planeta": "planeta1",
+                         "angulo": 0,
+                         "imagem": "R.png"
+                         },
+                         {
+                         "nome": "o",
+                         "planeta": "planeta1",
+                         "angulo": 4.71238,
+                         "imagem": "O.png"
+                         },
+                         {
+                         "nome": "S",
+                         "planeta": "planeta3",
+                         "angulo": 3.1459,
+                         "imagem": "S.png"
+                         }
+                         ],
+              "estrelas": [
+                           {
+                           "angulo": 3.3459,
+                           "planeta": "planeta3",
+                           "imagem": "estrela.png"
+                           },
+                           {
+                           "angulo": 3.3459,
+                           "planeta": "planeta2",
+                           "imagem": "estrela.png"
+                           },
+                           {
+                           "planeta": "planeta1",
+                           "angulo": 1.57079,
+                           "imagem": "estrela.png"
+                           }
+                           ],
+              "planetas": [
+                           {
+                           "imagem": "planetaazul.png",
+                           "coordenadaX": -400,
+                           "coordenadaY": 400,
+                           "raioPlaneta": 50,
+                           "raioAtmosfera": 220
+                           },
+                           {
+                           "imagem": "planetaverde.png",
+                           "coordenadaX": 0,
+                           "coordenadaY": 0,
+                           "raioPlaneta": 200,
+                           "raioAtmosfera": 200
+                           },
+                           {
+                           "imagem": "planetavermelho.png",
+                           "coordenadaX": 500,
+                           "coordenadaY": 500,
+                           "raioPlaneta": 200,
+                           "raioAtmosfera": 200
+                           }
+                           ]
+              },
+              {
+              "palavra": "chuva",
+              "jaJogou": false,
+              "quantasEstrelasPegou": 0,
+              "letras": [
+                         {
+                         "angulo": 3.1459,
+                         "nome": "x",
+                         "planeta": "planeta1",
+                         "imagem": "X.png"
+                         },
+                         {
+                         "nome": "h",
+                         "planeta": "planeta3",
+                         "angulo": 4.7123889804,
+                         "imagem": "H.png"
+                         },
+                         {
+                         "nome": "c",
+                         "angulo": 1.9,
+                         "planeta": "planeta2",
+                         "imagem": "C.png"
+                         },
+                         {
+                         "nome": "u",
+                         "angulo": 1.5707,
+                         "planeta": "planeta2",
+                         "imagem": "U.png"
+                         },
+                         {
+                         "nome": "v",
+                         "planeta": "planeta1",
+                         "angulo": 0,
+                         "imagem": "V.png"
+                         },
+                         {
+                         "nome": "a",
+                         "planeta": "planeta1",
+                         "angulo": 4.71238,
+                         "imagem": "A.png"
+                         },
+                         {
+                         "nome": "y",
+                         "planeta": "planeta3",
+                         "angulo": 3.1459,
+                         "imagem": "Y.png"
+                         }
+                         ],
+              "estrelas": [
+                           {
+                           "angulo": 3.3459,
+                           "planeta": "planeta3",
+                           "imagem": "estrela.png"
+                           },
+                           {
+                           "angulo": 3.3459,
+                           "planeta": "planeta2",
+                           "imagem": "estrela.png"
+                           },
+                           {
+                           "planeta": "planeta1",
+                           "angulo": 1.57079,
+                           "imagem": "estrela.png"
+                           }
+                           ],
+              "planetas": [
+                           {
+                           "imagem": "planetaazul.png",
+                           "coordenadaX": -400,
+                           "coordenadaY": 400,
+                           "raioPlaneta": 50,
+                           "raioAtmosfera": 220
+                           },
+                           {
+                           "imagem": "planetaverde.png",
+                           "coordenadaX": 0,
+                           "coordenadaY": 0,
+                           "raioPlaneta": 200,
+                           "raioAtmosfera": 200
+                           },
+                           {
+                           "imagem": "planetavermelho.png",
+                           "coordenadaX": 500,
+                           "coordenadaY": 500,
+                           "raioPlaneta": 200,
+                           "raioAtmosfera": 200
+                           }
+                           ]
+              },
+              {
+              "palavra": "olho",
+              "jaJogou": false,
+              "quantasEstrelasPegou": 0,
+              "letras": [
+                         {
+                         "angulo": 3.1459,
+                         "nome": "o",
+                         "planeta": "planeta1",
+                         "imagem": "O.png"
+                         },
+                         {
+                         "nome": "l",
+                         "planeta": "planeta3",
+                         "angulo": 4.7123889804,
+                         "imagem": "L.png"
+                         },
+                         {
+                         "nome": "i",
+                         "angulo": 1.9,
+                         "planeta": "planeta2",
+                         "imagem": "I.png"
+                         },
+                         {
+                         "nome": "h",
+                         "angulo": 1.5707,
+                         "planeta": "planeta2",
+                         "imagem": "H.png"
+                         },
+                         {
+                         "nome": "u",
+                         "planeta": "planeta1",
+                         "angulo": 0,
+                         "imagem": "U.png"
+                         },
+                         {
+                         "nome": "o",
+                         "planeta": "planeta1",
+                         "angulo": 4.71238,
+                         "imagem": "O.png"
+                         },
+                         {
+                         "nome": "r",
+                         "planeta": "planeta3",
+                         "angulo": 3.1459,
+                         "imagem": "R.png"
+                         }
+                         ],
+              "estrelas": [
+                           {
+                           "angulo": 3.3459,
+                           "planeta": "planeta3",
+                           "imagem": "estrela.png"
+                           },
+                           {
+                           "angulo": 3.3459,
+                           "planeta": "planeta2",
+                           "imagem": "estrela.png"
+                           },
+                           {
+                           "planeta": "planeta1",
+                           "angulo": 1.57079,
+                           "imagem": "estrela.png"
+                           }
+                           ],
+              "planetas": [
+                           {
+                           "imagem": "planetaazul.png",
+                           "coordenadaX": -400,
+                           "coordenadaY": 400,
+                           "raioPlaneta": 50,
+                           "raioAtmosfera": 220
+                           },
+                           {
+                           "imagem": "planetaverde.png",
+                           "coordenadaX": 0,
+                           "coordenadaY": 0,
+                           "raioPlaneta": 200,
+                           "raioAtmosfera": 200
+                           },
+                           {
+                           "imagem": "planetavermelho.png",
+                           "coordenadaX": 500,
+                           "coordenadaY": 500,
+                           "raioPlaneta": 200,
+                           "raioAtmosfera": 200
+                           }
+                           ]
+              },
+              {
+              "palavra": "hospital",
+              "jaJogou": false,
+              "quantasEstrelasPegou": 0,
+              "letras": [
+                         {
+                         "angulo": 3.1459,
+                         "nome": "h",
+                         "planeta": "planeta1",
+                         "imagem": "H.png"
+                         },
+                         {
+                         "nome": "o",
+                         "planeta": "planeta3",
+                         "angulo": 4.7123889804,
+                         "imagem": "O.png"
+                         },
+                         {
+                         "nome": "s",
+                         "angulo": 1.9,
+                         "planeta": "planeta2",
+                         "imagem": "S.png"
+                         },
+                         {
+                         "nome": "p",
+                         "angulo": 1.5707,
+                         "planeta": "planeta2",
+                         "imagem": "P.png"
+                         },
+                         {
+                         "nome": "i",
+                         "planeta": "planeta1",
+                         "angulo": 0,
+                         "imagem": "I.png"
+                         },
+                         {
+                         "nome": "t",
+                         "planeta": "planeta1",
+                         "angulo": 4.71238,
+                         "imagem": "t.png"
+                         },
+                         {
+                         "nome": "a",
+                         "planeta": "planeta3",
+                         "angulo": 3.1459,
+                         "imagem": "A.png"
+                         },
+                         {
+                         "nome": "l",
+                         "planeta": "planeta2",
+                         "angulo": 0,
+                         "imagem": "L.png"
+                         },
+                         {
+                         "nome": "U",
+                         "planeta": "planeta3",
+                         "angulo": 0,
+                         "imagem": "U.png"
+                         }
+                         ],
+              "estrelas": [
+                           {
+                           "angulo": 3.3459,
                            "planeta": "planeta3",
                            "imagem": "estrela.png"
                            },
