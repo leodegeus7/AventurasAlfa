@@ -34,7 +34,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var cameraNode = SKSpriteNode()
     var gameNode = SKSpriteNode()
     var contador:Float = 0
-    var jogador = SKSpriteNode(imageNamed: "5.png")
+    var jogador = SKSpriteNode(imageNamed: "Personagem_voando_1.png")
     var planetaUser = ""
     var arrayPlanetas = Array<SKSpriteNode>()
     var arrayLetras = Array<SKSpriteNode>()
@@ -59,6 +59,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var moveDelay = 0.1
     var lastMoveTime = CFTimeInterval()
+    
+    var personagemVoando = [SKTexture]()
     
     enum moveDirection{
         case left
@@ -108,7 +110,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         
-        jogador.size = CGSize(width: 299/10, height: 703/10)
+        jogador.size = CGSize(width: 274/4, height: 471/4)
         
         let origem = planetaAtual.position
         let raio  = planetaAtual.frame.size.height/2 + jogador.size.height/2
@@ -119,7 +121,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         jogador.zRotation = anguloAtual - CGFloat(M_PI_2)
         
         jogador.position = CGPoint(x: posX, y: posY)
-        
+
         jogador.name = "jogador"
         jogador.physicsBody = SKPhysicsBody(rectangleOfSize: jogador.size)
         jogador.physicsBody?.dynamic = true
@@ -129,8 +131,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         jogador.physicsBody?.contactTestBitMask = BitMasks.letra | BitMasks.regiao
         jogador.physicsBody?.allowsRotation = false
         jogador.physicsBody?.affectedByGravity = true
-        
-        
+        var animFrames = [SKTexture]()
+        for index in 1...4 {
+            animFrames.append(SKTexture(imageNamed: String(format:"Personagem_voando_%d.png", index)))
+            print(String(format:"Personagem_voando_%2d.png", index))}
+        let fps = 8.0
+        let anim = SKAction.customActionWithDuration(1.0, actionBlock: { node, time in
+            let index = Int((fps * Double(time))) % animFrames.count
+            (node as! SKSpriteNode).texture = animFrames[index]})
+        jogador.runAction(SKAction.repeatActionForever(anim))
         gameNode.addChild(jogador)
         
         
@@ -239,9 +248,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var particulasEstrelas = SKEmitterNode(fileNamed: "stars.sks")
         
 
-        particulasEstrelas.position = CGPoint(x: 0, y: self.frame.height / 2)
+        particulasEstrelas.position = CGPoint(x: -400, y: self.frame.height / 2)
         particulasEstrelas.zPosition = -1
+        particulasEstrelas.alpha = 0.7
         gameNode.addChild(particulasEstrelas)
+        
+        //initSprite()
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
@@ -304,7 +316,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             {
                 bodyB.node?.removeFromParent()
                 numeroDaLetraAtual++
+                personagemFelizAnimacao()
             }
+
             
         }
         
@@ -316,6 +330,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             {
                 bodyA.node?.removeFromParent()
                 numeroDaLetraAtual++
+                personagemFelizAnimacao()
             }
             
         }
@@ -347,7 +362,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             bodyA.node?.removeFromParent()
             DataManager.instance.numeroEstrelas++
             acenderEstrelas()
-            
+            personagemFelizAnimacao()
             
         }
         
@@ -357,6 +372,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             bodyB.node?.removeFromParent()
             DataManager.instance.numeroEstrelas++
             acenderEstrelas()
+            personagemFelizAnimacao()
             
             
         }
@@ -386,20 +402,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             
             println(regiao.name)
-            
-        }
-
-        if contact.bodyA.categoryBitMask == BitMasks.particulas && contact.bodyB.categoryBitMask == BitMasks.regiao {
-            var bodyA = contact.bodyA
-            var bodyB = contact.bodyB
-            bodyA.node?.removeFromParent()
-        }
-        if contact.bodyA.categoryBitMask == BitMasks.regiao && contact.bodyB.categoryBitMask == BitMasks.particulas {
-            var bodyA = contact.bodyA
-            var bodyB = contact.bodyB
-            bodyB.node?.removeFromParent()
-
-            
             
         }
         
@@ -470,11 +472,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         fieldNode.addChild(regiaoPlaneta)
         var particulas = SKEmitterNode()
         switch imagem {
-            case "2.png":
-                    particulas = SKEmitterNode(fileNamed: "amarelo.sks")
-            case "3.png":
+            case "planetaverde.png":
+                    particulas = SKEmitterNode(fileNamed: "verde.sks")
+            case "planetavermelho.png":
                     particulas = SKEmitterNode(fileNamed: "vermelho.sks")
-            case "4.png":
+            case "planetaazul.png":
                     particulas = SKEmitterNode(fileNamed: "azul.sks")
             default:
                     particulas = SKEmitterNode(fileNamed: "azul.sks")
@@ -486,16 +488,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             particulas.particleBirthRate = 30
             particulas.speed = 3
             particulas.particleColor = UIColor.redColor()
-            particulas.particlePositionRange = CGVector(dx: imageFieldNode.size.width + imageFieldNode.size.width*0.8, dy: imageFieldNode.size.height + imageFieldNode.size.height*0.8)}
+            particulas.particlePositionRange = CGVector(dx: 1.7*(raio + CGFloat(raioAtmosfera)), dy: 1.7*(raio + CGFloat(raioAtmosfera)))}
         particulas.position = CGPoint(x: 0, y: 0)
         particulas.zPosition = -1
         if raio >= 80 {
-            particulas.particlePositionRange = CGVector(dx: imageFieldNode.size.width + imageFieldNode.size.width*0.25, dy: imageFieldNode.size.height + imageFieldNode.size.height*0.25)
+            particulas.particlePositionRange = CGVector(dx: 1.7*(raio + CGFloat(raioAtmosfera)), dy: 1.7*(raio + CGFloat(raioAtmosfera)))
         }
         particulas.alpha = 0.7
-        particulas.physicsBody?.categoryBitMask = BitMasks.particulas
-        particulas.physicsBody?.collisionBitMask = BitMasks.regiao | BitMasks.particulas
-        particulas.physicsBody?.contactTestBitMask = BitMasks.particulas | BitMasks.regiao
+        particulas.fieldBitMask = BitMasks.particulas | BitMasks.regiao
         
         regiaoPlaneta.addChild(particulas)
         return imageFieldNode
@@ -545,9 +545,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     
-    
-    
-    
     func acenderEstrelas() {
         if DataManager.instance.numeroEstrelas == 1 {
             estrelaDoHud1.texture = SKTexture(imageNamed: "estrela.png")
@@ -580,6 +577,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         case .planet:
             anguloAtual -= CGFloat(M_PI)
             moveDuration = 10 * moveDelay
+            personagemPulando()
         }
         
         
@@ -600,6 +598,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    func personagemFelizAnimacao () {
+        var animFrames = [SKTexture]()
+        for index in 1...2 {
+            animFrames.append(SKTexture(imageNamed: String(format:"Personagem_feliz_%d.png", index)))}
+        let fps = 8.0
+        let anim = SKAction.customActionWithDuration(1.0, actionBlock: { node, time in
+            let index = Int((fps * Double(time))) % animFrames.count
+            (node as! SKSpriteNode).texture = animFrames[index]})
+        jogador.runAction(SKAction.repeatAction(anim, count: 3))
+    
+    }
+    
+    func personagemPulando() {
+        var animFrames = [SKTexture]()
+        for index in 1...7 {
+            animFrames.append(SKTexture(imageNamed: String(format:"Personagem_pulando_%d.png", index)))}
+        let fps = 8.0
+        let anim = SKAction.customActionWithDuration(1.0, actionBlock: { node, time in
+            let index = Int((fps * Double(time))) % animFrames.count
+            (node as! SKSpriteNode).texture = animFrames[index]})
+        jogador.runAction(SKAction.repeatAction(anim, count: 1))
+        
+    }
+    
     func handleLongPressWithUpdate(currentTime: CFTimeInterval) {
         if(!isTouched) {
             lastUntouchedTime = currentTime
@@ -614,10 +636,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     println((jogador.position.x * gameNode.xScale))
                     if swipePoints.actual.x > self.size.height/2 {
                         movePlayerWithDirection(moveDirection.right)
-                        
+                        //personagemPulando()
                     }
                     else if swipePoints.actual.x < self.size.height/2 {
                         movePlayerWithDirection(moveDirection.left)
+                        //personagemPulando()
                     }
                     lastMoveTime = currentTime
                 }
