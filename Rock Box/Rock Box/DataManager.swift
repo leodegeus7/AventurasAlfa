@@ -87,10 +87,7 @@ class DataManager: NSObject {
         
     }
     
-    func writeArquivoJson()
-    {
-      
-    }
+
     
     /////////JSOOOON
     
@@ -98,6 +95,7 @@ class DataManager: NSObject {
     {
         
         moverJsonParaDocuments()
+        
         let path = caminhoDocs()
         let jsonData = NSData(contentsOfFile: path)
         var jsonResult = NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil) as! Dictionary<String, AnyObject>
@@ -140,6 +138,26 @@ class DataManager: NSObject {
         let pathToDocumentsFolder = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
         
         return pathToDocumentsFolder.stringByAppendingPathComponent("/data.json")
+        
+    }
+    
+    func escreverArquivoJson(fase:Int, quantasEstrelasPegou:Int)
+    {
+    var arquivoAnterior = lerArquivoJson()
+        
+       var dicionario = arquivoAnterior[fase - 1] as! Dictionary<String,AnyObject>
+    
+        dicionario["jaJogou"] = false
+        dicionario["quantasEstrelasPegou"] = quantasEstrelasPegou
+        
+        arquivoAnterior[fase - 1] = dicionario
+       
+        let dicionarioJson = Dictionary(dictionaryLiteral: ("local",arquivoAnterior))
+        println(dicionarioJson)
+        let dataJson = NSJSONSerialization.dataWithJSONObject(dicionarioJson, options: NSJSONWritingOptions.PrettyPrinted, error: nil)
+        println(caminhoDocs())
+        dataJson?.writeToFile(caminhoDocs(), atomically: true)
+        
     }
 
     

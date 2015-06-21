@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A8B7F911B365E5C00315FF3 /* FimDaFaseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B7F901B365E5C00315FF3 /* FimDaFaseScene.swift */; };
 		1AE4A36E1B3371DA00C21087 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE4A36D1B3371DA00C21087 /* DataManager.swift */; };
 		1AE4A3721B3387E900C21087 /* EscolhaDaFaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE4A3711B3387E900C21087 /* EscolhaDaFaseViewController.swift */; };
 		AFB7D27C1B363B0B0073C367 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = AFB7D27B1B363B0B0073C367 /* data.json */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A8B7F901B365E5C00315FF3 /* FimDaFaseScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FimDaFaseScene.swift; sourceTree = "<group>"; };
 		1AE4A36D1B3371DA00C21087 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		1AE4A3711B3387E900C21087 /* EscolhaDaFaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EscolhaDaFaseViewController.swift; sourceTree = "<group>"; };
 		AFB7D27B1B363B0B0073C367 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				CD8BFA801B2A1BFF00FB3356 /* SpriteNode.swift */,
 				1AE4A3711B3387E900C21087 /* EscolhaDaFaseViewController.swift */,
 				CD8BFA601B2A1A4500FB3356 /* GameViewController.swift */,
+				1A8B7F901B365E5C00315FF3 /* FimDaFaseScene.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A8B7F911B365E5C00315FF3 /* FimDaFaseScene.swift in Sources */,
 				1AE4A36E1B3371DA00C21087 /* DataManager.swift in Sources */,
 				CD8BFA5F1B2A1A4500FB3356 /* GameScene.swift in Sources */,
 				CD8BFA811B2A1BFF00FB3356 /* SpriteNode.swift in Sources */,

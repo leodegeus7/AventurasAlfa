@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>0E19148E-81F6-4E11-8FE2-40BA498EA8A2</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>Rock Box</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>66A15ABD20BE89B40E855BE45C9AD493AB301E9D</key>
 		<string>https://bitbucket.org/starteam2/starproject.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Rock Box/Rock Box.xcodeproj/project.xcworkspace</string>
+	<string>Rock Box/Rock Box.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>66A15ABD20BE89B40E855BE45C9AD493AB301E9D</key>
