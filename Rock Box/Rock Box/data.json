@@ -63,16 +63,16 @@
                            {
                            "imagem": "4.png",
                            "coordenadaX": -400,
-                           "coordenadaY": 500,
+                           "coordenadaY": 400,
                            "raioPlaneta": 50,
-                           "raioAtmosfera": 250
+                           "raioAtmosfera": 220
                            },
                            {
                            "imagem": "2.png",
                            "coordenadaX": 0,
                            "coordenadaY": 0,
                            "raioPlaneta": 200,
-                           "raioAtmosfera": 350
+                           "raioAtmosfera": 200
                            },
                            {
                            "imagem": "3.png",
