@@ -110,7 +110,7 @@ class GameViewController: UIViewController {
         return true
     }
     
-    
+     
     @IBAction func somPalavra(sender: UIButton) {
         var fase = DataManager.instance.arrayDaFaseAntes(DataManager.instance.faseEscolhida)
         var stringFase = fase["palavra"] as! String
@@ -120,7 +120,7 @@ class GameViewController: UIViewController {
                 var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("casa", ofType: "wav")!)
                 audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
             case "olho":
-                var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("casa", ofType: "wav")!)
+                var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("olho", ofType: "wav")!)
                 audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
             case "calca":
                 var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("calca", ofType: "wav")!)
@@ -136,7 +136,7 @@ class GameViewController: UIViewController {
                 audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
             default:
                 println("NAO ACHOU SOOM")
-                var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("casa", ofType: "wav")!)
+                var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("eu_sou_o_alfa", ofType: "wav")!)
                 audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
             
         }

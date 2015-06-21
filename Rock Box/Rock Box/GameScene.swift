@@ -7,6 +7,7 @@
 ////
 
 import SpriteKit
+import AVFoundation
 
 
 struct BitMasks {
@@ -61,6 +62,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var lastMoveTime = CFTimeInterval()
     
     var personagemVoando = [SKTexture]()
+    var audioPlayer = AVAudioPlayer()
     
     enum moveDirection{
         case left
@@ -266,8 +268,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             swipePoints.actual = swipePoints.initial
             
             isTouched = true
+            let positionInScene = touch.locationInNode(self)
+            let touchedNode = self.nodeAtPoint(positionInScene)
             
-            
+            if let name = touchedNode.name
+            {
+                if name == "jogador"
+                {
+                    print("Touched")
+                    var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("eu_sou_o_alfa", ofType: "wav")!)
+                    audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
+                    audioPlayer.prepareToPlay()
+                    audioPlayer.play()
+                }
+            }
+        
         }
     }
     
