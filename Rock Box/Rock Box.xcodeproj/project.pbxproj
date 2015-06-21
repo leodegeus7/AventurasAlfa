@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1AE4A36E1B3371DA00C21087 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE4A36D1B3371DA00C21087 /* DataManager.swift */; };
 		1AE4A3721B3387E900C21087 /* EscolhaDaFaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE4A3711B3387E900C21087 /* EscolhaDaFaseViewController.swift */; };
-		A730E7FB1B334D740081E2BD /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = A730E7FA1B334D740081E2BD /* data.json */; };
+		AFB7D27C1B363B0B0073C367 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = AFB7D27B1B363B0B0073C367 /* data.json */; };
 		CD4B9C941B30A03100C307C2 /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = CD4B9C931B30A03100C307C2 /* 6.png */; };
 		CD4B9C961B30A27000C307C2 /* 7.png in Resources */ = {isa = PBXBuildFile; fileRef = CD4B9C951B30A27000C307C2 /* 7.png */; };
 		CD6A5A951B34896600C9E48C /* estrela.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6A5A941B34896600C9E48C /* estrela.png */; };
@@ -46,7 +46,7 @@
 /* Begin PBXFileReference section */
 		1AE4A36D1B3371DA00C21087 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		1AE4A3711B3387E900C21087 /* EscolhaDaFaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EscolhaDaFaseViewController.swift; sourceTree = "<group>"; };
-		A730E7FA1B334D740081E2BD /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		AFB7D27B1B363B0B0073C367 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		CD4B9C931B30A03100C307C2 /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6.png; sourceTree = "<group>"; };
 		CD4B9C951B30A27000C307C2 /* 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 7.png; sourceTree = "<group>"; };
 		CD6A5A941B34896600C9E48C /* estrela.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = estrela.png; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 		CD6A5AA61B34C24C00C9E48C /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				A730E7FA1B334D740081E2BD /* data.json */,
+				AFB7D27B1B363B0B0073C367 /* data.json */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -312,10 +312,10 @@
 				CD8BFABB1B2B594600FB3356 /* 4.png in Resources */,
 				CD6A5A9D1B34BA7A00C9E48C /* Mask.png in Resources */,
 				CD8BFAB71B2B451300FB3356 /* 2.png in Resources */,
+				AFB7D27C1B363B0B0073C367 /* data.json in Resources */,
 				CD4B9C961B30A27000C307C2 /* 7.png in Resources */,
 				CD9A5FD91B2B635F0043415D /* 5.png in Resources */,
 				CD6A5A971B34AAE400C9E48C /* volume.png in Resources */,
-				A730E7FB1B334D740081E2BD /* data.json in Resources */,
 				CD6A5A951B34896600C9E48C /* estrela.png in Resources */,
 				CD6A5A9F1B34BD4000C9E48C /* background.jpg in Resources */,
 				CD8BFA641B2A1A4500FB3356 /* Main.storyboard in Resources */,

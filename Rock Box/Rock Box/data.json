@@ -64,19 +64,19 @@
                            "coordenadaX": -400,
                            "coordenadaY": 500,
                            "raioPlaneta": 50,
-                           "raioAtmosfera": 100
+                           "raioAtmosfera": 300
                            },
                            {
                            "coordenadaX": 0,
                            "coordenadaY": 0,
                            "raioPlaneta": 200,
-                           "raioAtmosfera": 100
+                           "raioAtmosfera": 300
                            },
                            {
                            "coordenadaX": 500,
                            "coordenadaY": 500,
                            "raioPlaneta": 200,
-                           "raioAtmosfera": 80
+                           "raioAtmosfera": 240
                            }
                            ]
               }
