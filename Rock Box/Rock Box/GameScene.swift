@@ -94,7 +94,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var fase = DataManager.instance.arrayDaFase(DataManager.instance.faseEscolhida)
         for planetas in fase {
             var planetasDic = planetas as! Dictionary<String,AnyObject>
-            var planetasSprite:SKSpriteNode = criarPlanetasComPosicao(CGPoint(x: CGFloat(planetasDic["coordenadaX"] as! CGFloat), y: CGFloat(planetasDic["coordenadaY"] as! CGFloat)), raio: CGFloat(planetasDic["raioPlaneta"] as! CGFloat), habilitarRegiao: true, raioAtmosfera: Float(planetasDic["raioAtmosfera"] as! Float), falloff: 0.5, strenght: 0.5, imagem: "2.png", nome: "Planeta \(arrayPlanetas.count)")
+            var planetasSprite:SKSpriteNode = criarPlanetasComPosicao(CGPoint(x: CGFloat(planetasDic["coordenadaX"] as! CGFloat), y: CGFloat(planetasDic["coordenadaY"] as! CGFloat)), raio: CGFloat(planetasDic["raioPlaneta"] as! CGFloat), habilitarRegiao: true, raioAtmosfera: Float(planetasDic["raioAtmosfera"] as! Float), falloff: 0.5, strenght: 0.5, imagem: "3.png", nome: "Planeta \(arrayPlanetas.count)")
             arrayPlanetas.append(planetasSprite)
         }
         planetaAtual = arrayPlanetas[1]
@@ -443,10 +443,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         regiaoPlaneta.physicsBody?.collisionBitMask = BitMasks.regiao
         regiaoPlaneta.name = nome
         fieldNode.addChild(regiaoPlaneta)
+        var particulas = SKEmitterNode()
+        switch imagem {
+            case "2.png":
+                    particulas = SKEmitterNode(fileNamed: "azul.sks")
+            case "3.png":
+                    particulas = SKEmitterNode(fileNamed: "vermelho.sks")
+            case "4.png":
+                    particulas = SKEmitterNode(fileNamed: "amarelo.sks")
+            default:
+                    particulas = SKEmitterNode(fileNamed: "azul.sks")
         
-        
-        
-        
+        }
+
+        if raio < 80 { //condicoes de planeta mt pequeno
+            particulas.particleLifetime = 5
+            particulas.particleBirthRate = 30
+            particulas.speed = 3
+            particulas.particleColor = UIColor.redColor()
+            particulas.particlePositionRange = CGVector(dx: imageFieldNode.size.width + imageFieldNode.size.width*0.8, dy: imageFieldNode.size.height + imageFieldNode.size.height*0.8)}
+        particulas.position = CGPoint(x: 0, y: 0)
+        particulas.zPosition = -1
+        if raio >= 80 {
+                particulas.particlePositionRange = CGVector(dx: imageFieldNode.size.width + imageFieldNode.size.width*0.25, dy: imageFieldNode.size.height + imageFieldNode.size.height*0.25)
+        }
+        particulas.alpha = 0.7
+        regiaoPlaneta.addChild(particulas)
         return imageFieldNode
     }
     
