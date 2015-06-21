@@ -94,7 +94,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var fase = DataManager.instance.arrayDaFase(DataManager.instance.faseEscolhida)
         for planetas in fase {
             var planetasDic = planetas as! Dictionary<String,AnyObject>
-            var planetasSprite:SKSpriteNode = criarPlanetasComPosicao(CGPoint(x: CGFloat(planetasDic["coordenadaX"] as! CGFloat), y: CGFloat(planetasDic["coordenadaY"] as! CGFloat)), raio: CGFloat(planetasDic["raioPlaneta"] as! CGFloat), habilitarRegiao: true, raioAtmosfera: Float(planetasDic["raioAtmosfera"] as! Float), falloff: 0.5, strenght: 0.5, imagem: "3.png", nome: "Planeta \(arrayPlanetas.count)")
+            var stringImagem =  planetasDic["imagem"] as! String
+            var planetasSprite:SKSpriteNode = criarPlanetasComPosicao(CGPoint(x: CGFloat(planetasDic["coordenadaX"] as! CGFloat), y: CGFloat(planetasDic["coordenadaY"] as! CGFloat)), raio: CGFloat(planetasDic["raioPlaneta"] as! CGFloat), habilitarRegiao: true, raioAtmosfera: Float(planetasDic["raioAtmosfera"] as! Float), falloff: 0.5, strenght: 0.5, imagem: "\(stringImagem)", nome: "Planeta \(arrayPlanetas.count)")
             arrayPlanetas.append(planetasSprite)
         }
         planetaAtual = arrayPlanetas[1]
@@ -446,11 +447,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var particulas = SKEmitterNode()
         switch imagem {
             case "2.png":
-                    particulas = SKEmitterNode(fileNamed: "azul.sks")
+                    particulas = SKEmitterNode(fileNamed: "amarelo.sks")
             case "3.png":
                     particulas = SKEmitterNode(fileNamed: "vermelho.sks")
             case "4.png":
-                    particulas = SKEmitterNode(fileNamed: "amarelo.sks")
+                    particulas = SKEmitterNode(fileNamed: "azul.sks")
             default:
                     particulas = SKEmitterNode(fileNamed: "azul.sks")
         

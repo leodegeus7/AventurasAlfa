@@ -19,7 +19,7 @@
                          },
                          {
                          "nome": "a",
-                         "angulo": 1.9000,
+                         "angulo": 1.9,
                          "planeta": "planeta2",
                          "imagem": "a.png"
                          },
@@ -61,22 +61,25 @@
                            ],
               "planetas": [
                            {
+                           "imagem": "4.png",
                            "coordenadaX": -400,
                            "coordenadaY": 500,
                            "raioPlaneta": 50,
-                           "raioAtmosfera": 300
+                           "raioAtmosfera": 250
                            },
                            {
+                           "imagem": "2.png",
                            "coordenadaX": 0,
                            "coordenadaY": 0,
                            "raioPlaneta": 200,
-                           "raioAtmosfera": 300
+                           "raioAtmosfera": 350
                            },
                            {
+                           "imagem": "3.png",
                            "coordenadaX": 500,
                            "coordenadaY": 500,
                            "raioPlaneta": 200,
-                           "raioAtmosfera": 240
+                           "raioAtmosfera": 200
                            }
                            ]
               }
