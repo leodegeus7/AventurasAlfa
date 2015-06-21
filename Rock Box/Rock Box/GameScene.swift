@@ -81,16 +81,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(gameNode)
         gameNode.position = CGPoint(x: self.frame.size.width/2, y: self.frame.size.height/4)
         gameNode.size = self.size
-        gameNode.xScale = 0.6
-        gameNode.yScale = 0.6
+        gameNode.xScale = 1.5
+        gameNode.yScale = 1.5
         gameNode.addChild(cameraNode)
         
         
         let backgroundNode = SKSpriteNode(imageNamed: "background.jpg")
         backgroundNode.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
-        backgroundNode.size = self.size
+        backgroundNode.size = CGSize(width: self.size.width*4, height: self.size.height*4)
         backgroundNode.zPosition = -10
-        self.addChild(backgroundNode)
+        gameNode.addChild(backgroundNode)
         
         
         //CRIAR PLANETAS
@@ -110,7 +110,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         
-        jogador.size = CGSize(width: 274/4, height: 471/4)
+        jogador.size = CGSize(width: 274/5, height: 471/5)
         
         let origem = planetaAtual.position
         let raio  = planetaAtual.frame.size.height/2 + jogador.size.height/2
@@ -646,6 +646,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
             }
         }
+    }
+    
+    func centerOnNode(node:SKNode){
+        
+        let cameraPositionInScene:CGPoint = self.convertPoint(node.position, fromNode: gameNode)
+        
+        gameNode.position = CGPoint(x:gameNode.position.x + self.frame.width / 2 - cameraPositionInScene.x, y: gameNode.position.y - cameraPositionInScene.y + self.frame.height / 2)
+    }
+    
+    
+    override func didSimulatePhysics() {
+        self.centerOnNode(jogador)
     }
     
     

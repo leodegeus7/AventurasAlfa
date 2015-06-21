@@ -319,8 +319,8 @@
 			children = (
 				CDD691CC1B374F38002A64C7 /* Personagem_pulando_1.png */,
 				CDD691CD1B374F38002A64C7 /* Personagem_pulando_2.png */,
-				CDD691CE1B374F38002A64C7 /* Personagem_pulando_3.png */,
 				CDD691CF1B374F38002A64C7 /* Personagem_pulando_4.png */,
+				CDD691CE1B374F38002A64C7 /* Personagem_pulando_3.png */,
 				CDD691D01B374F38002A64C7 /* Personagem_pulando_5.png */,
 				CDD691D11B374F38002A64C7 /* Personagem_pulando_6.png */,
 				CDD691D21B374F38002A64C7 /* Personagem_pulando_7.png */,
