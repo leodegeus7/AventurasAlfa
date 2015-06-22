@@ -23,7 +23,7 @@
 		1ADD85FB1B37995500E26261 /* Ç.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD85E01B37995500E26261 /* Ç.png */; };
 		1ADD85FC1B37995500E26261 /* D.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD85E11B37995500E26261 /* D.png */; };
 		1ADD85FD1B37995500E26261 /* E.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD85E21B37995500E26261 /* E.png */; };
-		1ADD85FE1B37995500E26261 /* F .png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD85E31B37995500E26261 /* F .png */; };
+		1ADD85FE1B37995500E26261 /* F.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD85E31B37995500E26261 /* F.png */; };
 		1ADD85FF1B37995500E26261 /* G.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD85E41B37995500E26261 /* G.png */; };
 		1ADD86001B37995500E26261 /* H.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD85E51B37995500E26261 /* H.png */; };
 		1ADD86011B37995500E26261 /* I.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD85E61B37995500E26261 /* I.png */; };
@@ -156,7 +156,7 @@
 		1ADD85E01B37995500E26261 /* Ç.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ç.png"; sourceTree = "<group>"; };
 		1ADD85E11B37995500E26261 /* D.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = D.png; sourceTree = "<group>"; };
 		1ADD85E21B37995500E26261 /* E.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = E.png; sourceTree = "<group>"; };
-		1ADD85E31B37995500E26261 /* F .png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "F .png"; sourceTree = "<group>"; };
+		1ADD85E31B37995500E26261 /* F.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = F.png; sourceTree = "<group>"; };
 		1ADD85E41B37995500E26261 /* G.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = G.png; sourceTree = "<group>"; };
 		1ADD85E51B37995500E26261 /* H.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = H.png; sourceTree = "<group>"; };
 		1ADD85E61B37995500E26261 /* I.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = I.png; sourceTree = "<group>"; };
@@ -293,7 +293,7 @@
 				1ADD85E01B37995500E26261 /* Ç.png */,
 				1ADD85E11B37995500E26261 /* D.png */,
 				1ADD85E21B37995500E26261 /* E.png */,
-				1ADD85E31B37995500E26261 /* F .png */,
+				1ADD85E31B37995500E26261 /* F.png */,
 				1ADD85E41B37995500E26261 /* G.png */,
 				1ADD85E51B37995500E26261 /* H.png */,
 				1ADD85E61B37995500E26261 /* I.png */,
@@ -778,7 +778,7 @@
 				1ADD85FC1B37995500E26261 /* D.png in Resources */,
 				1ADD85F81B37995500E26261 /* A.png in Resources */,
 				1ADD86121B37995500E26261 /* Z.png in Resources */,
-				1ADD85FE1B37995500E26261 /* F .png in Resources */,
+				1ADD85FE1B37995500E26261 /* F.png in Resources */,
 				CDD691D31B374F38002A64C7 /* Personagem_pulando_1.png in Resources */,
 				CDD691C41B374610002A64C7 /* Personagem_voando_3.png in Resources */,
 			);
