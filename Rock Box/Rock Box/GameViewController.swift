@@ -47,8 +47,11 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var hudView: UIView!
     @IBOutlet weak var fundoDoHudImageView: UIImageView!
+    
     var audioPlayer = AVAudioPlayer()
     
+    var arrayDasLetrasPause = Array<UIImageView>()
+    var arrayDasLetrasHud = Array<UIImageView>()
     
     
     override func viewDidLoad() {
@@ -56,49 +59,8 @@ class GameViewController: UIViewController {
         audioPlayer1.stop()
         audioPlayer2.play()
         
-        
-        
-        var arquivo = (((DataManager.instance.lerArquivoJson())[DataManager.instance.faseEscolhida - 1] as! Dictionary<String,AnyObject>)["palavra"] as! String)
-        
-        var palavraFase = Array(arquivo)
-        
-        
-      
-        var divisoes = viewPalavra.bounds.width/(CGFloat(2*palavraFase.count))
-        
-        for var i = 0; i < Int(palavraFase.count); i++
-
-        {
-            var riscoDasLetras = UIImageView(image: UIImage(named: "Line.png"))
-            riscoDasLetras.bounds.size = CGSize(width: riscoDasLetras.bounds.size.width*0.5, height: riscoDasLetras.bounds.size.height)
-            
-            riscoDasLetras.frame = CGRect(origin: CGPoint(x: viewPalavra.bounds.width/10 + (riscoDasLetras.bounds.width + 10)*CGFloat(i) , y: botaoDoSom.frame.origin.y + botaoDoSom.bounds.height), size: riscoDasLetras.bounds.size)
-             viewPalavra.addSubview(riscoDasLetras)
-            var riscoDasLetras2 = UIImageView(image: UIImage(named: "Line.png"))
-             riscoDasLetras2.bounds.size = CGSize(width: riscoDasLetras2.bounds.size.width*0.3, height: riscoDasLetras.bounds.size.height)
-            
-            riscoDasLetras2.frame = CGRect(x: objetoDaFaseMiniatura.frame.origin.x + 2.2*riscoDasLetras2.bounds.width + CGFloat(i)*(riscoDasLetras2.bounds.width + 10), y: objetoDaFaseMiniatura.frame.origin.y + 50, width: riscoDasLetras2.bounds.width, height: riscoDasLetras2.bounds.height)
-            
-            hudView.addSubview(riscoDasLetras2)
-            
-            var auxiliar = "\(palavraFase[i])"
-            auxiliar = "\(auxiliar.capitalizedString).png"
-            println(auxiliar)
-            
-            var imagemDaLetra = UIImageView(image:UIImage(named: auxiliar))
-            imagemDaLetra.frame.origin = riscoDasLetras2.frame.origin
-            println(riscoDasLetras2.frame)
-            println(imagemDaLetra.frame)
-            imagemDaLetra.bounds.size = CGSize(width: 30 , height: 30)
-        
-         
-            hudView.addSubview(imagemDaLetra)
-//            var palavra = Array(((DataManager.instance.lerArquivoJson()[DataManager.instance.faseEscolhida - 1] as! Dictionary<String,AnyObject>)["palavra"] as! String))
-//            
-//            println(palavra)
-        }
-        
-        
+        criarRiscosELetrasHud()
+        criarRiscosELetrasPause()
         
         
         
@@ -256,6 +218,90 @@ class GameViewController: UIViewController {
             estrela3.image = UIImage(named: "estrela.png")
         
         }
+    }
+    
+    func criarRiscosELetrasHud () {
+        
+        var arquivo = (((DataManager.instance.lerArquivoJson())[DataManager.instance.faseEscolhida - 1] as! Dictionary<String,AnyObject>)["palavra"] as! String)
+        
+        var palavraFase = Array(arquivo)
+        
+        let posicaoInicial = CGPoint(x: 370 , y: 98.0)
+        let posicaoFinal = CGPoint(x: 620 , y: 98.0)
+        
+        let espacoRiscos = (posicaoFinal.x - posicaoInicial.x) * 8 / 9
+        let tamanhoRisco = espacoRiscos / CGFloat(palavraFase.count)
+        
+        let espacoVazio = (posicaoFinal.x - posicaoInicial.x) * 1 / 9
+        let tamanhoEspaco = espacoVazio / CGFloat(palavraFase.count)
+        
+        let tamanhoLetra = CGSize(width: tamanhoRisco, height: tamanhoRisco * 742 / 559 )
+        
+        for var i = 0; i < palavraFase.count; i++ {
+            
+            var riscoDasLetrasHud = UIImageView(image: UIImage(named: "Line.png"))
+            riscoDasLetrasHud.bounds.size = CGSize(width: tamanhoRisco, height: riscoDasLetrasHud.bounds.size.height)
+            
+            riscoDasLetrasHud.layer.position = CGPoint(x: posicaoInicial.x + CGFloat(i) * (tamanhoRisco + tamanhoEspaco), y: posicaoInicial.y)
+            
+            hudView.addSubview(riscoDasLetrasHud)
+            
+            var letra = "\(palavraFase[i])"
+            letra = "\(letra.capitalizedString).png"
+            
+            let imagemDaLetra = UIImageView(image: UIImage(named: letra))
+            imagemDaLetra.bounds.size = tamanhoLetra
+            imagemDaLetra.layer.position = CGPoint(x: riscoDasLetrasHud.layer.position.x, y: riscoDasLetrasHud.layer.position.y - (tamanhoLetra.height/2))
+
+            hudView.addSubview(imagemDaLetra)
+            
+            arrayDasLetrasHud.append(imagemDaLetra)
+            
+        }
+    }
+    
+    func criarRiscosELetrasPause () {
+        
+        var arquivo = (((DataManager.instance.lerArquivoJson())[DataManager.instance.faseEscolhida - 1] as! Dictionary<String,AnyObject>)["palavra"] as! String)
+        
+        var palavraFase = Array(arquivo)
+        
+        
+        let posicaoInicial = CGPoint(x: 88 , y: 320)
+        let posicaoFinal = CGPoint(x: 469 , y: 320)
+        
+        let espacoRiscos = (posicaoFinal.x - posicaoInicial.x) * 8 / 9
+        let tamanhoRisco = espacoRiscos / CGFloat(palavraFase.count)
+        
+        let espacoVazio = (posicaoFinal.x - posicaoInicial.x) * 1 / 9
+        let tamanhoEspaco = espacoVazio / CGFloat(palavraFase.count)
+        
+        let tamanhoLetra = CGSize(width: tamanhoRisco, height: tamanhoRisco * 742 / 559 )
+        
+        
+        for var i = 0; i < palavraFase.count; i++ {
+            var riscoDasLetrasPause = UIImageView(image: UIImage(named: "Line.png"))
+            riscoDasLetrasPause.bounds.size = CGSize(width: tamanhoRisco, height: riscoDasLetrasPause.bounds.size.height)
+            
+            riscoDasLetrasPause.layer.position = CGPoint(x: posicaoInicial.x + CGFloat(i) * (tamanhoRisco + tamanhoEspaco), y: posicaoInicial.y)
+            viewPalavra.addSubview(riscoDasLetrasPause)
+            
+            var letra = "\(palavraFase[i])"
+            letra = "\(letra.capitalizedString).png"
+            
+            let imagemDaLetra = UIImageView(image: UIImage(named: letra))
+            imagemDaLetra.layer.position = CGPoint(x: riscoDasLetrasPause.layer.position.x, y: riscoDasLetrasPause.layer.position.y - (tamanhoLetra.height/2))
+            imagemDaLetra.bounds.size = tamanhoLetra
+            viewPalavra.addSubview(imagemDaLetra)
+            
+            arrayDasLetrasPause.append(imagemDaLetra)
+            
+        }
+        
+        println("Inicial: \(posicaoInicial) Final: \(posicaoFinal)")
+
+        
+        
     }
     
 }
