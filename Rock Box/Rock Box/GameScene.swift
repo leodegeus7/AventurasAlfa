@@ -11,12 +11,12 @@ import AVFoundation
 
 
 struct BitMasks {
-    static let planeta:UInt32 = 0x01
-    static let personagem:UInt32 = 0x02
-    static let letra:UInt32 = 0x03
-    static let regiao:UInt32 = 0x04
-    static let estrela:UInt32 = 0x05
-    static let particulas:UInt32 = 0x06
+    static let planeta:UInt32 = 0x1 << 0
+    static let personagem:UInt32 = 0x1 << 1
+    static let letra:UInt32 = 0x1 << 2
+    static let regiao:UInt32 = 0x1 << 3
+    static let estrela:UInt32 = 0x1 << 4
+    static let particulas:UInt32 = 0x1 << 5
     static let campo:UInt32 = 0x06
 }
 
@@ -136,10 +136,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         jogador.physicsBody?.dynamic = true
         jogador.physicsBody?.mass = 1000
         jogador.physicsBody?.categoryBitMask = BitMasks.personagem
-        jogador.physicsBody?.collisionBitMask = BitMasks.personagem
+        jogador.physicsBody?.collisionBitMask = BitMasks.planeta
         jogador.physicsBody?.contactTestBitMask = BitMasks.letra | BitMasks.regiao
         jogador.physicsBody?.allowsRotation = false
         jogador.physicsBody?.affectedByGravity = true
+        jogador.zPosition = 100
         var animFrames = [SKTexture]()
         for index in 1...4 {
             animFrames.append(SKTexture(imageNamed: String(format:"Personagem_voando_%d.png", index)))
@@ -310,11 +311,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             {
                 if name == "jogador"
                 {
-                    print("Touched")
-                    var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("eu_sou_o_alfa", ofType: "wav")!)
-                    audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
-                    audioPlayer.prepareToPlay()
-                    audioPlayer.play()
+                    
+                    var random = arc4random_uniform(4)
+                    var sound = SKAction()
+                    switch random {
+                    case 0:
+                        sound = SKAction.playSoundFileNamed("vamos_la.wav", waitForCompletion: true)
+                    case 1:
+                        sound = SKAction.playSoundFileNamed("eu_sou_o_alfa.wav", waitForCompletion: true)
+                    case 2:
+                        sound = SKAction.playSoundFileNamed("eu_sou_o_alfa2.wav", waitForCompletion: true)
+                    case 3:
+                        sound = SKAction.playSoundFileNamed("vamos_amiguinhos.wav", waitForCompletion: true)
+                    default:
+                        sound = SKAction.playSoundFileNamed("vamos_la.wav", waitForCompletion: true)
+                    }
+                    self.runAction(sound)
+                    personagemFelizAnimacao()
+                    
+                    
+//                    print("Touched")
+//                    var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("eu_sou_o_alfa", ofType: "wav")!)
+//                    audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
+//                    audioPlayer.prepareToPlay()
+//                    audioPlayer.play()
+                    
                 }
             }
         
@@ -581,7 +602,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func criarLetras(node:SKSpriteNode, angulo:CGFloat, imagem:String, nome:String) -> SKSpriteNode {
         var letra = SKSpriteNode(imageNamed: imagem)
         var raio = node.size.height / 2
-        letra.size = CGSize (width: 299/14, height: 299/14)
+        letra.size = CGSize (width: 299/6, height: 299/6)
         letra.position = CGPoint(x: (raio*sin(angulo))+letra.size.height*sin(angulo)/2, y: (raio*cos(angulo)+letra.size.height*cos(angulo)/2))
         letra.physicsBody = SKPhysicsBody(rectangleOfSize: letra.size)
         letra.physicsBody?.affectedByGravity = false
@@ -589,8 +610,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         letra.physicsBody?.mass = 1
         var anguloF = (3.1415 - angulo) + CGFloat(M_PI)
         letra.zRotation = CGFloat(anguloF)
-        letra.physicsBody?.collisionBitMask = 0x0
-        letra.physicsBody?.contactTestBitMask = BitMasks.letra | BitMasks.personagem
+        letra.physicsBody?.collisionBitMask = 0//BitMasks.personagem////BitMasks.letra
+        letra.physicsBody?.contactTestBitMask = BitMasks.personagem
         letra.physicsBody?.categoryBitMask = BitMasks.letra
         letra.physicsBody?.fieldBitMask = BitMasks.letra
         letra.name = nome
@@ -603,7 +624,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func criarEstrelas(node:SKSpriteNode, angulo:CGFloat) -> SKSpriteNode{
         var estrela = SKSpriteNode(imageNamed: "estrela.png")
         var raio = node.size.height / 2
-        estrela.size = CGSize (width: 299/14, height: 299/14)
+        estrela.size = CGSize (width: 299/10, height: 299/10)
         estrela.position = CGPoint(x: (raio*sin(angulo))+estrela.size.height*sin(angulo)/2, y: (raio*cos(angulo)+estrela.size.height*cos(angulo)/2))
         estrela.physicsBody = SKPhysicsBody(rectangleOfSize: estrela.size)
         estrela.physicsBody?.affectedByGravity = false
@@ -688,7 +709,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let anim = SKAction.customActionWithDuration(1.0, actionBlock: { node, time in
             let index = Int((fps * Double(time))) % animFrames.count
             (node as! SKSpriteNode).texture = animFrames[index]})
-        jogador.runAction(SKAction.repeatAction(anim, count: 3))
+        jogador.runAction(SKAction.repeatAction(anim, count: 2))
     
     }
     
