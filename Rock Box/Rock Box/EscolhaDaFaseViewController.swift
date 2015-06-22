@@ -135,7 +135,7 @@ class EscolhaDaFaseViewController: UIViewController {
     }
     
     func posicaoEstrelas (estrelas:UIImageView,fase:UIButton) {
-            estrelas.layer.position = CGPoint(x: fase.layer.position.x + fase.frame.width*(3/4) - 5, y: fase.layer.position.y - fase.frame.height*(3/4) + 20)
+            estrelas.layer.position = CGPoint(x: fase.layer.position.x - fase.frame.width*(5/4) - 5, y: fase.layer.position.y - fase.frame.height*(3/4) + 20)
     
     }
 
