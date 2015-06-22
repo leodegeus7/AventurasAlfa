@@ -17,6 +17,7 @@ struct BitMasks {
     static let regiao:UInt32 = 0x04
     static let estrela:UInt32 = 0x05
     static let particulas:UInt32 = 0x06
+    static let campo:UInt32 = 0x06
 }
 
 
@@ -57,12 +58,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var isTouched = false
     var longPressMinInterval = 0.5
     var lastUntouchedTime = CFTimeInterval()
+    var lastMovedTouchTime = CFTimeInterval()
+    
+    var lastUpdateTime = CFTimeInterval()
     
     var moveDelay = 0.1
     var lastMoveTime = CFTimeInterval()
     
     var personagemVoando = [SKTexture]()
     var audioPlayer = AVAudioPlayer()
+    var isJumping = false
     
     enum moveDirection{
         case left
@@ -319,6 +324,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             let location = touch.locationInNode(self)
             
+            lastMovedTouchTime = lastUpdateTime
+            
             swipePoints.actual = location
             
         }
@@ -334,19 +341,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             isTouched = false
             
-            let dx = fabs(swipePoints.final.x - swipePoints.initial.x)
-            let dy = fabs(swipePoints.final.y - swipePoints.initial.y)
+            if lastUpdateTime - lastMovedTouchTime < 0.2 {
             
-            if (dx > 20 || dy > 20) {
-                let jumpVectorSize = CGFloat(120000)
-                let jumpVector = CGVector(dx: jumpVectorSize * cos(anguloAtual), dy: jumpVectorSize * sin(anguloAtual))
+                let dx = fabs(swipePoints.final.x - swipePoints.initial.x)
+                let dy = fabs(swipePoints.final.y - swipePoints.initial.y)
+            
+                if (dx > 20 || dy > 20) && !isJumping {
+                    let jumpVectorSize = CGFloat(120000)
+                    let jumpVector = CGVector(dx: jumpVectorSize * cos(anguloAtual), dy: jumpVectorSize * sin(anguloAtual))
                 
-                personagemPulando()
+                    isJumping = true
                 
-                jogador.physicsBody?.applyImpulse(jumpVector)
+                    personagemPulando()
                 
+                    jogador.physicsBody?.applyImpulse(jumpVector)
+                
+                }
             }
-            
         }
     }
     
@@ -378,25 +389,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 numeroDaLetraAtual++
                 personagemFelizAnimacao()
             }
-            
-        }
-        
-        if contact.bodyA.categoryBitMask == BitMasks.regiao && contact.bodyB.categoryBitMask == BitMasks.personagem {
-            
-            var bodyA = contact.bodyA
-            var bodyB = contact.bodyB
-            if bodyA.node?.name == "planeta1"{
-                println("planeta1")
-                planetaUser = "planeta1"
-                
-                
-            }
-            if bodyB.node?.name == "planeta2"{
-                println("planeta1")
-                planetaUser = "planeta1"
-                cameraNode.anchorPoint = CGPoint(x: 100, y: 2000)
-            }
-            
             
         }
         
@@ -451,11 +443,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         }
         
-        
+        if contact.bodyA.categoryBitMask == BitMasks.personagem || contact.bodyB.categoryBitMask == BitMasks.personagem
+            && contact.bodyA.categoryBitMask == BitMasks.planeta || contact.bodyB.categoryBitMask == BitMasks.planeta {
+                
+                isJumping = false
+        }
     }
     
     
     override func update(currentTime: CFTimeInterval) {
+        
+        lastUpdateTime = currentTime
         
         handleLongPressWithUpdate(currentTime)
         
@@ -485,7 +483,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         fieldNode.physicsBody = SKPhysicsBody(circleOfRadius: raio)
         fieldNode.physicsBody?.dynamic = false
         let fieldCategory: UInt32 = 0x1 << 1
-        fieldNode.categoryBitMask = BitMasks.planeta
+        fieldNode.categoryBitMask = BitMasks.campo
         fieldNode.physicsBody?.allowsRotation = false
         fieldNode.physicsBody?.applyAngularImpulse(100)
         var imageFieldNode = SKSpriteNode(imageNamed: imagem)
@@ -558,7 +556,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         letra.physicsBody?.mass = 1
         var anguloF = (3.1415 - angulo) + CGFloat(M_PI)
         letra.zRotation = CGFloat(anguloF)
-        letra.physicsBody?.collisionBitMask = BitMasks.letra | BitMasks.personagem
+        letra.physicsBody?.collisionBitMask = 0x0
         letra.physicsBody?.contactTestBitMask = BitMasks.letra | BitMasks.personagem
         letra.physicsBody?.categoryBitMask = BitMasks.letra
         letra.physicsBody?.fieldBitMask = BitMasks.letra
@@ -611,7 +609,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func movePlayerWithDirection (direction : moveDirection) {
         
-        var moveDuration = moveDelay
+        var moveDuration = moveDelay * Double(planetaAtual.frame.size.height/200)
         
         switch (direction) {
         case .left:
