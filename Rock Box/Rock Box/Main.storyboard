@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fP6-gf-8Ez">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fP6-gf-8Ez">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -370,6 +370,17 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="900" height="600"/>
+                    <connections>
+                        <outlet property="nonaFase" destination="pnY-Vw-qNM" id="Wt9-U0-5FE"/>
+                        <outlet property="oitavaFase" destination="BfL-Qv-2Us" id="djR-6i-5y5"/>
+                        <outlet property="primeiraFase" destination="obi-hr-kLj" id="seN-08-Ld0"/>
+                        <outlet property="quartaFase" destination="hHu-t2-ZKX" id="xjw-nC-z4N"/>
+                        <outlet property="quintaFase" destination="L26-cI-GKt" id="xTo-XK-bHy"/>
+                        <outlet property="segundaFase" destination="cZv-LE-YIZ" id="lRj-LG-SZv"/>
+                        <outlet property="setimaFase" destination="M1A-Ap-rPP" id="CEA-33-45v"/>
+                        <outlet property="sextaFase" destination="dS7-jF-VEJ" id="4ux-mv-GDA"/>
+                        <outlet property="terceiraFase" destination="i2P-VR-Ezo" id="qno-zt-tgl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uvi-yL-mD6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
