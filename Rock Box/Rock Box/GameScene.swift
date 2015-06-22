@@ -349,6 +349,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 if numeroDaLetraAtual == palavraDaFaseArray.count
                 {
                     self.paused = true
+                    
+                    
+                    DataManager.instance.escreverArquivoJson(DataManager.instance.faseEscolhida, quantasEstrelasPegou: numeroDeEstrelasAtual)
+                    
                 }
             
             } else
