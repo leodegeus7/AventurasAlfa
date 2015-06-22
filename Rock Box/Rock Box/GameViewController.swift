@@ -38,9 +38,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var botaoDoSom: UIButton!
     
     @IBOutlet weak var estrelaDoHud1: UIImageView!
-    
     @IBOutlet weak var estrelaDoHud2: UIImageView!
-    
     @IBOutlet weak var estrelaDoHud3: UIImageView!
     
     @IBOutlet weak var objetoDaFaseMiniatura: UIImageView!
@@ -53,27 +51,30 @@ class GameViewController: UIViewController {
     var arrayDasLetrasPause = Array<UIImageView>()
     var arrayDasLetrasHud = Array<UIImageView>()
     
+    var gameScene = GameScene()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         audioPlayer1.stop()
         audioPlayer2.play()
         
+
+        
         criarRiscosELetrasHud()
         criarRiscosELetrasPause()
-        
-        
-        
     
         viewPalavra.layer.cornerRadius = 20
         viewPalavra.layer.masksToBounds = true
         
         viewPalavra.alpha = 1
         
+        initEstrelas()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateHud:", name: "UpdateHud", object: nil)
+        
        
 //        var cor = UIColor(red: 154.0/255, green: 114.0/255, blue: 218.0/255, alpha: 0.45).CGColor
-//        
-//        
 //        viewPalavra.layer.backgroundColor = cor
 
         viewPalavra.layer.backgroundColor = UIColor(patternImage: UIImage(named: "Mask.png")!).CGColor
@@ -127,10 +128,15 @@ class GameViewController: UIViewController {
             
             skView.presentScene(scene)
         
-            
+            gameScene = scene
+            updateHud(NSNotification(name: "Updatehud", object: nil))
         }
     }
 
+    override func viewDidAppear(animated: Bool) {
+        playSound()
+    }
+    
     override func shouldAutorotate() -> Bool {
         return true
     }
@@ -154,45 +160,7 @@ class GameViewController: UIViewController {
     
      
     @IBAction func somPalavra(sender: UIButton) {
-        var fase = DataManager.instance.arrayDaFaseAntes(DataManager.instance.faseEscolhida)
-        var stringFase = fase["palavra"] as! String
-//        var som = NSURL()
-        switch stringFase {
-            case "casa":
-                var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("casa", ofType: "wav")!)
-                audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
-            case "olho":
-                var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("olho", ofType: "wav")!)
-                audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
-            case "cenoura":
-                var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("cenoura", ofType: "wav")!)
-                audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
-            case "chuva":
-                var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("chuva", ofType: "wav")!)
-                audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
-            case "calca":
-                var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("calca", ofType: "wav")!)
-                audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
-            case "agua":
-                var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("agua", ofType: "wav")!)
-                audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
-            case "carro":
-                var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("carro", ofType: "wav")!)
-                audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
-            case "hospital":
-                var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("hospital", ofType: "wav")!)
-                audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
-            default:
-                println("NAO ACHOU SOOM")
-                var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("eu_sou_o_alfa", ofType: "wav")!)
-                audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
-            
-        }
-
-        
-        audioPlayer.prepareToPlay()
-        audioPlayer.play()
-        
+        playSound()
     }
     
     
@@ -254,7 +222,7 @@ class GameViewController: UIViewController {
             imagemDaLetra.layer.position = CGPoint(x: riscoDasLetrasHud.layer.position.x, y: riscoDasLetrasHud.layer.position.y - (tamanhoLetra.height/2))
 
             hudView.addSubview(imagemDaLetra)
-            
+            imagemDaLetra.hidden = true
             arrayDasLetrasHud.append(imagemDaLetra)
             
         }
@@ -293,7 +261,7 @@ class GameViewController: UIViewController {
             imagemDaLetra.layer.position = CGPoint(x: riscoDasLetrasPause.layer.position.x, y: riscoDasLetrasPause.layer.position.y - (tamanhoLetra.height/2))
             imagemDaLetra.bounds.size = tamanhoLetra
             viewPalavra.addSubview(imagemDaLetra)
-            
+            imagemDaLetra.hidden = true
             arrayDasLetrasPause.append(imagemDaLetra)
             
         }
@@ -302,6 +270,77 @@ class GameViewController: UIViewController {
 
         
         
+    }
+    
+    func updateHud(notification:NSNotification){
+        for var i=0; i < gameScene.numeroDaLetraAtual ; i++ {
+            arrayDasLetrasHud[i].hidden = false
+            arrayDasLetrasPause[i].hidden = false
+        }
+        
+        switch gameScene.numeroDeEstrelasAtual {
+        case 1 :
+            estrelaDoHud1.image = UIImage(named: "estrela.png")
+        case 2 :
+            estrelaDoHud2.image = UIImage(named: "estrela.png")
+        case 3 :
+            estrelaDoHud3.image = UIImage(named: "estrela.png")
+        default :
+            initEstrelas()
+        }
+    }
+    
+    func playSound() {
+        var fase = DataManager.instance.arrayDaFaseAntes(DataManager.instance.faseEscolhida)
+        var stringFase = fase["palavra"] as! String
+        switch stringFase {
+        case "casa":
+            var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("casa", ofType: "wav")!)
+            audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
+        case "olho":
+            var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("olho", ofType: "wav")!)
+            audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
+        case "cenoura":
+            var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("cenoura", ofType: "wav")!)
+            audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
+        case "chuva":
+            var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("chuva", ofType: "wav")!)
+            audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
+        case "calca":
+            var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("calca", ofType: "wav")!)
+            audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
+        case "agua":
+            var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("agua", ofType: "wav")!)
+            audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
+        case "carro":
+            var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("carro", ofType: "wav")!)
+            audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
+        case "hospital":
+            var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("hospital", ofType: "wav")!)
+            audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
+        default:
+            println("NAO ACHOU SOOM")
+            var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("eu_sou_o_alfa", ofType: "wav")!)
+            audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
+            
+        }
+        
+        
+        audioPlayer.prepareToPlay()
+        audioPlayer.play()
+    }
+    
+    func initEstrelas() {
+        estrelaDoHud1.image = UIImage(named: "estrelaApagada.png")
+        estrelaDoHud2.image = UIImage(named: "estrelaApagada.png")
+        estrelaDoHud3.image = UIImage(named: "estrelaApagada.png")
+    }
+    
+    @IBAction func repetirSom(sender: AnyObject) {
+        playSound()
+    }
+    
+    @IBAction func voltarPrasFases(sender: AnyObject) {
     }
     
 }
