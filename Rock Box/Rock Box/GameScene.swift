@@ -362,7 +362,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             isTouched = false
             
-            if lastUpdateTime - lastMovedTouchTime < 0.2 {
+            if lastUpdateTime - lastMovedTouchTime < 0.2 && !self.paused {
             
                 let dx = fabs(swipePoints.final.x - swipePoints.initial.x)
                 let dy = fabs(swipePoints.final.y - swipePoints.initial.y)
@@ -709,14 +709,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func handleLongPressWithUpdate(currentTime: CFTimeInterval) {
-        if(!isTouched) {
+        if(!isTouched || self.paused) {
             lastUntouchedTime = currentTime
             return
         }
         else {
             if (currentTime - lastUntouchedTime > longPressMinInterval) {
                 println("longPress!!!")
-                
+            
                 if (currentTime - lastMoveTime > moveDelay) {
                     println(swipePoints.initial.x)
                     println((jogador.position.x * gameNode.xScale))
