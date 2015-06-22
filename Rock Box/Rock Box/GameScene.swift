@@ -234,51 +234,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         
-//        //HUD NODE
-//        
-//        var fundoDoHUD = SKSpriteNode(imageNamed: "fundoDoHud.png")
-//        
-//        self.addChild(hud)
-//        
-//        estrelaDoHud1.position = CGPoint(x: 50, y:50)
-//        estrelaDoHud2.position = CGPoint(x: 150, y: 50)
-//        estrelaDoHud3.position = CGPoint(x: 250, y: 50)
-//        
-//        estrelaDoHud1.zPosition = 11
-//        estrelaDoHud2.zPosition = 11
-//        estrelaDoHud3.zPosition = 11
-//        
-//        estrelaDoHud1.size = CGSize(width: 50, height: 50)
-//        estrelaDoHud2.size = CGSize(width: 50, height: 50)
-//        estrelaDoHud3.size = CGSize(width: 50, height: 50)
-//        
-//        fundoDoHUD.position = CGPoint(x: fundoDoHUD.size.width/4, y: fundoDoHUD.size.height/2)
-//        fundoDoHUD.xScale = 0.5
-//      //  fundoDoHUD.size = CGSize(width: self.frame.width, height: fundoDoHUD.size.height)
-//        fundoDoHUD.zPosition = 10
-//        
-//        hud.addChild(fundoDoHUD)
-//        hud.addChild(estrelaDoHud1)
-//        hud.addChild(estrelaDoHud2)
-//        hud.addChild(estrelaDoHud3)
-//        hud.zPosition = 100
-//        
-//        for var i = 0; i < Int(palavraDaFaseArray.count); i++
-//            
-//        {
-//            var riscoDasLetras = SKSpriteNode(imageNamed: "Line.png")
-//            
-//            riscoDasLetras.xScale = 0.4
-//            riscoDasLetras.zPosition = 11
-//            CGPoint()
-//            riscoDasLetras.position = CGPoint(x: (350 + CGFloat(riscoDasLetras.size.width + 10)*CGFloat(i)) , y:CGFloat(50))
-//            
-//        hud.addChild(riscoDasLetras)
-//        
-//            
-//            
-//        }
-        
         //ESTRELAS PARTÍCULAS
         
         var particulasEstrelas = SKEmitterNode(fileNamed: "stars.sks")
@@ -327,12 +282,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     self.runAction(sound)
                     personagemFelizAnimacao()
                     
-                    
-//                    print("Touched")
-//                    var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("eu_sou_o_alfa", ofType: "wav")!)
-//                    audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
-//                    audioPlayer.prepareToPlay()
-//                    audioPlayer.play()
                     
                 }
             }
