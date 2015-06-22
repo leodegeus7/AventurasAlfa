@@ -375,6 +375,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 numeroDaLetraAtual++
                 personagemFelizAnimacao()
             
+            } else
+            {
+                bodyB.collisionBitMask = 0
             }
 
             
@@ -384,7 +387,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             var bodyA = contact.bodyA
             var bodyB = contact.bodyB
             
-            if String(palavraDaFaseArray[0]) == bodyB.node!.name && (numeroDaLetraAtual < palavraDaFaseArray.count)
+            if String(palavraDaFaseArray[0]) == bodyA.node!.name && (numeroDaLetraAtual < palavraDaFaseArray.count)
             {
                 bodyA.node?.removeFromParent()
                 numeroDaLetraAtual++
@@ -451,6 +454,34 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    
+    func didEndContact(contact: SKPhysicsContact) {
+        if contact.bodyA.categoryBitMask == BitMasks.personagem && contact.bodyB.categoryBitMask == BitMasks.letra {
+            var bodyA = contact.bodyA
+            var bodyB = contact.bodyB
+            
+            if !(String(palavraDaFaseArray[numeroDaLetraAtual]) == bodyB.node!.name && (numeroDaLetraAtual < palavraDaFaseArray.count))
+            {
+                bodyB.collisionBitMask = BitMasks.estrela | BitMasks.personagem
+                
+            }
+            
+            
+        }
+        
+        if contact.bodyA.categoryBitMask == BitMasks.letra && contact.bodyB.categoryBitMask == BitMasks.personagem {
+            var bodyA = contact.bodyA
+            var bodyB = contact.bodyB
+            
+            if !(String(palavraDaFaseArray[0]) == bodyA.node!.name && (numeroDaLetraAtual < palavraDaFaseArray.count))
+            {
+                bodyA.collisionBitMask = BitMasks.estrela | BitMasks.personagem
+               
+            }
+            
+        }
+
+    }
     
     override func update(currentTime: CFTimeInterval) {
         
