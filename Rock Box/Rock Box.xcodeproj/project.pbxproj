@@ -68,6 +68,8 @@
 		A7DA6D521B37CCAA00BD9476 /* menu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A7DA6D4F1B37CCAA00BD9476 /* menu.mp3 */; };
 		A7DA6D531B37CCAA00BD9476 /* ambiente.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A7DA6D501B37CCAA00BD9476 /* ambiente.mp3 */; };
 		A7DA6D541B37CCAA00BD9476 /* vitoria.mp3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A7DA6D511B37CCAA00BD9476 /* vitoria.mp3.mp3 */; };
+		A7DA6D581B37D68600BD9476 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7DA6D571B37D68600BD9476 /* Main.storyboard */; };
+		A7DA6D5A1B37D6E800BD9476 /* som.png in Resources */ = {isa = PBXBuildFile; fileRef = A7DA6D591B37D6E800BD9476 /* som.png */; };
 		AFB7D27C1B363B0B0073C367 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = AFB7D27B1B363B0B0073C367 /* data.json */; };
 		CD15DF6B1B377A3700DC50BD /* vamos_amiguinhos.wav in Resources */ = {isa = PBXBuildFile; fileRef = CD15DF5F1B377A3700DC50BD /* vamos_amiguinhos.wav */; };
 		CD15DF6C1B377A3700DC50BD /* agua.wav in Resources */ = {isa = PBXBuildFile; fileRef = CD15DF601B377A3700DC50BD /* agua.wav */; };
@@ -92,7 +94,6 @@
 		CD8BFA5D1B2A1A4500FB3356 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CD8BFA5C1B2A1A4500FB3356 /* GameScene.sks */; };
 		CD8BFA5F1B2A1A4500FB3356 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BFA5E1B2A1A4500FB3356 /* GameScene.swift */; };
 		CD8BFA611B2A1A4500FB3356 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BFA601B2A1A4500FB3356 /* GameViewController.swift */; };
-		CD8BFA641B2A1A4500FB3356 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD8BFA621B2A1A4500FB3356 /* Main.storyboard */; };
 		CD8BFA661B2A1A4500FB3356 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD8BFA651B2A1A4500FB3356 /* Images.xcassets */; };
 		CD8BFA691B2A1A4500FB3356 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD8BFA671B2A1A4500FB3356 /* LaunchScreen.xib */; };
 		CD8BFA751B2A1A4500FB3356 /* Rock_BoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8BFA741B2A1A4500FB3356 /* Rock_BoxTests.swift */; };
@@ -197,6 +198,8 @@
 		A7DA6D4F1B37CCAA00BD9476 /* menu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = menu.mp3; sourceTree = "<group>"; };
 		A7DA6D501B37CCAA00BD9476 /* ambiente.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ambiente.mp3; sourceTree = "<group>"; };
 		A7DA6D511B37CCAA00BD9476 /* vitoria.mp3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = vitoria.mp3.mp3; sourceTree = "<group>"; };
+		A7DA6D571B37D68600BD9476 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		A7DA6D591B37D6E800BD9476 /* som.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = som.png; sourceTree = "<group>"; };
 		AFB7D27B1B363B0B0073C367 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		CD15DF5F1B377A3700DC50BD /* vamos_amiguinhos.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = vamos_amiguinhos.wav; sourceTree = "<group>"; };
 		CD15DF601B377A3700DC50BD /* agua.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = agua.wav; sourceTree = "<group>"; };
@@ -223,7 +226,6 @@
 		CD8BFA5C1B2A1A4500FB3356 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		CD8BFA5E1B2A1A4500FB3356 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		CD8BFA601B2A1A4500FB3356 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		CD8BFA631B2A1A4500FB3356 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CD8BFA651B2A1A4500FB3356 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CD8BFA681B2A1A4500FB3356 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		CD8BFA6E1B2A1A4500FB3356 /* Rock BoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rock BoxTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -362,7 +364,7 @@
 		CD6A5AA11B34C1EE00C9E48C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CD8BFA621B2A1A4500FB3356 /* Main.storyboard */,
+				A7DA6D571B37D68600BD9476 /* Main.storyboard */,
 				CD8BFA651B2A1A4500FB3356 /* Images.xcassets */,
 				CD8BFA671B2A1A4500FB3356 /* LaunchScreen.xib */,
 			);
@@ -383,6 +385,7 @@
 		CD6A5AA31B34C20200C9E48C /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A7DA6D591B37D6E800BD9476 /* som.png */,
 				A7DA6D3A1B37C6B600BD9476 /* Numeros */,
 				1ADD86131B37BDC400E26261 /* Objetos */,
 				1ADD85DC1B37994000E26261 /* Letras */,
@@ -698,6 +701,7 @@
 				CD8BFABB1B2B594600FB3356 /* 4.png in Resources */,
 				A7DA6D451B37C72C00BD9476 /* shadow1.png in Resources */,
 				A7DA6D4B1B37C72C00BD9476 /* shadow3.png in Resources */,
+				A7DA6D581B37D68600BD9476 /* Main.storyboard in Resources */,
 				A7DA6D461B37C72C00BD9476 /* shadow8.png in Resources */,
 				1ADD859A1B37812F00E26261 /* fecharJanela.png in Resources */,
 				CD6A5A9D1B34BA7A00C9E48C /* Mask.png in Resources */,
@@ -706,6 +710,7 @@
 				CDD691B21B373F25002A64C7 /* planetaverde.png in Resources */,
 				CD8BFAB71B2B451300FB3356 /* 2.png in Resources */,
 				1ADD86041B37995500E26261 /* L.png in Resources */,
+				A7DA6D5A1B37D6E800BD9476 /* som.png in Resources */,
 				A7DA6D531B37CCAA00BD9476 /* ambiente.mp3 in Resources */,
 				1ADD858A1B376E0300E26261 /* sound copy.png in Resources */,
 				CD15DF6F1B377A3700DC50BD /* casa.wav in Resources */,
@@ -746,7 +751,6 @@
 				CDD691D81B374F38002A64C7 /* Personagem_pulando_6.png in Resources */,
 				1ADD85F91B37995500E26261 /* B.png in Resources */,
 				1ADD861E1B37BDF600E26261 /* ccarro.png in Resources */,
-				CD8BFA641B2A1A4500FB3356 /* Main.storyboard in Resources */,
 				A7DA6D541B37CCAA00BD9476 /* vitoria.mp3.mp3 in Resources */,
 				CDD691A51B371557002A64C7 /* stars.sks in Resources */,
 				1ADD86071B37995500E26261 /* O.png in Resources */,
@@ -804,14 +808,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		CD8BFA621B2A1A4500FB3356 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CD8BFA631B2A1A4500FB3356 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CD8BFA671B2A1A4500FB3356 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
