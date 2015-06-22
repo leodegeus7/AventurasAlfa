@@ -71,17 +71,14 @@ class EscolhaDaFaseViewController: UIViewController {
                 fases = DataManager.instance.arrayDaFaseAntes(index)
                 estrelas = fases["quantasEstrelasPegou"] as! Int
 
-            if estrelas == 0 {
-                mudarEstrelas(UIImage(named: "planetavermelho.png")!, fase: index+1)
-            }
-            else if estrelas == 1 {
-                mudarEstrelas(UIImage(named: "menu_planeta_1estrela.png")!, fase: index+1)
+            if estrelas == 1 {
+                mudarEstrelas(UIImage(named: "estrela_1.png")!, fase: index+1)
             }
             else if estrelas == 2 {
-                mudarEstrelas(UIImage(named: "menu_planeta_2estrela.png")!, fase: index+1)
+                mudarEstrelas(UIImage(named: "estrela_2.png")!, fase: index+1)
             }
             else if estrelas == 3 {
-                mudarEstrelas(UIImage(named: "menu_planeta_3estrela.png")!, fase: index+1)
+                mudarEstrelas(UIImage(named: "estrela_3.png")!, fase: index+1)
             }
         
         
@@ -99,39 +96,49 @@ class EscolhaDaFaseViewController: UIViewController {
     }
     
     func mudarEstrelas (imagem:UIImage,fase:Int) {
+        var estrelas = UIImageView(image: imagem)
         switch fase {
         case 1:
-            primeiraFase.setImage(imagem, forState: UIControlState.Normal)
-
+            posicaoEstrelas(estrelas, fase: primeiraFase)
+            
             break
         case 2:
-            segundaFase.setImage(imagem, forState: UIControlState.Normal)
+            posicaoEstrelas(estrelas, fase: segundaFase)
             break
         case 3:
-            terceiraFase.setImage(imagem, forState: UIControlState.Normal)
+            posicaoEstrelas(estrelas, fase: terceiraFase)
             break
         case 4:
-            quartaFase.setImage(imagem, forState: UIControlState.Normal)
+            posicaoEstrelas(estrelas, fase: quartaFase)
             break
         case 5:
-            quintaFase.setImage(imagem, forState: UIControlState.Normal)
+            posicaoEstrelas(estrelas, fase: quintaFase)
             break
         case 6:
-            sextaFase.setImage(imagem, forState: UIControlState.Normal)
+            posicaoEstrelas(estrelas, fase: sextaFase)
             break
         case 7:
-            setimaFase.setImage(imagem, forState: UIControlState.Normal)
+            posicaoEstrelas(estrelas, fase: setimaFase)
             break
         case 8:
-            oitavaFase.setImage(imagem, forState: UIControlState.Normal)
+            posicaoEstrelas(estrelas, fase: oitavaFase)
             break
         case 9:
-            nonaFase.setImage(imagem, forState: UIControlState.Normal)
+            posicaoEstrelas(estrelas, fase: nonaFase)
             break
         default:
             break
         }
+        
+        estrelas.frame.size = CGSize(width: 225/1.7, height: 81/1.7)
+        self.view.addSubview(estrelas)
     }
+    
+    func posicaoEstrelas (estrelas:UIImageView,fase:UIButton) {
+            estrelas.layer.position = CGPoint(x: fase.layer.position.x + fase.frame.width*(3/4) - 5, y: fase.layer.position.y - fase.frame.height*(3/4) + 20)
+    
+    }
+
     
 
     /*
