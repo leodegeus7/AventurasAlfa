@@ -46,6 +46,7 @@
 		1ADD86121B37995500E26261 /* Z.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD85F71B37995500E26261 /* Z.png */; };
 		1AE4A36E1B3371DA00C21087 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE4A36D1B3371DA00C21087 /* DataManager.swift */; };
 		1AE4A3721B3387E900C21087 /* EscolhaDaFaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE4A3711B3387E900C21087 /* EscolhaDaFaseViewController.swift */; };
+		A75C33ED1B37B6BD005FF4FD /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A75C33EC1B37B6BD005FF4FD /* logo.jpg */; };
 		AFB7D27C1B363B0B0073C367 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = AFB7D27B1B363B0B0073C367 /* data.json */; };
 		CD15DF6B1B377A3700DC50BD /* vamos_amiguinhos.wav in Resources */ = {isa = PBXBuildFile; fileRef = CD15DF5F1B377A3700DC50BD /* vamos_amiguinhos.wav */; };
 		CD15DF6C1B377A3700DC50BD /* agua.wav in Resources */ = {isa = PBXBuildFile; fileRef = CD15DF601B377A3700DC50BD /* agua.wav */; };
@@ -153,6 +154,7 @@
 		1ADD85F71B37995500E26261 /* Z.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Z.png; sourceTree = "<group>"; };
 		1AE4A36D1B3371DA00C21087 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		1AE4A3711B3387E900C21087 /* EscolhaDaFaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EscolhaDaFaseViewController.swift; sourceTree = "<group>"; };
+		A75C33EC1B37B6BD005FF4FD /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo.jpg; sourceTree = "<group>"; };
 		AFB7D27B1B363B0B0073C367 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		CD15DF5F1B377A3700DC50BD /* vamos_amiguinhos.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = vamos_amiguinhos.wav; sourceTree = "<group>"; };
 		CD15DF601B377A3700DC50BD /* agua.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = agua.wav; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				CD6A5A941B34896600C9E48C /* estrela.png */,
 				1ADD858B1B3770FC00E26261 /* estrelaApagada.png */,
 				CD6A5A9C1B34BA7A00C9E48C /* Mask.png */,
+				A75C33EC1B37B6BD005FF4FD /* logo.jpg */,
 				CD6A5A9E1B34BD4000C9E48C /* background.jpg */,
 			);
 			name = Images;
@@ -615,6 +618,7 @@
 				CD15DF721B377A3700DC50BD /* eu_sou_o_alfa.wav in Resources */,
 				1ADD860A1B37995500E26261 /* R.png in Resources */,
 				1ADD85FA1B37995500E26261 /* C.png in Resources */,
+				A75C33ED1B37B6BD005FF4FD /* logo.jpg in Resources */,
 				CD15DF6D1B377A3700DC50BD /* calca.wav in Resources */,
 				CD4B9C961B30A27000C307C2 /* 7.png in Resources */,
 				CDD691C31B374610002A64C7 /* Personagem_voando_2.png in Resources */,

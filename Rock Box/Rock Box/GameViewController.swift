@@ -82,7 +82,7 @@ class GameViewController: UIViewController {
         case 1 :
             imagePalavra.image = UIImage(named: "casa.png")
         case 2 :
-            imagePalavra.image = UIImage(named: "2.png")
+            imagePalavra.image = UIImage(named: "agua.png")
         case 3 :
             imagePalavra.image = UIImage(named: "2.png")
         case 4 :

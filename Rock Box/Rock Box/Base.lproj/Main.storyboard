@@ -1,11 +1,61 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="41e-L6-GeB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fP6-gf-8Ez">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="eO3-Nl-9yl">
+            <objects>
+                <viewController id="fP6-gf-8Ez" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qng-ow-vW1"/>
+                        <viewControllerLayoutGuide type="bottom" id="Cbc-6t-fza"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5fi-7g-os3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="OHG-Ds-fnA">
+                                <rect key="frame" x="-4" y="0.0" width="608" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aH4-LJ-t62">
+                                <rect key="frame" x="265" y="620" width="70" height="73"/>
+                                <state key="normal" image="prosseguir.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="41e-L6-GeB" kind="show" id="94G-Fp-BKg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="aH4-LJ-t62" secondAttribute="centerX" id="55m-1h-B8F"/>
+                            <constraint firstItem="Cbc-6t-fza" firstAttribute="top" secondItem="OHG-Ds-fnA" secondAttribute="bottom" id="8Pn-fi-BTP"/>
+                            <constraint firstItem="aH4-LJ-t62" firstAttribute="leading" secondItem="5fi-7g-os3" secondAttribute="leadingMargin" constant="281" id="YT4-YF-fLe"/>
+                            <constraint firstItem="OHG-Ds-fnA" firstAttribute="top" secondItem="Qng-ow-vW1" secondAttribute="bottom" constant="-20" id="etd-dh-7gG"/>
+                            <constraint firstItem="OHG-Ds-fnA" firstAttribute="leading" secondItem="5fi-7g-os3" secondAttribute="leadingMargin" constant="-20" id="o5H-3S-9IG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OHG-Ds-fnA" secondAttribute="trailing" constant="-20" id="tYh-0w-lk0"/>
+                            <constraint firstItem="OHG-Ds-fnA" firstAttribute="top" secondItem="Qng-ow-vW1" secondAttribute="bottom" constant="-20" id="xXx-46-7rN"/>
+                            <constraint firstAttribute="centerX" secondItem="aH4-LJ-t62" secondAttribute="centerX" id="zeo-2k-rgp"/>
+                            <constraint firstItem="aH4-LJ-t62" firstAttribute="top" secondItem="Qng-ow-vW1" secondAttribute="bottom" constant="600" id="zoK-n2-YcX"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="etd-dh-7gG"/>
+                                <exclude reference="YT4-YF-fLe"/>
+                                <exclude reference="zeo-2k-rgp"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H2m-EV-kkR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="107" y="-245"/>
+        </scene>
         <!--Escolha Da Fase View Controller-->
         <scene sceneID="8T9-Yw-whY">
             <objects>
@@ -443,7 +493,9 @@
     <resources>
         <image name="background.jpg" width="2048" height="1536"/>
         <image name="estrelaApagada.png" width="86" height="82"/>
+        <image name="logo.jpg" width="2048" height="1536"/>
         <image name="planetavermelho.png" width="1936" height="1936"/>
+        <image name="prosseguir.png" width="70" height="73"/>
         <image name="sound copy.png" width="147" height="147"/>
         <image name="x.gif" width="292" height="283"/>
     </resources>

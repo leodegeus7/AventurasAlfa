@@ -63,11 +63,10 @@ class DataManager: NSObject {
         var arrayComAsFases = lerArquivoJson()
        // println(arrayComAsFases)
         var dictionaryDaFase = arrayComAsFases[fase - 1] as! Dictionary<String, AnyObject>
-        
-        
+        println("dictionaryDaFase")
+
     
         return dictionaryDaFase["planetas"] as! Array<AnyObject>
-  
     }
     
     func arrayDasLetras(fase: Int) -> Array<AnyObject>
