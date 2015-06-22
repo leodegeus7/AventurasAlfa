@@ -46,7 +46,7 @@
 		1ADD86121B37995500E26261 /* Z.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD85F71B37995500E26261 /* Z.png */; };
 		1ADD861C1B37BDF600E26261 /* Agua.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD86141B37BDF600E26261 /* Agua.png */; };
 		1ADD861D1B37BDF600E26261 /* Calça.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD86151B37BDF600E26261 /* Calça.png */; };
-		1ADD861E1B37BDF600E26261 /* carro.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD86161B37BDF600E26261 /* carro.png */; };
+		1ADD861E1B37BDF600E26261 /* ccarro.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD86161B37BDF600E26261 /* ccarro.png */; };
 		1ADD861F1B37BDF600E26261 /* Casa.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD86171B37BDF600E26261 /* Casa.png */; };
 		1ADD86201B37BDF600E26261 /* Cenoura.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD86181B37BDF600E26261 /* Cenoura.png */; };
 		1ADD86211B37BDF600E26261 /* Chuva.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD86191B37BDF600E26261 /* Chuva.png */; };
@@ -162,7 +162,7 @@
 		1ADD85F71B37995500E26261 /* Z.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Z.png; sourceTree = "<group>"; };
 		1ADD86141B37BDF600E26261 /* Agua.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Agua.png; sourceTree = "<group>"; };
 		1ADD86151B37BDF600E26261 /* Calça.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Calça.png"; sourceTree = "<group>"; };
-		1ADD86161B37BDF600E26261 /* carro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carro.png; sourceTree = "<group>"; };
+		1ADD86161B37BDF600E26261 /* ccarro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ccarro.png; sourceTree = "<group>"; };
 		1ADD86171B37BDF600E26261 /* Casa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Casa.png; sourceTree = "<group>"; };
 		1ADD86181B37BDF600E26261 /* Cenoura.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cenoura.png; sourceTree = "<group>"; };
 		1ADD86191B37BDF600E26261 /* Chuva.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Chuva.png; sourceTree = "<group>"; };
@@ -289,7 +289,7 @@
 			children = (
 				1ADD86141B37BDF600E26261 /* Agua.png */,
 				1ADD86151B37BDF600E26261 /* Calça.png */,
-				1ADD86161B37BDF600E26261 /* carro.png */,
+				1ADD86161B37BDF600E26261 /* ccarro.png */,
 				1ADD86171B37BDF600E26261 /* Casa.png */,
 				1ADD86181B37BDF600E26261 /* Cenoura.png */,
 				1ADD86191B37BDF600E26261 /* Chuva.png */,
@@ -679,7 +679,7 @@
 				1ADD85981B37812500E26261 /* fases.png in Resources */,
 				CDD691D81B374F38002A64C7 /* Personagem_pulando_6.png in Resources */,
 				1ADD85F91B37995500E26261 /* B.png in Resources */,
-				1ADD861E1B37BDF600E26261 /* carro.png in Resources */,
+				1ADD861E1B37BDF600E26261 /* ccarro.png in Resources */,
 				CD8BFA641B2A1A4500FB3356 /* Main.storyboard in Resources */,
 				CDD691A51B371557002A64C7 /* stars.sks in Resources */,
 				1ADD86071B37995500E26261 /* O.png in Resources */,

@@ -80,20 +80,22 @@ class GameViewController: UIViewController {
         
         switch DataManager.instance.faseEscolhida {
         case 1 :
-            imagePalavra.image = UIImage(named: "casa.png")
+            imagePalavra.image = UIImage(named: "Casa.png")
         case 2 :
-            imagePalavra.image = UIImage(named: "agua.png")
+            imagePalavra.image = UIImage(named: "Agua.png")
         case 3 :
-            imagePalavra.image = UIImage(named: "2.png")
+            imagePalavra.image = UIImage(named: "Cenoura.png")
         case 4 :
-            imagePalavra.image = UIImage(named: "2.png")
+            imagePalavra.image = UIImage(named: "Calça")
         case 5 :
-            imagePalavra.image = UIImage(named: "2.png")
+            imagePalavra.image = UIImage(named: "ccarro.png")
         case 6 :
-            imagePalavra.image = UIImage(named: "2.png")
+            imagePalavra.image = UIImage(named: "Chuva.png")
         case 7 :
-            imagePalavra.image = UIImage(named: "2.png")
+            imagePalavra.image = UIImage(named: "Olho.png")
         case 8 :
+            imagePalavra.image = UIImage(named: "Hospital.png")
+        case 9 :
             imagePalavra.image = UIImage(named: "2.png")
         default :
             imagePalavra.image = UIImage(named: "2.png")
@@ -150,6 +152,12 @@ class GameViewController: UIViewController {
                 audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
             case "olho":
                 var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("olho", ofType: "wav")!)
+                audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
+            case "cenoura":
+                var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("cenoura", ofType: "wav")!)
+                audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
+            case "chuva":
+                var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("chuva", ofType: "wav")!)
                 audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
             case "calca":
                 var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("calca", ofType: "wav")!)
