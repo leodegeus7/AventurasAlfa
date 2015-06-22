@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fP6-gf-8Ez">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fP6-gf-8Ez">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -315,6 +315,9 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uib-yP-DU3">
+                                <rect key="frame" x="30" y="107" width="240" height="128"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -324,6 +327,7 @@
                             <constraint firstItem="BfL-Qv-2Us" firstAttribute="centerY" secondItem="pnY-Vw-qNM" secondAttribute="centerY" id="39N-eU-Fl9"/>
                             <constraint firstItem="M1A-Ap-rPP" firstAttribute="top" secondItem="hHu-t2-ZKX" secondAttribute="bottom" constant="70" id="3Qp-rr-vKM"/>
                             <constraint firstItem="hHu-t2-ZKX" firstAttribute="centerX" secondItem="obi-hr-kLj" secondAttribute="centerX" id="50I-B8-4yi"/>
+                            <constraint firstItem="obi-hr-kLj" firstAttribute="centerX" secondItem="uib-yP-DU3" secondAttribute="centerX" id="6Jd-Fn-JaI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="i2P-VR-Ezo" secondAttribute="trailing" constant="49" id="6eZ-VB-phq"/>
                             <constraint firstItem="Cfb-4L-hgP" firstAttribute="centerX" secondItem="hHu-t2-ZKX" secondAttribute="centerX" id="6w8-oF-ndf"/>
                             <constraint firstItem="LbX-ri-BAN" firstAttribute="top" secondItem="YDg-31-KLJ" secondAttribute="bottom" id="7Z5-Lj-7Yd"/>
@@ -336,6 +340,7 @@
                             <constraint firstItem="L26-cI-GKt" firstAttribute="centerX" secondItem="BfL-Qv-2Us" secondAttribute="centerX" id="KjY-Xu-NDt"/>
                             <constraint firstItem="M1A-Ap-rPP" firstAttribute="centerY" secondItem="BfL-Qv-2Us" secondAttribute="centerY" id="LVf-s9-h8Q"/>
                             <constraint firstItem="obi-hr-kLj" firstAttribute="leading" secondItem="dQ2-Xw-jlJ" secondAttribute="leadingMargin" constant="49" id="P0b-LV-efb"/>
+                            <constraint firstItem="obi-hr-kLj" firstAttribute="centerY" secondItem="uib-yP-DU3" secondAttribute="centerY" id="PtB-ho-G6p"/>
                             <constraint firstItem="obi-hr-kLj" firstAttribute="centerY" secondItem="L1K-P0-atc" secondAttribute="centerY" constant="0.5" id="V3a-IT-fcz"/>
                             <constraint firstItem="L26-cI-GKt" firstAttribute="top" secondItem="cZv-LE-YIZ" secondAttribute="bottom" constant="70" id="VD1-or-JfT"/>
                             <constraint firstItem="hHu-t2-ZKX" firstAttribute="top" secondItem="obi-hr-kLj" secondAttribute="bottom" constant="70" id="VMg-I4-uh4"/>
