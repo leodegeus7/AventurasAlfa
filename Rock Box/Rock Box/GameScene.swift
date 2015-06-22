@@ -68,6 +68,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var personagemVoando = [SKTexture]()
     var audioPlayer = AVAudioPlayer()
     var isJumping = false
+    var isChangingPlanet = false
     
     enum moveDirection{
         case left
@@ -445,7 +446,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if contact.bodyA.categoryBitMask == BitMasks.personagem || contact.bodyB.categoryBitMask == BitMasks.personagem
             && contact.bodyA.categoryBitMask == BitMasks.planeta || contact.bodyB.categoryBitMask == BitMasks.planeta {
-                
+                isChangingPlanet = false
                 isJumping = false
         }
     }
@@ -622,24 +623,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             anguloAtual -= CGFloat(M_PI)
             moveDuration = 10 * moveDelay
             personagemPulando()
+
         }
         
+        if !isChangingPlanet {
+            let origem = planetaAtual.parent!.position
+            let raio  = planetaAtual.frame.size.height/2 + jogador.size.height/2
+            let posX = origem.x + raio * cos(anguloAtual)
+            let posY = origem.y + raio * sin(anguloAtual)
         
-        let origem = planetaAtual.parent!.position
-        let raio  = planetaAtual.frame.size.height/2 + jogador.size.height/2
-        let posX = origem.x + raio * cos(anguloAtual)
-        let posY = origem.y + raio * sin(anguloAtual)
-        
-        let posX2 = cameraNode.position.x + origem.x + raio * cos(anguloAtual)
-        let posY2 = cameraNode.position.y + origem.y + raio * sin(anguloAtual)
+            let posX2 = cameraNode.position.x + origem.x + raio * cos(anguloAtual)
+            let posY2 = cameraNode.position.y + origem.y + raio * sin(anguloAtual)
         
         
-        let translacao = SKAction.moveTo(CGPoint(x: posX, y: posY), duration: moveDuration)
+            let translacao = SKAction.moveTo(CGPoint(x: posX, y: posY), duration: moveDuration)
         
-        let rotacao = SKAction.rotateToAngle(anguloAtual - CGFloat(M_PI_2), duration: moveDuration, shortestUnitArc: true)
+            let rotacao = SKAction.rotateToAngle(anguloAtual - CGFloat(M_PI_2), duration: moveDuration, shortestUnitArc: true)
     
-        jogador.runAction(SKAction.group([translacao,rotacao]))
-        
+            jogador.runAction(SKAction.group([translacao,rotacao]))
+            
+            if direction == .planet {
+                isChangingPlanet = true
+            }
+        }
     }
     
     func personagemFelizAnimacao () {
