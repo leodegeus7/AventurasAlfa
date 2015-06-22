@@ -40,6 +40,8 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        audioPlayer1.stop()
+        audioPlayer2.play()
         
         
         
