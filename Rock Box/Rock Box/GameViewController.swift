@@ -36,7 +36,20 @@ class GameViewController: UIViewController {
     @IBOutlet weak var estrela3: UIImageView!
     
     @IBOutlet weak var botaoDoSom: UIButton!
+    
+    @IBOutlet weak var estrelaDoHud1: UIImageView!
+    
+    @IBOutlet weak var estrelaDoHud2: UIImageView!
+    
+    @IBOutlet weak var estrelaDoHud3: UIImageView!
+    
+    @IBOutlet weak var objetoDaFaseMiniatura: UIImageView!
+    
+    @IBOutlet weak var hudView: UIView!
+    @IBOutlet weak var fundoDoHudImageView: UIImageView!
     var audioPlayer = AVAudioPlayer()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +74,30 @@ class GameViewController: UIViewController {
             
             riscoDasLetras.frame = CGRect(origin: CGPoint(x: viewPalavra.bounds.width/10 + (riscoDasLetras.bounds.width + 10)*CGFloat(i) , y: botaoDoSom.frame.origin.y + botaoDoSom.bounds.height), size: riscoDasLetras.bounds.size)
              viewPalavra.addSubview(riscoDasLetras)
+            var riscoDasLetras2 = UIImageView(image: UIImage(named: "Line.png"))
+             riscoDasLetras2.bounds.size = CGSize(width: riscoDasLetras2.bounds.size.width*0.3, height: riscoDasLetras.bounds.size.height)
+            
+            riscoDasLetras2.frame = CGRect(x: objetoDaFaseMiniatura.frame.origin.x + 2.2*riscoDasLetras2.bounds.width + CGFloat(i)*(riscoDasLetras2.bounds.width + 10), y: objetoDaFaseMiniatura.frame.origin.y + 50, width: riscoDasLetras2.bounds.width, height: riscoDasLetras2.bounds.height)
+            
+            hudView.addSubview(riscoDasLetras2)
+            
+            var auxiliar = "\(palavraFase[i])"
+            auxiliar = "\(auxiliar.capitalizedString).png"
+            println(auxiliar)
+            
+            var imagemDaLetra = UIImageView(image:UIImage(named: auxiliar))
+            imagemDaLetra.frame.origin = riscoDasLetras2.frame.origin
+            println(riscoDasLetras2.frame)
+            println(imagemDaLetra.frame)
+            imagemDaLetra.bounds.size = CGSize(width: 30 , height: 30)
+        
+         
+            hudView.addSubview(imagemDaLetra)
+//            var palavra = Array(((DataManager.instance.lerArquivoJson()[DataManager.instance.faseEscolhida - 1] as! Dictionary<String,AnyObject>)["palavra"] as! String))
+//            
+//            println(palavra)
         }
+        
         
         
         
@@ -83,24 +119,35 @@ class GameViewController: UIViewController {
         switch DataManager.instance.faseEscolhida {
         case 1 :
             imagePalavra.image = UIImage(named: "Casa.png")
+            objetoDaFaseMiniatura.image = UIImage(named: "Casa.png")
         case 2 :
             imagePalavra.image = UIImage(named: "Agua.png")
+            objetoDaFaseMiniatura.image = UIImage(named: "Agua.png")
         case 3 :
             imagePalavra.image = UIImage(named: "Cenoura.png")
+            objetoDaFaseMiniatura.image = UIImage(named: "Cenoura.png")
         case 4 :
             imagePalavra.image = UIImage(named: "Calça")
+            objetoDaFaseMiniatura.image = UIImage(named: "Calça")
         case 5 :
             imagePalavra.image = UIImage(named: "ccarro.png")
+            objetoDaFaseMiniatura.image = UIImage(named: "ccarro.png")
         case 6 :
             imagePalavra.image = UIImage(named: "Chuva.png")
+            objetoDaFaseMiniatura.image = UIImage(named: "Chuva.png")
         case 7 :
             imagePalavra.image = UIImage(named: "Olho.png")
+            objetoDaFaseMiniatura.image = UIImage(named: "Olho.png")
         case 8 :
             imagePalavra.image = UIImage(named: "Hospital.png")
+            objetoDaFaseMiniatura.image = UIImage(named: "Hospital.png")
         case 9 :
             imagePalavra.image = UIImage(named: "2.png")
+            objetoDaFaseMiniatura.image = UIImage(named: "2.png")
         default :
             imagePalavra.image = UIImage(named: "2.png")
+            objetoDaFaseMiniatura.image = UIImage(named: "2.png")
+            
             
         }
         if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {

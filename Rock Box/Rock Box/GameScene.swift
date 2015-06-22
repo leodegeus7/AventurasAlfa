@@ -122,6 +122,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let origem = planetaAtual.position
         let raio  = planetaAtual.frame.size.height/2 + jogador.size.height/2
+
         
         let posX = cameraNode.position.x + origem.x + raio * cos(anguloAtual)
         let posY = cameraNode.position.y + origem.y + raio * sin(anguloAtual)
@@ -288,7 +289,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         particulasEstrelas.zPosition = -1
         particulasEstrelas.alpha = 0.7
         gameNode.addChild(particulasEstrelas)
-        
+     
         //initSprite()
     }
     

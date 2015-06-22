@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fP6-gf-8Ez">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fP6-gf-8Ez">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -602,7 +602,13 @@
                         <outlet property="estrela1" destination="TbC-FI-5fd" id="hTt-X1-as4"/>
                         <outlet property="estrela2" destination="Eb1-bm-9tH" id="BWA-rF-X13"/>
                         <outlet property="estrela3" destination="O4M-aX-Cse" id="rJL-Jd-mE0"/>
+                        <outlet property="estrelaDoHud1" destination="kRk-hY-LSH" id="R9g-X4-0Ht"/>
+                        <outlet property="estrelaDoHud2" destination="e8S-XZ-WbJ" id="Zjz-6v-46K"/>
+                        <outlet property="estrelaDoHud3" destination="uFR-qS-ATj" id="tRc-tn-Ev4"/>
+                        <outlet property="fundoDoHudImageView" destination="cid-VY-ypz" id="lZS-ck-KIG"/>
+                        <outlet property="hudView" destination="ZTY-94-Tpo" id="675-WY-nam"/>
                         <outlet property="imagePalavra" destination="sgw-2L-kwz" id="dzi-MD-b9H"/>
+                        <outlet property="objetoDaFaseMiniatura" destination="9RA-pi-uuI" id="Geu-Jh-CbF"/>
                         <outlet property="viewPalavra" destination="HPW-X1-H9c" id="6st-ko-ann"/>
                     </connections>
                 </viewController>
