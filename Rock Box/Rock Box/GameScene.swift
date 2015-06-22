@@ -323,6 +323,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     isJumping = true
                 
                     personagemPulando()
+                    
                 
                     jogador.physicsBody?.applyImpulse(jumpVector)
                 
@@ -343,6 +344,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 bodyB.node?.removeFromParent()
                 numeroDaLetraAtual++
                 updateTheHud()
+                self.runAction(SKAction.playSoundFileNamed("letra.wav", waitForCompletion: true))
                 personagemFelizAnimacao()
             
             } else
@@ -361,6 +363,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             {
                 bodyA.node?.removeFromParent()
                 numeroDaLetraAtual++
+                self.runAction(SKAction.playSoundFileNamed("letra.wav", waitForCompletion: true))
                 personagemFelizAnimacao()
             }
             
@@ -375,6 +378,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             DataManager.instance.numeroEstrelas++
             numeroDeEstrelasAtual++
             updateTheHud()
+            self.runAction(SKAction.playSoundFileNamed("estrela.wav", waitForCompletion: true))
             personagemFelizAnimacao()
             
         }
@@ -386,6 +390,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             DataManager.instance.numeroEstrelas++
             numeroDeEstrelasAtual++
             updateTheHud()
+            self.runAction(SKAction.playSoundFileNamed("estrela.wav", waitForCompletion: true))
             personagemFelizAnimacao()
             
             
@@ -560,7 +565,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         letra.physicsBody?.mass = 1
         var anguloF = (3.1415 - angulo) + CGFloat(M_PI)
         letra.zRotation = CGFloat(anguloF)
-        letra.physicsBody?.collisionBitMask = 0//BitMasks.personagem////BitMasks.letra
+        letra.physicsBody?.collisionBitMask = 0
         letra.physicsBody?.contactTestBitMask = BitMasks.personagem
         letra.physicsBody?.categoryBitMask = BitMasks.letra
         letra.physicsBody?.fieldBitMask = BitMasks.letra
@@ -601,9 +606,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         case .left:
             anguloAtual+=0.10
             jogador.xScale = -1.0
+            self.runAction(SKAction.playSoundFileNamed("steps.wav", waitForCompletion: true))
         case .right:
             anguloAtual-=0.10
             jogador.xScale = 1.0
+            self.runAction(SKAction.playSoundFileNamed("steps.wav", waitForCompletion: true))
         case .planet:
             anguloAtual -= CGFloat(M_PI)
             moveDuration = 10 * moveDelay
@@ -653,6 +660,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let anim = SKAction.customActionWithDuration(1.0, actionBlock: { node, time in
             let index = Int((fps * Double(time))) % animFrames.count
             (node as! SKSpriteNode).texture = animFrames[index]})
+        
+        var random = arc4random_uniform(5)
+        var sound = SKAction()
+        switch random {
+        case 0:
+            sound = SKAction.playSoundFileNamed("jump1.wav", waitForCompletion: true)
+        case 1:
+            sound = SKAction.playSoundFileNamed("jump2.wav", waitForCompletion: true)
+        case 2:
+            sound = SKAction.playSoundFileNamed("jump3.wav", waitForCompletion: true)
+        case 3:
+            sound = SKAction.playSoundFileNamed("jump4.wav", waitForCompletion: true)
+        case 4:
+            sound = SKAction.playSoundFileNamed("jump5.wav", waitForCompletion: true)
+        default:
+            sound = SKAction.playSoundFileNamed("jump6.wav", waitForCompletion: true)
+        }
+        self.runAction(sound)
+        
         jogador.runAction(SKAction.repeatAction(anim, count: 1))
         
     }
@@ -671,11 +697,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     println((jogador.position.x * gameNode.xScale))
                     if swipePoints.actual.x > self.size.height/2 {
                         movePlayerWithDirection(moveDirection.right)
-                        //personagemPulando()
                     }
                     else if swipePoints.actual.x < self.size.height/2 {
                         movePlayerWithDirection(moveDirection.left)
-                        //personagemPulando()
                     }
                     lastMoveTime = currentTime
                 }
