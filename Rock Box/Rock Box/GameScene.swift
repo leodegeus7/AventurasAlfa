@@ -42,13 +42,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var arrayLetras = Array<SKSpriteNode>()
     var arrayEstrelas = Array<SKSpriteNode>()
     var pausar = false
-    var hud = SKSpriteNode()
-    var estrelaDoHud1 = SKSpriteNode(imageNamed: "estrelaApagada.png")
-    var estrelaDoHud2 = SKSpriteNode(imageNamed: "estrelaApagada.png")
-    var estrelaDoHud3 = SKSpriteNode(imageNamed: "estrelaApagada.png")
     
     var palavraDaFaseArray:Array<Character>!
+    
     var numeroDaLetraAtual = 0
+    var numeroDeEstrelasAtual = 0
     
     var planetaAtual = SKSpriteNode()
     var anguloAtual = CGFloat(M_PI_2)
@@ -395,6 +393,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             {
                 bodyB.node?.removeFromParent()
                 numeroDaLetraAtual++
+                updateTheHud()
                 personagemFelizAnimacao()
             
             } else
@@ -425,7 +424,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             bodyA.node?.removeFromParent()
             DataManager.instance.numeroEstrelas++
-            acenderEstrelas()
+            numeroDeEstrelasAtual++
+            updateTheHud()
             personagemFelizAnimacao()
             
         }
@@ -435,7 +435,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             var bodyB = contact.bodyB
             bodyB.node?.removeFromParent()
             DataManager.instance.numeroEstrelas++
-            acenderEstrelas()
+            numeroDeEstrelasAtual++
+            updateTheHud()
             personagemFelizAnimacao()
             
             
@@ -641,25 +642,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return estrela
     }
     
-    
-    
-    func acenderEstrelas() {
-        if DataManager.instance.numeroEstrelas == 1 {
-            estrelaDoHud1.texture = SKTexture(imageNamed: "estrela.png")
-            
-        }
-        else if DataManager.instance.numeroEstrelas == 2 {
-            estrelaDoHud1.texture = SKTexture(imageNamed: "estrela.png")
-            estrelaDoHud2.texture = SKTexture(imageNamed: "estrela.png")
-            
-        }
-        else if DataManager.instance.numeroEstrelas >= 3 {
-            estrelaDoHud1.texture = SKTexture(imageNamed: "estrela.png")
-            estrelaDoHud2.texture = SKTexture(imageNamed: "estrela.png")
-            estrelaDoHud3.texture = SKTexture(imageNamed: "estrela.png")
-            
-        }
-    }
+
     
     func movePlayerWithDirection (direction : moveDirection) {
         
@@ -763,6 +746,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.centerOnNode(jogador)
     }
     
+    func updateTheHud () {
+        NSNotificationCenter.defaultCenter().postNotificationName("UpdateHud", object: nil)
+    }
     
     
 }
