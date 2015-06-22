@@ -3,7 +3,7 @@
               {
               "palavra": "casa",
               "jaJogou": true,
-              "quantasEstrelasPegou": 1,
+              "quantasEstrelasPegou": 0,
               "letras": [
                          {
                          "angulo": 3.1459,
@@ -86,7 +86,7 @@
               {
               "palavra": "agua",
               "jaJogou": false,
-              "quantasEstrelasPegou": 2,
+              "quantasEstrelasPegou": 0,
               "letras": [
                          {
                          "angulo": 3.1459,
@@ -169,7 +169,7 @@
               {
               "palavra": "cenoura",
               "jaJogou": false,
-              "quantasEstrelasPegou": 3,
+              "quantasEstrelasPegou": 0,
               "letras": [
                          {
                          "angulo": 3.1459,
