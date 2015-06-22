@@ -71,6 +71,15 @@
 		A7DA6D581B37D68600BD9476 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7DA6D571B37D68600BD9476 /* Main.storyboard */; };
 		A7DA6D5A1B37D6E800BD9476 /* som.png in Resources */ = {isa = PBXBuildFile; fileRef = A7DA6D591B37D6E800BD9476 /* som.png */; };
 		AFB7D27C1B363B0B0073C367 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = AFB7D27B1B363B0B0073C367 /* data.json */; };
+		AFF4829D1B38A1B300EE4223 /* estrela.wav in Resources */ = {isa = PBXBuildFile; fileRef = AFF482941B38A1B300EE4223 /* estrela.wav */; };
+		AFF4829E1B38A1B300EE4223 /* jump1.wav in Resources */ = {isa = PBXBuildFile; fileRef = AFF482951B38A1B300EE4223 /* jump1.wav */; };
+		AFF4829F1B38A1B300EE4223 /* jump2.wav in Resources */ = {isa = PBXBuildFile; fileRef = AFF482961B38A1B300EE4223 /* jump2.wav */; };
+		AFF482A01B38A1B300EE4223 /* jump3.wav in Resources */ = {isa = PBXBuildFile; fileRef = AFF482971B38A1B300EE4223 /* jump3.wav */; };
+		AFF482A11B38A1B300EE4223 /* jump4.wav in Resources */ = {isa = PBXBuildFile; fileRef = AFF482981B38A1B300EE4223 /* jump4.wav */; };
+		AFF482A21B38A1B300EE4223 /* jump5.wav in Resources */ = {isa = PBXBuildFile; fileRef = AFF482991B38A1B300EE4223 /* jump5.wav */; };
+		AFF482A31B38A1B300EE4223 /* jump6.wav in Resources */ = {isa = PBXBuildFile; fileRef = AFF4829A1B38A1B300EE4223 /* jump6.wav */; };
+		AFF482A41B38A1B300EE4223 /* letra.wav in Resources */ = {isa = PBXBuildFile; fileRef = AFF4829B1B38A1B300EE4223 /* letra.wav */; };
+		AFF482A51B38A1B300EE4223 /* steps.wav in Resources */ = {isa = PBXBuildFile; fileRef = AFF4829C1B38A1B300EE4223 /* steps.wav */; };
 		CD15DF6B1B377A3700DC50BD /* vamos_amiguinhos.wav in Resources */ = {isa = PBXBuildFile; fileRef = CD15DF5F1B377A3700DC50BD /* vamos_amiguinhos.wav */; };
 		CD15DF6C1B377A3700DC50BD /* agua.wav in Resources */ = {isa = PBXBuildFile; fileRef = CD15DF601B377A3700DC50BD /* agua.wav */; };
 		CD15DF6D1B377A3700DC50BD /* calca.wav in Resources */ = {isa = PBXBuildFile; fileRef = CD15DF611B377A3700DC50BD /* calca.wav */; };
@@ -204,6 +213,15 @@
 		A7DA6D571B37D68600BD9476 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A7DA6D591B37D6E800BD9476 /* som.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = som.png; sourceTree = "<group>"; };
 		AFB7D27B1B363B0B0073C367 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		AFF482941B38A1B300EE4223 /* estrela.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = estrela.wav; sourceTree = "<group>"; };
+		AFF482951B38A1B300EE4223 /* jump1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jump1.wav; sourceTree = "<group>"; };
+		AFF482961B38A1B300EE4223 /* jump2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jump2.wav; sourceTree = "<group>"; };
+		AFF482971B38A1B300EE4223 /* jump3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jump3.wav; sourceTree = "<group>"; };
+		AFF482981B38A1B300EE4223 /* jump4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jump4.wav; sourceTree = "<group>"; };
+		AFF482991B38A1B300EE4223 /* jump5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jump5.wav; sourceTree = "<group>"; };
+		AFF4829A1B38A1B300EE4223 /* jump6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jump6.wav; sourceTree = "<group>"; };
+		AFF4829B1B38A1B300EE4223 /* letra.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = letra.wav; sourceTree = "<group>"; };
+		AFF4829C1B38A1B300EE4223 /* steps.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = steps.wav; sourceTree = "<group>"; };
 		CD15DF5F1B377A3700DC50BD /* vamos_amiguinhos.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = vamos_amiguinhos.wav; sourceTree = "<group>"; };
 		CD15DF601B377A3700DC50BD /* agua.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = agua.wav; sourceTree = "<group>"; };
 		CD15DF611B377A3700DC50BD /* calca.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = calca.wav; sourceTree = "<group>"; };
@@ -373,6 +391,22 @@
 			name = Buttons;
 			sourceTree = "<group>";
 		};
+		AFF482931B38A1A000EE4223 /* Effects */ = {
+			isa = PBXGroup;
+			children = (
+				AFF482941B38A1B300EE4223 /* estrela.wav */,
+				AFF482951B38A1B300EE4223 /* jump1.wav */,
+				AFF482961B38A1B300EE4223 /* jump2.wav */,
+				AFF482971B38A1B300EE4223 /* jump3.wav */,
+				AFF482981B38A1B300EE4223 /* jump4.wav */,
+				AFF482991B38A1B300EE4223 /* jump5.wav */,
+				AFF4829A1B38A1B300EE4223 /* jump6.wav */,
+				AFF4829B1B38A1B300EE4223 /* letra.wav */,
+				AFF4829C1B38A1B300EE4223 /* steps.wav */,
+			);
+			name = Effects;
+			sourceTree = "<group>";
+		};
 		CD4EBA511B389007009C1DD3 /* FasesEstrelas */ = {
 			isa = PBXGroup;
 			children = (
@@ -447,6 +481,7 @@
 		CD6A5AA41B34C21000C9E48C /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				AFF482931B38A1A000EE4223 /* Effects */,
 				A7DA6D561B37CCC600BD9476 /* Music */,
 				A7DA6D511B37CCAA00BD9476 /* vitoria.mp3.mp3 */,
 				CD15DF5F1B377A3700DC50BD /* vamos_amiguinhos.wav */,
@@ -725,6 +760,7 @@
 				A7DA6D4A1B37C72C00BD9476 /* number2.png in Resources */,
 				1ADD86061B37995500E26261 /* N.png in Resources */,
 				CD8BFABB1B2B594600FB3356 /* 4.png in Resources */,
+				AFF482A01B38A1B300EE4223 /* jump3.wav in Resources */,
 				A7DA6D451B37C72C00BD9476 /* number1.png in Resources */,
 				CD4EBA571B389015009C1DD3 /* menu_planeta_1estrela.png in Resources */,
 				A7DA6D4B1B37C72C00BD9476 /* number3.png in Resources */,
@@ -737,6 +773,7 @@
 				CDD691B21B373F25002A64C7 /* planetaverde.png in Resources */,
 				CD8BFAB71B2B451300FB3356 /* 2.png in Resources */,
 				1ADD86041B37995500E26261 /* L.png in Resources */,
+				AFF482A21B38A1B300EE4223 /* jump5.wav in Resources */,
 				A7DA6D5A1B37D6E800BD9476 /* som.png in Resources */,
 				A7DA6D531B37CCAA00BD9476 /* ambiente.mp3 in Resources */,
 				1ADD858A1B376E0300E26261 /* sound copy.png in Resources */,
@@ -758,6 +795,7 @@
 				CD4B9C961B30A27000C307C2 /* 7.png in Resources */,
 				1ADD86211B37BDF600E26261 /* Chuva.png in Resources */,
 				CDD691C31B374610002A64C7 /* Personagem_voando_2.png in Resources */,
+				AFF4829E1B38A1B300EE4223 /* jump1.wav in Resources */,
 				1ADD85881B375FD100E26261 /* Line.png in Resources */,
 				CDD691A11B37082F002A64C7 /* vermelho.sks in Resources */,
 				CD15DF6B1B377A3700DC50BD /* vamos_amiguinhos.wav in Resources */,
@@ -765,6 +803,8 @@
 				1ADD86101B37995500E26261 /* X.png in Resources */,
 				CD9A5FD91B2B635F0043415D /* 5.png in Resources */,
 				CD15DF731B377A3700DC50BD /* eu_sou_o_alfa2.wav in Resources */,
+				AFF482A11B38A1B300EE4223 /* jump4.wav in Resources */,
+				AFF4829D1B38A1B300EE4223 /* estrela.wav in Resources */,
 				1ADD85A21B37815400E26261 /* janela1.png in Resources */,
 				CDD691A21B37082F002A64C7 /* verde.sks in Resources */,
 				CD6A5A971B34AAE400C9E48C /* volume.png in Resources */,
@@ -773,6 +813,8 @@
 				CD6A5A951B34896600C9E48C /* estrela.png in Resources */,
 				CDD691D51B374F38002A64C7 /* Personagem_pulando_3.png in Resources */,
 				1ADD86031B37995500E26261 /* K.png in Resources */,
+				AFF482A51B38A1B300EE4223 /* steps.wav in Resources */,
+				AFF482A41B38A1B300EE4223 /* letra.wav in Resources */,
 				1ADD861C1B37BDF600E26261 /* Agua.png in Resources */,
 				CD6A5A9F1B34BD4000C9E48C /* background.jpg in Resources */,
 				1ADD85981B37812500E26261 /* fases.png in Resources */,
@@ -781,12 +823,14 @@
 				1ADD861E1B37BDF600E26261 /* ccarro.png in Resources */,
 				A7DA6D541B37CCAA00BD9476 /* vitoria.mp3.mp3 in Resources */,
 				CDD691A51B371557002A64C7 /* stars.sks in Resources */,
+				AFF4829F1B38A1B300EE4223 /* jump2.wav in Resources */,
 				1ADD86071B37995500E26261 /* O.png in Resources */,
 				1ADD860B1B37995500E26261 /* S.png in Resources */,
 				1ADD85FC1B37995500E26261 /* D.png in Resources */,
 				1ADD85F81B37995500E26261 /* A.png in Resources */,
 				1ADD86121B37995500E26261 /* Z.png in Resources */,
 				1ADD85FE1B37995500E26261 /* F.png in Resources */,
+				AFF482A31B38A1B300EE4223 /* jump6.wav in Resources */,
 				CDD691D31B374F38002A64C7 /* Personagem_pulando_1.png in Resources */,
 				CDD691C41B374610002A64C7 /* Personagem_voando_3.png in Resources */,
 			);
