@@ -348,7 +348,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 personagemFelizAnimacao()
                 if numeroDaLetraAtual == palavraDaFaseArray.count
                 {
-                    
+                    self.paused = true
                 }
             
             } else
@@ -674,7 +674,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         case 1:
             sound = SKAction.playSoundFileNamed("jump2.wav", waitForCompletion: true)
         case 2:
-            sound = SKAction.playSoundFileNamed("jump3.wav", waitForCompletion: true)
+            sound = SKAction.playSoundFileNamed("jump1.wav", waitForCompletion: true)
         case 3:
             sound = SKAction.playSoundFileNamed("jump4.wav", waitForCompletion: true)
         case 4:

@@ -286,10 +286,13 @@ class GameViewController: UIViewController {
         switch gameScene.numeroDeEstrelasAtual {
         case 1 :
             estrelaDoHud1.image = UIImage(named: "estrela.png")
+            estrela1.image = UIImage(named: "estrela.png")
         case 2 :
             estrelaDoHud2.image = UIImage(named: "estrela.png")
+            estrela2.image = UIImage(named: "estrela.png")
         case 3 :
             estrelaDoHud3.image = UIImage(named: "estrela.png")
+            estrela3.image = UIImage(named: "estrela.png")
         default :
             initEstrelas()
         }
