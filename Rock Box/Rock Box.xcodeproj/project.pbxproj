@@ -52,6 +52,7 @@
 		1ADD86211B37BDF600E26261 /* Chuva.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD86191B37BDF600E26261 /* Chuva.png */; };
 		1ADD86221B37BDF600E26261 /* Hospital.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD861A1B37BDF600E26261 /* Hospital.png */; };
 		1ADD86231B37BDF600E26261 /* Olho.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD861B1B37BDF600E26261 /* Olho.png */; };
+		1ADFB1D11B38C60100A05137 /* janela2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADFB1D01B38C60100A05137 /* janela2.png */; };
 		1AE4A36E1B3371DA00C21087 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE4A36D1B3371DA00C21087 /* DataManager.swift */; };
 		1AE4A3721B3387E900C21087 /* EscolhaDaFaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE4A3711B3387E900C21087 /* EscolhaDaFaseViewController.swift */; };
 		A75C33ED1B37B6BD005FF4FD /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A75C33EC1B37B6BD005FF4FD /* logo.jpg */; };
@@ -74,7 +75,6 @@
 		AFF4829D1B38A1B300EE4223 /* estrela.wav in Resources */ = {isa = PBXBuildFile; fileRef = AFF482941B38A1B300EE4223 /* estrela.wav */; };
 		AFF4829E1B38A1B300EE4223 /* jump1.wav in Resources */ = {isa = PBXBuildFile; fileRef = AFF482951B38A1B300EE4223 /* jump1.wav */; };
 		AFF4829F1B38A1B300EE4223 /* jump2.wav in Resources */ = {isa = PBXBuildFile; fileRef = AFF482961B38A1B300EE4223 /* jump2.wav */; };
-		AFF482A01B38A1B300EE4223 /* jump3.wav in Resources */ = {isa = PBXBuildFile; fileRef = AFF482971B38A1B300EE4223 /* jump3.wav */; };
 		AFF482A11B38A1B300EE4223 /* jump4.wav in Resources */ = {isa = PBXBuildFile; fileRef = AFF482981B38A1B300EE4223 /* jump4.wav */; };
 		AFF482A21B38A1B300EE4223 /* jump5.wav in Resources */ = {isa = PBXBuildFile; fileRef = AFF482991B38A1B300EE4223 /* jump5.wav */; };
 		AFF482A31B38A1B300EE4223 /* jump6.wav in Resources */ = {isa = PBXBuildFile; fileRef = AFF4829A1B38A1B300EE4223 /* jump6.wav */; };
@@ -194,6 +194,7 @@
 		1ADD86191B37BDF600E26261 /* Chuva.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Chuva.png; sourceTree = "<group>"; };
 		1ADD861A1B37BDF600E26261 /* Hospital.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hospital.png; sourceTree = "<group>"; };
 		1ADD861B1B37BDF600E26261 /* Olho.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Olho.png; sourceTree = "<group>"; };
+		1ADFB1D01B38C60100A05137 /* janela2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = janela2.png; sourceTree = "<group>"; };
 		1AE4A36D1B3371DA00C21087 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		1AE4A3711B3387E900C21087 /* EscolhaDaFaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EscolhaDaFaseViewController.swift; sourceTree = "<group>"; };
 		A75C33EC1B37B6BD005FF4FD /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo.jpg; sourceTree = "<group>"; };
@@ -461,6 +462,7 @@
 				CDD691A61B373AAE002A64C7 /* Planetas */,
 				1ADD859F1B37814800E26261 /* fundoDoHud.png */,
 				1ADD85A11B37815400E26261 /* janela1.png */,
+				1ADFB1D01B38C60100A05137 /* janela2.png */,
 				CD8BFAB61B2B451300FB3356 /* 2.png */,
 				CD8BFAB81B2B57C600FB3356 /* 3.png */,
 				CD8BFABA1B2B594600FB3356 /* 4.png */,
@@ -724,6 +726,7 @@
 				CDD691D71B374F38002A64C7 /* Personagem_pulando_5.png in Resources */,
 				1ADD86021B37995500E26261 /* J.png in Resources */,
 				CDD6919F1B37082F002A64C7 /* spark.png in Resources */,
+				1ADFB1D11B38C60100A05137 /* janela2.png in Resources */,
 				1ADD859E1B37813E00E26261 /* prosseguir.png in Resources */,
 				CD8BFA691B2A1A4500FB3356 /* LaunchScreen.xib in Resources */,
 				CDD691D61B374F38002A64C7 /* Personagem_pulando_4.png in Resources */,
@@ -761,8 +764,8 @@
 				A7DA6D4A1B37C72C00BD9476 /* number2.png in Resources */,
 				1ADD86061B37995500E26261 /* N.png in Resources */,
 				CD8BFABB1B2B594600FB3356 /* 4.png in Resources */,
-				A7DA6D451B37C72C00BD9476 /* shadow1.png in Resources */,
-				A7DA6D4B1B37C72C00BD9476 /* shadow3.png in Resources */,
+				A7DA6D451B37C72C00BD9476 /* number1.png in Resources */,
+				A7DA6D4B1B37C72C00BD9476 /* number3.png in Resources */,
 				A7DA6D581B37D68600BD9476 /* Main.storyboard in Resources */,
 				A7DA6D461B37C72C00BD9476 /* number8.png in Resources */,
 				1ADD859A1B37812F00E26261 /* fecharJanela.png in Resources */,
