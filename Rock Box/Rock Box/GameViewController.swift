@@ -278,6 +278,11 @@ class GameViewController: UIViewController {
             arrayDasLetrasPause[i].hidden = false
         }
         
+        if gameScene.numeroDaLetraAtual == arrayDasLetrasHud.count
+        {
+            viewPalavra.hidden = false
+           
+        }
         switch gameScene.numeroDeEstrelasAtual {
         case 1 :
             estrelaDoHud1.image = UIImage(named: "estrela.png")
@@ -341,6 +346,9 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func voltarPrasFases(sender: AnyObject) {
+        
+        viewPalavra.hidden = false
+
     }
     
 }

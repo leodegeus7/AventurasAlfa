@@ -395,6 +395,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 numeroDaLetraAtual++
                 updateTheHud()
                 personagemFelizAnimacao()
+                if numeroDaLetraAtual == palavraDaFaseArray.count
+                {
+                    
+                }
             
             } else
             {
@@ -427,6 +431,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             numeroDeEstrelasAtual++
             updateTheHud()
             personagemFelizAnimacao()
+            
             
         }
         
