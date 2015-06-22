@@ -337,6 +337,7 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func repetirSom(sender: AnyObject) {
+        playSound()
     }
     
     @IBAction func voltarPrasFases(sender: AnyObject) {
