@@ -336,5 +336,11 @@ class GameViewController: UIViewController {
         estrelaDoHud3.image = UIImage(named: "estrelaApagada.png")
     }
     
+    @IBAction func repetirSom(sender: AnyObject) {
+    }
+    
+    @IBAction func voltarPrasFases(sender: AnyObject) {
+    }
+    
 }
 
