@@ -41,13 +41,24 @@ class EscolhaDaFaseViewController: UIViewController {
         DataManager.instance.faseEscolhida = 6
     }
     
+    @IBAction func irParaFase7(sender: AnyObject) {
+        DataManager.instance.faseEscolhida = 7
+    }
     
+    @IBAction func irParaFase8(sender: AnyObject) {
+        DataManager.instance.faseEscolhida = 8
     
+    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
 
     override func didReceiveMemoryWarning() {
