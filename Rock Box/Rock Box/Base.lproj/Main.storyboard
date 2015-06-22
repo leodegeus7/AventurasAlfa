@@ -46,6 +46,7 @@
                                 </state>
                                 <connections>
                                     <action selector="irParaFase2:" destination="41e-L6-GeB" eventType="touchUpInside" id="Oba-Kb-hqo"/>
+                                    <segue destination="BV1-FR-VrT" kind="show" id="gtL-bb-AEc"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2L-zd-Mwb">
@@ -72,6 +73,7 @@
                                 </state>
                                 <connections>
                                     <action selector="irParaFase3:" destination="41e-L6-GeB" eventType="touchUpInside" id="XRY-LU-4cX"/>
+                                    <segue destination="BV1-FR-VrT" kind="show" id="zAL-Yd-5Dg"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8tH-lK-VAI">
@@ -98,6 +100,7 @@
                                 </state>
                                 <connections>
                                     <action selector="irParaFase5:" destination="41e-L6-GeB" eventType="touchUpInside" id="knp-Md-7eS"/>
+                                    <segue destination="BV1-FR-VrT" kind="show" id="CCY-ji-4A0"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Qf-8O-KX1">
@@ -124,6 +127,7 @@
                                 </state>
                                 <connections>
                                     <action selector="irParaFase6:" destination="41e-L6-GeB" eventType="touchUpInside" id="Z9E-be-2h2"/>
+                                    <segue destination="BV1-FR-VrT" kind="show" id="DeP-rS-7FM"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBq-GF-HvD">
@@ -150,6 +154,7 @@
                                 </state>
                                 <connections>
                                     <action selector="irParaFase4:" destination="41e-L6-GeB" eventType="touchUpInside" id="xce-Xh-XXd"/>
+                                    <segue destination="BV1-FR-VrT" kind="show" id="efy-II-y4a"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cfb-4L-hgP">
@@ -176,6 +181,7 @@
                                 </state>
                                 <connections>
                                     <action selector="irParaFase7:" destination="41e-L6-GeB" eventType="touchUpInside" id="56e-a6-Gso"/>
+                                    <segue destination="BV1-FR-VrT" kind="show" id="skX-fo-SQm"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OWS-l1-ysg">
@@ -202,6 +208,7 @@
                                 </state>
                                 <connections>
                                     <action selector="irParaFase8:" destination="41e-L6-GeB" eventType="touchUpInside" id="rsv-aF-n2F"/>
+                                    <segue destination="BV1-FR-VrT" kind="show" id="ENT-2v-rty"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CqM-Fy-u2Z">
@@ -226,6 +233,9 @@
                                 <state key="normal" title="Button" image="planetavermelho.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="BV1-FR-VrT" kind="show" id="8GA-6i-lu2"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Pa-77-Ol7">
                                 <rect key="frame" x="730" y="574" width="41" height="88"/>
@@ -427,7 +437,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1272" y="503"/>
+            <point key="canvasLocation" x="354" y="1297"/>
         </scene>
     </scenes>
     <resources>
@@ -437,4 +447,7 @@
         <image name="sound copy.png" width="147" height="147"/>
         <image name="x.gif" width="292" height="283"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="zAL-Yd-5Dg"/>
+    </inferredMetricsTieBreakers>
 </document>
