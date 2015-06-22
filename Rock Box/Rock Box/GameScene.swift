@@ -234,51 +234,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         
-//        //HUD NODE
-//        
-//        var fundoDoHUD = SKSpriteNode(imageNamed: "fundoDoHud.png")
-//        
-//        self.addChild(hud)
-//        
-//        estrelaDoHud1.position = CGPoint(x: 50, y:50)
-//        estrelaDoHud2.position = CGPoint(x: 150, y: 50)
-//        estrelaDoHud3.position = CGPoint(x: 250, y: 50)
-//        
-//        estrelaDoHud1.zPosition = 11
-//        estrelaDoHud2.zPosition = 11
-//        estrelaDoHud3.zPosition = 11
-//        
-//        estrelaDoHud1.size = CGSize(width: 50, height: 50)
-//        estrelaDoHud2.size = CGSize(width: 50, height: 50)
-//        estrelaDoHud3.size = CGSize(width: 50, height: 50)
-//        
-//        fundoDoHUD.position = CGPoint(x: fundoDoHUD.size.width/4, y: fundoDoHUD.size.height/2)
-//        fundoDoHUD.xScale = 0.5
-//      //  fundoDoHUD.size = CGSize(width: self.frame.width, height: fundoDoHUD.size.height)
-//        fundoDoHUD.zPosition = 10
-//        
-//        hud.addChild(fundoDoHUD)
-//        hud.addChild(estrelaDoHud1)
-//        hud.addChild(estrelaDoHud2)
-//        hud.addChild(estrelaDoHud3)
-//        hud.zPosition = 100
-//        
-//        for var i = 0; i < Int(palavraDaFaseArray.count); i++
-//            
-//        {
-//            var riscoDasLetras = SKSpriteNode(imageNamed: "Line.png")
-//            
-//            riscoDasLetras.xScale = 0.4
-//            riscoDasLetras.zPosition = 11
-//            CGPoint()
-//            riscoDasLetras.position = CGPoint(x: (350 + CGFloat(riscoDasLetras.size.width + 10)*CGFloat(i)) , y:CGFloat(50))
-//            
-//        hud.addChild(riscoDasLetras)
-//        
-//            
-//            
-//        }
-        
         //ESTRELAS PARTÍCULAS
         
         var particulasEstrelas = SKEmitterNode(fileNamed: "stars.sks")
@@ -328,12 +283,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     personagemFelizAnimacao()
                     
                     
-//                    print("Touched")
-//                    var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("eu_sou_o_alfa", ofType: "wav")!)
-//                    audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
-//                    audioPlayer.prepareToPlay()
-//                    audioPlayer.play()
-                    
                 }
             }
         
@@ -374,6 +323,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     isJumping = true
                 
                     personagemPulando()
+                    
                 
                     jogador.physicsBody?.applyImpulse(jumpVector)
                 
@@ -394,6 +344,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 bodyB.node?.removeFromParent()
                 numeroDaLetraAtual++
                 updateTheHud()
+                self.runAction(SKAction.playSoundFileNamed("letra.wav", waitForCompletion: true))
                 personagemFelizAnimacao()
                 if numeroDaLetraAtual == palavraDaFaseArray.count
                 {
@@ -416,6 +367,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             {
                 bodyA.node?.removeFromParent()
                 numeroDaLetraAtual++
+                self.runAction(SKAction.playSoundFileNamed("letra.wav", waitForCompletion: true))
                 personagemFelizAnimacao()
             }
             
@@ -430,6 +382,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             DataManager.instance.numeroEstrelas++
             numeroDeEstrelasAtual++
             updateTheHud()
+            self.runAction(SKAction.playSoundFileNamed("estrela.wav", waitForCompletion: true))
             personagemFelizAnimacao()
             
             
@@ -442,6 +395,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             DataManager.instance.numeroEstrelas++
             numeroDeEstrelasAtual++
             updateTheHud()
+            self.runAction(SKAction.playSoundFileNamed("estrela.wav", waitForCompletion: true))
             personagemFelizAnimacao()
             
             
@@ -616,7 +570,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         letra.physicsBody?.mass = 1
         var anguloF = (3.1415 - angulo) + CGFloat(M_PI)
         letra.zRotation = CGFloat(anguloF)
-        letra.physicsBody?.collisionBitMask = 0//BitMasks.personagem////BitMasks.letra
+        letra.physicsBody?.collisionBitMask = 0
         letra.physicsBody?.contactTestBitMask = BitMasks.personagem
         letra.physicsBody?.categoryBitMask = BitMasks.letra
         letra.physicsBody?.fieldBitMask = BitMasks.letra
@@ -657,9 +611,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         case .left:
             anguloAtual+=0.10
             jogador.xScale = -1.0
+            self.runAction(SKAction.playSoundFileNamed("steps.wav", waitForCompletion: true))
         case .right:
             anguloAtual-=0.10
             jogador.xScale = 1.0
+            self.runAction(SKAction.playSoundFileNamed("steps.wav", waitForCompletion: true))
         case .planet:
             anguloAtual -= CGFloat(M_PI)
             moveDuration = 10 * moveDelay
@@ -709,6 +665,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let anim = SKAction.customActionWithDuration(1.0, actionBlock: { node, time in
             let index = Int((fps * Double(time))) % animFrames.count
             (node as! SKSpriteNode).texture = animFrames[index]})
+        
+        var random = arc4random_uniform(5)
+        var sound = SKAction()
+        switch random {
+        case 0:
+            sound = SKAction.playSoundFileNamed("jump1.wav", waitForCompletion: true)
+        case 1:
+            sound = SKAction.playSoundFileNamed("jump2.wav", waitForCompletion: true)
+        case 2:
+            sound = SKAction.playSoundFileNamed("jump3.wav", waitForCompletion: true)
+        case 3:
+            sound = SKAction.playSoundFileNamed("jump4.wav", waitForCompletion: true)
+        case 4:
+            sound = SKAction.playSoundFileNamed("jump5.wav", waitForCompletion: true)
+        default:
+            sound = SKAction.playSoundFileNamed("jump6.wav", waitForCompletion: true)
+        }
+        self.runAction(sound)
+        
         jogador.runAction(SKAction.repeatAction(anim, count: 1))
         
     }
@@ -727,11 +702,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     println((jogador.position.x * gameNode.xScale))
                     if swipePoints.actual.x > self.size.height/2 {
                         movePlayerWithDirection(moveDirection.right)
-                        //personagemPulando()
                     }
                     else if swipePoints.actual.x < self.size.height/2 {
                         movePlayerWithDirection(moveDirection.left)
-                        //personagemPulando()
                     }
                     lastMoveTime = currentTime
                 }
