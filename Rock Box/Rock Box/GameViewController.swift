@@ -46,10 +46,21 @@ class GameViewController: UIViewController {
     @IBOutlet weak var hudView: UIView!
     @IBOutlet weak var fundoDoHudImageView: UIImageView!
     
+    @IBOutlet weak var voltarPraFasesOutlet: UIButton!
+    
+    @IBOutlet weak var reiniciarFasesOutlet: UIButton!
+    
+    @IBOutlet weak var proximaFaseOutlet: UIButton!
+    
+    
     var audioPlayer = AVAudioPlayer()
     
     var arrayDasLetrasPause = Array<UIImageView>()
     var arrayDasLetrasHud = Array<UIImageView>()
+    
+    var arrayDosRiscosPause = Array<UIImageView>()
+    
+    var arrayDosRiscosHud = Array<UIImageView>()
     
     var gameScene = GameScene()
     
@@ -63,6 +74,7 @@ class GameViewController: UIViewController {
         
         criarRiscosELetrasHud()
         criarRiscosELetrasPause()
+        esconderBotoes()
     
         viewPalavra.layer.cornerRadius = 20
         viewPalavra.layer.masksToBounds = true
@@ -77,7 +89,8 @@ class GameViewController: UIViewController {
 //        var cor = UIColor(red: 154.0/255, green: 114.0/255, blue: 218.0/255, alpha: 0.45).CGColor
 //        viewPalavra.layer.backgroundColor = cor
 
-        viewPalavra.layer.backgroundColor = UIColor(patternImage: UIImage(named: "Mask.png")!).CGColor
+
+        viewPalavra.layer.backgroundColor = UIColor(patternImage: UIImage(named: "janela2.png")!).CGColor
         
         switch DataManager.instance.faseEscolhida {
         case 1 :
@@ -117,7 +130,7 @@ class GameViewController: UIViewController {
             // Configure the view.
             let skView = self.view as! SKView
             skView.showsFPS = true
-            skView.showsPhysics = true
+            skView.showsPhysics = false
             skView.showsFields = false
             skView.showsNodeCount = true
             /* Sprite Kit applies additional optimizations to improve rendering performance */
@@ -158,7 +171,18 @@ class GameViewController: UIViewController {
         return true
     }
     
-     
+    func esconderBotoes()
+    {
+        voltarPraFasesOutlet.hidden = true
+        reiniciarFasesOutlet.hidden = true
+        proximaFaseOutlet.hidden = true
+    }
+    
+    func aparecerBotoes()
+    {
+        voltarPraFasesOutlet.hidden = false
+        reiniciarFasesOutlet.hidden = false
+    }
     @IBAction func somPalavra(sender: UIButton) {
         playSound()
     }
@@ -213,6 +237,7 @@ class GameViewController: UIViewController {
             riscoDasLetrasHud.layer.position = CGPoint(x: posicaoInicial.x + CGFloat(i) * (tamanhoRisco + tamanhoEspaco), y: posicaoInicial.y)
             
             hudView.addSubview(riscoDasLetrasHud)
+            arrayDosRiscosHud.append(riscoDasLetrasHud)
             
             var letra = "\(palavraFase[i])"
             letra = "\(letra.capitalizedString).png"
@@ -253,7 +278,7 @@ class GameViewController: UIViewController {
             
             riscoDasLetrasPause.layer.position = CGPoint(x: posicaoInicial.x + CGFloat(i) * (tamanhoRisco + tamanhoEspaco), y: posicaoInicial.y)
             viewPalavra.addSubview(riscoDasLetrasPause)
-            
+            arrayDosRiscosPause.append(riscoDasLetrasPause)
             var letra = "\(palavraFase[i])"
             letra = "\(letra.capitalizedString).png"
             
@@ -281,6 +306,7 @@ class GameViewController: UIViewController {
         if gameScene.numeroDaLetraAtual == arrayDasLetrasHud.count
         {
             viewPalavra.hidden = false
+            proximaFaseOutlet.hidden = false
            
         }
         switch gameScene.numeroDeEstrelasAtual {
@@ -344,6 +370,33 @@ class GameViewController: UIViewController {
         estrelaDoHud3.image = UIImage(named: "estrelaApagada.png")
     }
     
+    func tirarOsRisquinhos()
+    {
+        for risco in arrayDosRiscosPause
+        {
+            risco.removeFromSuperview()
+            
+        }
+        
+        for risco in arrayDosRiscosHud
+        {
+            risco.removeFromSuperview()
+        }
+    }
+    
+    func tirarLetras()
+    {
+       for letra in arrayDasLetrasHud
+        
+       {
+        letra.removeFromSuperview()
+        }
+        
+        for letra in arrayDasLetrasPause
+        {
+            letra.removeFromSuperview()
+        }
+    }
     @IBAction func repetirSom(sender: AnyObject) {
         playSound()
     }
@@ -351,8 +404,28 @@ class GameViewController: UIViewController {
     @IBAction func voltarPrasFases(sender: AnyObject) {
         
         viewPalavra.hidden = false
+        aparecerBotoes()
 
     }
     
+    @IBAction func voltarPraTelaDeFases(sender: AnyObject) {
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    @IBAction func jogarNovamente(sender: AnyObject) {
+        tirarOsRisquinhos()
+        tirarLetras()
+        self.viewDidLoad()
+    }
+    
+    
+    @IBAction func irParaProximaFase(sender: AnyObject) {
+        
+        DataManager.instance.faseEscolhida!++
+        tirarOsRisquinhos()
+        tirarLetras()
+        self.viewDidLoad()
+        
+    }
 }
 

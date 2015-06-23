@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fP6-gf-8Ez">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fP6-gf-8Ez">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -475,7 +475,7 @@
                                             <constraint firstAttribute="height" constant="56" id="L3i-m7-dkO"/>
                                             <constraint firstAttribute="width" constant="59" id="xBn-nS-lbJ"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="x.gif">
+                                        <state key="normal" title="Button" image="fecharJanela.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -524,10 +524,54 @@
                                             <action selector="somPalavra:" destination="BV1-FR-VrT" eventType="touchUpInside" id="SJW-5g-B5o"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2m-SG-poT">
+                                        <rect key="frame" x="539" y="330" width="55" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="55" id="pF3-5K-ymx"/>
+                                            <constraint firstAttribute="height" constant="36" id="uHz-BN-0w2"/>
+                                        </constraints>
+                                        <state key="normal" image="prosseguir.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="irParaProximaFase:" destination="BV1-FR-VrT" eventType="touchUpInside" id="jjI-jh-uyX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ysf-gx-rkA">
+                                        <rect key="frame" x="313" y="323" width="70" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="0KT-Oa-Y3A"/>
+                                            <constraint firstAttribute="width" constant="70" id="Y8n-uh-USM"/>
+                                        </constraints>
+                                        <state key="normal" image="JogarNovamente.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="jogarNovamente:" destination="BV1-FR-VrT" eventType="touchUpInside" id="9xf-WZ-ZgI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N2u-kK-BEY">
+                                        <rect key="frame" x="79" y="325" width="50" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="12g-Ac-29X"/>
+                                            <constraint firstAttribute="height" constant="40" id="Nip-GK-mk5"/>
+                                        </constraints>
+                                        <state key="normal" image="fases.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="voltarPraTelaDeFases:" destination="BV1-FR-VrT" eventType="touchUpInside" id="DeA-i7-Q6R"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="sgw-2L-kwz" firstAttribute="leading" secondItem="HPW-X1-H9c" secondAttribute="leading" constant="44" id="Af6-UQ-gAE"/>
+                                    <constraint firstAttribute="centerX" secondItem="Ysf-gx-rkA" secondAttribute="centerX" constant="-29.5" id="Brg-2c-cs0"/>
+                                    <constraint firstAttribute="centerX" secondItem="d2m-SG-poT" secondAttribute="centerX" constant="-238" id="EPH-bc-8q2"/>
+                                    <constraint firstAttribute="centerY" secondItem="Ysf-gx-rkA" secondAttribute="centerY" constant="-153" id="Er5-LD-bx5"/>
+                                    <constraint firstAttribute="centerX" secondItem="Ysf-gx-rkA" secondAttribute="centerX" constant="-19.5" id="Gsr-Np-JDO"/>
+                                    <constraint firstAttribute="centerY" secondItem="d2m-SG-poT" secondAttribute="centerY" constant="-134.5" id="Iuf-0R-gVi"/>
                                     <constraint firstAttribute="width" constant="657" id="MNo-dM-Kxm"/>
                                     <constraint firstAttribute="centerY" secondItem="K4G-E8-2bU" secondAttribute="centerY" constant="-70.5" id="Q3c-4M-Pg3"/>
                                     <constraint firstAttribute="centerX" secondItem="O4M-aX-Cse" secondAttribute="centerX" constant="-222" id="SQF-gz-Iyc"/>
@@ -536,12 +580,25 @@
                                     <constraint firstAttribute="height" constant="390" id="atH-Ud-df8"/>
                                     <constraint firstItem="ecj-cC-k5T" firstAttribute="top" secondItem="HPW-X1-H9c" secondAttribute="top" id="bA5-da-5ho"/>
                                     <constraint firstAttribute="trailing" secondItem="ecj-cC-k5T" secondAttribute="trailing" id="cOH-45-Nxi"/>
+                                    <constraint firstAttribute="centerY" secondItem="Ysf-gx-rkA" secondAttribute="centerY" constant="-139.5" id="cXg-pS-0vr"/>
                                     <constraint firstAttribute="centerX" secondItem="Eb1-bm-9tH" secondAttribute="centerX" constant="-193" id="n8u-oe-6Cd"/>
+                                    <constraint firstAttribute="centerX" secondItem="d2m-SG-poT" secondAttribute="centerX" constant="-225" id="oBG-vy-zM5"/>
                                     <constraint firstAttribute="centerY" secondItem="Eb1-bm-9tH" secondAttribute="centerY" constant="88" id="oUV-Pl-u8s"/>
                                     <constraint firstAttribute="centerY" secondItem="O4M-aX-Cse" secondAttribute="centerY" constant="36" id="rmt-J7-1dZ"/>
+                                    <constraint firstAttribute="centerY" secondItem="N2u-kK-BEY" secondAttribute="centerY" constant="-150" id="sOD-HZ-flg"/>
                                     <constraint firstAttribute="centerX" secondItem="K4G-E8-2bU" secondAttribute="centerX" constant="-193" id="tbB-By-jTK"/>
                                     <constraint firstAttribute="centerY" secondItem="TbC-FI-5fd" secondAttribute="centerY" constant="36" id="w2q-jG-hly"/>
+                                    <constraint firstAttribute="centerX" secondItem="N2u-kK-BEY" secondAttribute="centerX" constant="224.5" id="xb9-mK-0Cx"/>
+                                    <constraint firstAttribute="centerY" secondItem="d2m-SG-poT" secondAttribute="centerY" constant="-153" id="ydN-qT-QcH"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Brg-2c-cs0"/>
+                                        <exclude reference="cXg-pS-0vr"/>
+                                        <exclude reference="Iuf-0R-gVi"/>
+                                        <exclude reference="oBG-vy-zM5"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -572,7 +629,10 @@
                         <outlet property="hudView" destination="ZTY-94-Tpo" id="675-WY-nam"/>
                         <outlet property="imagePalavra" destination="sgw-2L-kwz" id="dzi-MD-b9H"/>
                         <outlet property="objetoDaFaseMiniatura" destination="9RA-pi-uuI" id="Geu-Jh-CbF"/>
+                        <outlet property="proximaFaseOutlet" destination="d2m-SG-poT" id="Y0G-E3-6fF"/>
+                        <outlet property="reiniciarFasesOutlet" destination="Ysf-gx-rkA" id="1Oy-gS-5IV"/>
                         <outlet property="viewPalavra" destination="HPW-X1-H9c" id="6st-ko-ann"/>
+                        <outlet property="voltarPraFasesOutlet" destination="N2u-kK-BEY" id="tSg-2e-Unq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
@@ -582,11 +642,13 @@
     </scenes>
     <resources>
         <image name="Casa.png" width="4181" height="4146"/>
+        <image name="JogarNovamente.png" width="85" height="73"/>
         <image name="PlaceHolder HUD.jpg" width="672" height="504"/>
         <image name="background.jpg" width="2048" height="1536"/>
         <image name="estrela.png" width="96" height="92"/>
         <image name="estrelaApagada.png" width="86" height="82"/>
         <image name="fases.png" width="80" height="63"/>
+        <image name="fecharJanela.png" width="82" height="82"/>
         <image name="fundoDoHud.png" width="2048" height="312"/>
         <image name="logo.jpg" width="2048" height="1536"/>
         <image name="number1.png" width="80" height="125"/>
@@ -602,7 +664,6 @@
         <image name="prosseguir.png" width="70" height="73"/>
         <image name="som.png" width="85" height="65"/>
         <image name="sound copy.png" width="147" height="147"/>
-        <image name="x.gif" width="292" height="283"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zAL-Yd-5Dg"/>

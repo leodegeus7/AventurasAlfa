@@ -339,7 +339,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             var bodyA = contact.bodyA
             var bodyB = contact.bodyB
             
-            if String(palavraDaFaseArray[numeroDaLetraAtual]) == bodyB.node!.name && (numeroDaLetraAtual < palavraDaFaseArray.count)
+            if  (numeroDaLetraAtual < palavraDaFaseArray.count) && String(palavraDaFaseArray[numeroDaLetraAtual]) == bodyB.node!.name
             {
                 bodyB.node?.removeFromParent()
                 numeroDaLetraAtual++
@@ -367,7 +367,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             var bodyA = contact.bodyA
             var bodyB = contact.bodyB
             
-            if String(palavraDaFaseArray[0]) == bodyA.node!.name && (numeroDaLetraAtual < palavraDaFaseArray.count)
+            if (numeroDaLetraAtual < palavraDaFaseArray.count) && String(palavraDaFaseArray[numeroDaLetraAtual]) == bodyA.node!.name
             {
                 bodyA.node?.removeFromParent()
                 numeroDaLetraAtual++
@@ -446,7 +446,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             var bodyA = contact.bodyA
             var bodyB = contact.bodyB
             
-            if !(String(palavraDaFaseArray[numeroDaLetraAtual]) == bodyB.node!.name && (numeroDaLetraAtual < palavraDaFaseArray.count))
+            if !((numeroDaLetraAtual < palavraDaFaseArray.count) && String(palavraDaFaseArray[numeroDaLetraAtual]) == bodyB.node!.name)
             {
                 bodyB.collisionBitMask = BitMasks.estrela | BitMasks.personagem
                 
