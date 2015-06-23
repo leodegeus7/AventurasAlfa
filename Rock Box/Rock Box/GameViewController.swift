@@ -80,14 +80,14 @@ class GameViewController: UIViewController {
         viewPalavra.layer.masksToBounds = true
         
         viewPalavra.alpha = 1
-        
+
         initEstrelas()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateHud:", name: "UpdateHud", object: nil)
         
        
 //        var cor = UIColor(red: 154.0/255, green: 114.0/255, blue: 218.0/255, alpha: 0.45).CGColor
-//        viewPalavra.layer.backgroundColor = cor
+//        viewPalavra.layer.backgroundColor = cor//
 
         viewPalavra.layer.backgroundColor = UIColor(patternImage: UIImage(named: "janela2.png")!).CGColor
         
