@@ -18,16 +18,17 @@ class InitialViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        var er:NSError?
         var music1 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("menu", ofType: "mp3")!)
         var music2 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("ambiente", ofType: "mp3")!)
         
-        var error:NSError?
-        audioPlayer1 = AVAudioPlayer(contentsOfURL: music1, error: &error)
-        audioPlayer1.prepareToPlay()
+        var erro:NSError?
+        audioPlayer1 = AVAudioPlayer(contentsOfURL: music1, error: &erro)
+        AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
+        AVAudioSession.sharedInstance().setActive(true, error: &erro)
         audioPlayer1.play()
         
-        audioPlayer2 = AVAudioPlayer(contentsOfURL: music2, error: &error)
+        audioPlayer2 = AVAudioPlayer(contentsOfURL: music2, error: &erro)
         audioPlayer2.prepareToPlay()
         
         // Do any additional setup after loading the view.
