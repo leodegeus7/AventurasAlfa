@@ -262,7 +262,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             if let name = touchedNode.name
             {
-                if name == "jogador"
+                if name == "jogador" && !(DataManager.instance.pausar)
                 {
                     
                     var random = arc4random_uniform(4)

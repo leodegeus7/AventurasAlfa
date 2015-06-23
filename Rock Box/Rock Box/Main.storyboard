@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fP6-gf-8Ez">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fP6-gf-8Ez">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -462,7 +462,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HPW-X1-H9c">
                                 <rect key="frame" x="122" y="105" width="657" height="390"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sgw-2L-kwz">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="janela2.png" translatesAutoresizingMaskIntoConstraints="NO" id="vjh-vI-oo4">
+                                        <rect key="frame" x="0.0" y="0.0" width="657" height="390"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sgw-2L-kwz">
                                         <rect key="frame" x="44" y="60" width="239" height="145"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="239" id="LTU-cf-x4b"/>
@@ -470,7 +473,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecj-cC-k5T">
-                                        <rect key="frame" x="598" y="0.0" width="59" height="56"/>
+                                        <rect key="frame" x="580" y="15" width="59" height="56"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="L3i-m7-dkO"/>
                                             <constraint firstAttribute="width" constant="59" id="xBn-nS-lbJ"/>
@@ -483,28 +486,28 @@
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="estrelaApagada.png" translatesAutoresizingMaskIntoConstraints="NO" id="TbC-FI-5fd">
-                                        <rect key="frame" x="459" y="129" width="61" height="60"/>
+                                        <rect key="frame" x="467" y="137" width="45" height="45"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="61" id="kxI-7F-WDU"/>
-                                            <constraint firstAttribute="height" constant="60" id="yJC-mL-zZe"/>
+                                            <constraint firstAttribute="width" constant="45" id="kxI-7F-WDU"/>
+                                            <constraint firstAttribute="height" constant="45" id="yJC-mL-zZe"/>
                                         </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="estrelaApagada.png" translatesAutoresizingMaskIntoConstraints="NO" id="O4M-aX-Cse">
-                                        <rect key="frame" x="520" y="129" width="61" height="60"/>
+                                        <rect key="frame" x="528" y="137" width="45" height="45"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="61" id="FOZ-Cj-7Ag"/>
-                                            <constraint firstAttribute="height" constant="60" id="KvX-Va-5H6"/>
+                                            <constraint firstAttribute="width" constant="45" id="FOZ-Cj-7Ag"/>
+                                            <constraint firstAttribute="height" constant="45" id="KvX-Va-5H6"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="estrelaApagada.png" translatesAutoresizingMaskIntoConstraints="NO" id="Eb1-bm-9tH">
-                                        <rect key="frame" x="491" y="77" width="61" height="60"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="estrelaApagada.png" translatesAutoresizingMaskIntoConstraints="NO" id="Eb1-bm-9tH">
+                                        <rect key="frame" x="500" y="85" width="45" height="45"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="B9o-Ha-KYb"/>
-                                            <constraint firstAttribute="width" constant="61" id="JFw-mg-vDS"/>
+                                            <constraint firstAttribute="height" constant="45" id="B9o-Ha-KYb"/>
+                                            <constraint firstAttribute="width" constant="45" id="JFw-mg-vDS"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K4G-E8-2bU">
-                                        <rect key="frame" x="474" y="218" width="95" height="95"/>
+                                        <rect key="frame" x="474" y="203" width="95" height="95"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="95" id="GYi-yi-uHy"/>
                                             <constraint firstAttribute="height" constant="95" id="NT3-qJ-EsA"/>
@@ -525,10 +528,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2m-SG-poT">
-                                        <rect key="frame" x="539" y="330" width="55" height="36"/>
+                                        <rect key="frame" x="539" y="332" width="55" height="36"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="55" id="pF3-5K-ymx"/>
-                                            <constraint firstAttribute="height" constant="36" id="uHz-BN-0w2"/>
+                                            <constraint firstAttribute="height" constant="36" id="00d-jd-sg5"/>
+                                            <constraint firstAttribute="width" constant="55" id="Eiw-Tl-l6U"/>
                                         </constraints>
                                         <state key="normal" image="prosseguir.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -538,10 +541,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ysf-gx-rkA">
-                                        <rect key="frame" x="313" y="323" width="70" height="50"/>
+                                        <rect key="frame" x="308" y="325" width="70" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="0KT-Oa-Y3A"/>
-                                            <constraint firstAttribute="width" constant="70" id="Y8n-uh-USM"/>
+                                            <constraint firstAttribute="height" constant="50" id="254-f3-WZU"/>
+                                            <constraint firstAttribute="width" constant="70" id="cgW-Lo-1y0"/>
                                         </constraints>
                                         <state key="normal" image="JogarNovamente.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -551,10 +554,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N2u-kK-BEY">
-                                        <rect key="frame" x="79" y="325" width="50" height="40"/>
+                                        <rect key="frame" x="79" y="330" width="50" height="40"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="12g-Ac-29X"/>
-                                            <constraint firstAttribute="height" constant="40" id="Nip-GK-mk5"/>
+                                            <constraint firstAttribute="height" constant="40" id="Bsm-4M-QNj"/>
+                                            <constraint firstAttribute="width" constant="50" id="GVJ-Pt-lda"/>
                                         </constraints>
                                         <state key="normal" image="fases.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -566,30 +569,34 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="Ysf-gx-rkA" firstAttribute="top" secondItem="vjh-vI-oo4" secondAttribute="bottom" constant="-65" id="0eJ-mp-iq9"/>
+                                    <constraint firstItem="vjh-vI-oo4" firstAttribute="width" secondItem="HPW-X1-H9c" secondAttribute="width" id="60Y-v2-VeO"/>
                                     <constraint firstItem="sgw-2L-kwz" firstAttribute="leading" secondItem="HPW-X1-H9c" secondAttribute="leading" constant="44" id="Af6-UQ-gAE"/>
                                     <constraint firstAttribute="centerX" secondItem="Ysf-gx-rkA" secondAttribute="centerX" constant="-29.5" id="Brg-2c-cs0"/>
-                                    <constraint firstAttribute="centerX" secondItem="d2m-SG-poT" secondAttribute="centerX" constant="-238" id="EPH-bc-8q2"/>
-                                    <constraint firstAttribute="centerY" secondItem="Ysf-gx-rkA" secondAttribute="centerY" constant="-153" id="Er5-LD-bx5"/>
-                                    <constraint firstAttribute="centerX" secondItem="Ysf-gx-rkA" secondAttribute="centerX" constant="-19.5" id="Gsr-Np-JDO"/>
+                                    <constraint firstItem="vjh-vI-oo4" firstAttribute="leading" secondItem="N2u-kK-BEY" secondAttribute="trailing" constant="-129" id="I8f-7S-4Kn"/>
                                     <constraint firstAttribute="centerY" secondItem="d2m-SG-poT" secondAttribute="centerY" constant="-134.5" id="Iuf-0R-gVi"/>
                                     <constraint firstAttribute="width" constant="657" id="MNo-dM-Kxm"/>
-                                    <constraint firstAttribute="centerY" secondItem="K4G-E8-2bU" secondAttribute="centerY" constant="-70.5" id="Q3c-4M-Pg3"/>
+                                    <constraint firstItem="vjh-vI-oo4" firstAttribute="height" secondItem="HPW-X1-H9c" secondAttribute="height" id="Mus-CI-6sW"/>
+                                    <constraint firstItem="N2u-kK-BEY" firstAttribute="centerY" secondItem="Ysf-gx-rkA" secondAttribute="centerY" id="O9q-uj-hrZ"/>
+                                    <constraint firstAttribute="centerY" secondItem="K4G-E8-2bU" secondAttribute="centerY" constant="-55" id="Q3c-4M-Pg3"/>
                                     <constraint firstAttribute="centerX" secondItem="O4M-aX-Cse" secondAttribute="centerX" constant="-222" id="SQF-gz-Iyc"/>
                                     <constraint firstItem="sgw-2L-kwz" firstAttribute="top" secondItem="HPW-X1-H9c" secondAttribute="top" constant="60" id="Tn8-ck-fVQ"/>
+                                    <constraint firstItem="Ysf-gx-rkA" firstAttribute="centerY" secondItem="d2m-SG-poT" secondAttribute="centerY" id="Tnq-fI-5N0"/>
+                                    <constraint firstAttribute="centerX" secondItem="vjh-vI-oo4" secondAttribute="centerX" id="V94-P9-6RC"/>
+                                    <constraint firstAttribute="centerY" secondItem="vjh-vI-oo4" secondAttribute="centerY" id="XIY-tm-13T"/>
                                     <constraint firstAttribute="centerX" secondItem="TbC-FI-5fd" secondAttribute="centerX" constant="-161" id="XNT-M4-4TX"/>
                                     <constraint firstAttribute="height" constant="390" id="atH-Ud-df8"/>
-                                    <constraint firstItem="ecj-cC-k5T" firstAttribute="top" secondItem="HPW-X1-H9c" secondAttribute="top" id="bA5-da-5ho"/>
-                                    <constraint firstAttribute="trailing" secondItem="ecj-cC-k5T" secondAttribute="trailing" id="cOH-45-Nxi"/>
+                                    <constraint firstItem="ecj-cC-k5T" firstAttribute="top" secondItem="HPW-X1-H9c" secondAttribute="top" constant="15" id="bA5-da-5ho"/>
+                                    <constraint firstAttribute="trailing" secondItem="ecj-cC-k5T" secondAttribute="trailing" constant="18" id="cOH-45-Nxi"/>
                                     <constraint firstAttribute="centerY" secondItem="Ysf-gx-rkA" secondAttribute="centerY" constant="-139.5" id="cXg-pS-0vr"/>
                                     <constraint firstAttribute="centerX" secondItem="Eb1-bm-9tH" secondAttribute="centerX" constant="-193" id="n8u-oe-6Cd"/>
                                     <constraint firstAttribute="centerX" secondItem="d2m-SG-poT" secondAttribute="centerX" constant="-225" id="oBG-vy-zM5"/>
+                                    <constraint firstItem="d2m-SG-poT" firstAttribute="leading" secondItem="vjh-vI-oo4" secondAttribute="trailing" constant="-118" id="oFJ-FY-WFR"/>
                                     <constraint firstAttribute="centerY" secondItem="Eb1-bm-9tH" secondAttribute="centerY" constant="88" id="oUV-Pl-u8s"/>
                                     <constraint firstAttribute="centerY" secondItem="O4M-aX-Cse" secondAttribute="centerY" constant="36" id="rmt-J7-1dZ"/>
-                                    <constraint firstAttribute="centerY" secondItem="N2u-kK-BEY" secondAttribute="centerY" constant="-150" id="sOD-HZ-flg"/>
                                     <constraint firstAttribute="centerX" secondItem="K4G-E8-2bU" secondAttribute="centerX" constant="-193" id="tbB-By-jTK"/>
+                                    <constraint firstItem="Ysf-gx-rkA" firstAttribute="centerX" secondItem="vjh-vI-oo4" secondAttribute="centerX" constant="14.5" id="uuV-q9-7wy"/>
                                     <constraint firstAttribute="centerY" secondItem="TbC-FI-5fd" secondAttribute="centerY" constant="36" id="w2q-jG-hly"/>
-                                    <constraint firstAttribute="centerX" secondItem="N2u-kK-BEY" secondAttribute="centerX" constant="224.5" id="xb9-mK-0Cx"/>
-                                    <constraint firstAttribute="centerY" secondItem="d2m-SG-poT" secondAttribute="centerY" constant="-153" id="ydN-qT-QcH"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -631,6 +638,7 @@
                         <outlet property="objetoDaFaseMiniatura" destination="9RA-pi-uuI" id="Geu-Jh-CbF"/>
                         <outlet property="proximaFaseOutlet" destination="d2m-SG-poT" id="Y0G-E3-6fF"/>
                         <outlet property="reiniciarFasesOutlet" destination="Ysf-gx-rkA" id="1Oy-gS-5IV"/>
+                        <outlet property="viewFundo" destination="vjh-vI-oo4" id="y3u-eg-tTH"/>
                         <outlet property="viewPalavra" destination="HPW-X1-H9c" id="6st-ko-ann"/>
                         <outlet property="voltarPraFasesOutlet" destination="N2u-kK-BEY" id="tSg-2e-Unq"/>
                     </connections>
@@ -650,6 +658,7 @@
         <image name="fases.png" width="80" height="63"/>
         <image name="fecharJanela.png" width="82" height="82"/>
         <image name="fundoDoHud.png" width="2048" height="312"/>
+        <image name="janela2.png" width="1328" height="936"/>
         <image name="logo.jpg" width="2048" height="1536"/>
         <image name="number1.png" width="80" height="125"/>
         <image name="number2.png" width="122" height="152"/>

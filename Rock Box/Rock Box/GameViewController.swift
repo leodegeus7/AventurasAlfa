@@ -52,6 +52,7 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var proximaFaseOutlet: UIButton!
     
+    @IBOutlet weak var viewFundo: UIImageView!
     
     var audioPlayer = AVAudioPlayer()
     
@@ -76,7 +77,7 @@ class GameViewController: UIViewController {
         criarRiscosELetrasPause()
         esconderBotoes()
     
-        viewPalavra.layer.cornerRadius = 20
+        viewPalavra.layer.cornerRadius = 36
         viewPalavra.layer.masksToBounds = true
         
         viewPalavra.alpha = 1
@@ -89,7 +90,10 @@ class GameViewController: UIViewController {
 //        var cor = UIColor(red: 154.0/255, green: 114.0/255, blue: 218.0/255, alpha: 0.45).CGColor
 //        viewPalavra.layer.backgroundColor = cor//
 
-        viewPalavra.layer.backgroundColor = UIColor(patternImage: UIImage(named: "janela2.png")!).CGColor
+        
+        
+        
+        
         
         switch DataManager.instance.faseEscolhida {
         case 1 :
@@ -259,8 +263,8 @@ class GameViewController: UIViewController {
         var palavraFase = Array(arquivo)
         
         
-        let posicaoInicial = CGPoint(x: 88 , y: 320)
-        let posicaoFinal = CGPoint(x: 469 , y: 320)
+        let posicaoInicial = CGPoint(x: 88 , y: 280)
+        let posicaoFinal = CGPoint(x: 469 , y: 280)
         
         let espacoRiscos = (posicaoFinal.x - posicaoInicial.x) * 8 / 9
         let tamanhoRisco = espacoRiscos / CGFloat(palavraFase.count)
@@ -401,7 +405,8 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func voltarPrasFases(sender: AnyObject) {
-        
+        DataManager.instance.pausar = true
+        viewFundo.image = UIImage(named: "janela1.png")
         viewPalavra.hidden = false
         aparecerBotoes()
 
