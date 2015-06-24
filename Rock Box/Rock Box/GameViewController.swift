@@ -54,6 +54,8 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var viewFundo: UIImageView!
     
+    @IBOutlet weak var botaoFechar: UIButton!
+    
     var audioPlayer = AVAudioPlayer()
     
     var arrayDasLetrasPause = Array<UIImageView>()
@@ -70,7 +72,9 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         audioPlayer1.stop()
         audioPlayer2.play()
+        audioPlayer2.numberOfLoops = -1
         
+        botaoFechar.hidden = false
 
         
         criarRiscosELetrasHud()
@@ -85,6 +89,7 @@ class GameViewController: UIViewController {
         initEstrelas()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateHud:", name: "UpdateHud", object: nil)
+        
         
        
 //        var cor = UIColor(red: 154.0/255, green: 114.0/255, blue: 218.0/255, alpha: 0.45).CGColor
@@ -176,14 +181,12 @@ class GameViewController: UIViewController {
     
     func esconderBotoes()
     {
-        voltarPraFasesOutlet.hidden = true
         reiniciarFasesOutlet.hidden = true
         proximaFaseOutlet.hidden = true
     }
     
     func aparecerBotoes()
     {
-        voltarPraFasesOutlet.hidden = false
         reiniciarFasesOutlet.hidden = false
     }
     @IBAction func somPalavra(sender: UIButton) {
@@ -299,17 +302,30 @@ class GameViewController: UIViewController {
         
         
     }
+
+    func updateTheStars () {
+        NSNotificationCenter.defaultCenter().postNotificationName("UpdateStars", object: nil)
+        
+    }
+    
+    func resetTheGame () {
+        NSNotificationCenter.defaultCenter().postNotificationName("ResetGame", object: nil)
+    }
+
     
     func updateHud(notification:NSNotification){
         for var i=0; i < gameScene.numeroDaLetraAtual ; i++ {
             arrayDasLetrasHud[i].hidden = false
             arrayDasLetrasPause[i].hidden = false
+            botaoFechar.hidden = true
         }
         
         if gameScene.numeroDaLetraAtual == arrayDasLetrasHud.count
         {
             viewPalavra.hidden = false
+            if !(DataManager.instance.faseEscolhida == 8) {
             proximaFaseOutlet.hidden = false
+            }
            
         }
         switch gameScene.numeroDeEstrelasAtual {
@@ -399,6 +415,9 @@ class GameViewController: UIViewController {
         {
             letra.removeFromSuperview()
         }
+        
+        arrayDasLetrasHud.removeAll(keepCapacity: false)
+        arrayDasLetrasPause.removeAll(keepCapacity: false)
     }
     @IBAction func repetirSom(sender: AnyObject) {
         playSound()
@@ -415,19 +434,32 @@ class GameViewController: UIViewController {
     @IBAction func voltarPraTelaDeFases(sender: AnyObject) {
         
         self.dismissViewControllerAnimated(true, completion: nil)
+        audioPlayer1.play()
+        audioPlayer2.stop()
+        updateTheStars()
+        
+        
     }
     @IBAction func jogarNovamente(sender: AnyObject) {
         tirarOsRisquinhos()
         tirarLetras()
+        gameScene.resetVars()
+        
         self.viewDidLoad()
     }
     
+
+    
     
     @IBAction func irParaProximaFase(sender: AnyObject) {
-        
+        DataManager.instance.pausar = true
+        estrela1.image = UIImage(named: "estrelaApagada.png")
+        estrela2.image = UIImage(named: "estrelaApagada.png")
+        estrela3.image = UIImage(named: "estrelaApagada.png")
         DataManager.instance.faseEscolhida!++
         tirarOsRisquinhos()
         tirarLetras()
+        playSound()
         self.viewDidLoad()
         
     }

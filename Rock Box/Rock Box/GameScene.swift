@@ -67,7 +67,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var audioPlayer = AVAudioPlayer()
     var isJumping = false
     var isChangingPlanet = false
-    
+    var numeroEstrelasJson = 0
     enum moveDirection{
         case left
         case right
@@ -77,6 +77,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
         
         println(DataManager.instance.faseEscolhida)
+        
+        numeroDaLetraAtual = 0
+        numeroDeEstrelasAtual = 0
         
         
         // Configuracoes do mundo e a camera
@@ -220,6 +223,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var arquivo = (((DataManager.instance.lerArquivoJson())[DataManager.instance.faseEscolhida - 1] as! Dictionary<String,AnyObject>)["palavra"] as! String)
         
         
+        
+        
         palavraDaFaseArray = Array(arquivo)
         
         
@@ -348,10 +353,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 personagemFelizAnimacao()
                 if numeroDaLetraAtual == palavraDaFaseArray.count
                 {
+                    audioPlayer2.stop()
+                    self.runAction(SKAction.playSoundFileNamed("vitoria.mp3.mp3", waitForCompletion: true))
+                    
                     self.paused = true
                     
-                    
-                    DataManager.instance.escreverArquivoJson(DataManager.instance.faseEscolhida, quantasEstrelasPegou: numeroDeEstrelasAtual)
+    
+                    numeroEstrelasJson = (DataManager.instance.lerArquivoJson()[DataManager.instance.faseEscolhida - 1] as! Dictionary<String,AnyObject>)["quantasEstrelasPegou"] as! Int
+                    if numeroDeEstrelasAtual > numeroEstrelasJson{
+                        DataManager.instance.escreverArquivoJson(DataManager.instance.faseEscolhida, quantasEstrelasPegou: numeroDeEstrelasAtual)
+                    }
                     
                 }
             
@@ -730,6 +741,39 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func updateTheHud () {
         NSNotificationCenter.defaultCenter().postNotificationName("UpdateHud", object: nil)
+        
+    }
+    
+    func resetVars () {
+        planetaIndex = 0
+        contador = 0
+        planetaUser = ""
+        arrayPlanetas = Array<SKSpriteNode>()
+        arrayLetras = Array<SKSpriteNode>()
+        arrayEstrelas = Array<SKSpriteNode>()
+        pausar = false
+        
+        
+        numeroDaLetraAtual = 0
+        numeroDeEstrelasAtual = 0
+        
+        planetaAtual = SKSpriteNode()
+        anguloAtual = CGFloat(M_PI_2)
+        
+        swipePoints = (initial:CGPoint(), final:CGPoint(), actual:CGPoint())
+        
+        isTouched = false
+        longPressMinInterval = 0.5
+        lastUntouchedTime = CFTimeInterval()
+        lastMovedTouchTime = CFTimeInterval()
+        
+        lastUpdateTime = CFTimeInterval()
+        
+        lastMoveTime = CFTimeInterval()
+        
+        isJumping = false
+        isChangingPlanet = false
+        numeroEstrelasJson = 0
     }
     
     

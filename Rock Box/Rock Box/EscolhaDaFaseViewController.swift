@@ -19,6 +19,18 @@ class EscolhaDaFaseViewController: UIViewController {
     @IBOutlet weak var setimaFase: UIButton!
     @IBOutlet weak var oitavaFase: UIButton!
     @IBOutlet weak var nonaFase: UIButton!
+    @IBOutlet var viewPlanetas: UIView!
+    @IBOutlet weak var estrelasFase1: UIImageView!
+    @IBOutlet weak var estrelasFase2: UIImageView!
+    @IBOutlet weak var estrelasFase3: UIImageView!
+    @IBOutlet weak var estrelasFase4: UIImageView!
+    @IBOutlet weak var estrelasFase5: UIImageView!
+    @IBOutlet weak var estrelasFase6: UIImageView!
+    @IBOutlet weak var estrelasFase7: UIImageView!
+    @IBOutlet weak var estrelasFase8: UIImageView!
+    @IBOutlet weak var estrelasFase9: UIImageView!
+    
+    var faseAtual = GameViewController()
     
     @IBAction func irParaFase1(sender: AnyObject) {
         DataManager.instance.faseEscolhida = 1
@@ -61,28 +73,57 @@ class EscolhaDaFaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateStars", name: "UpdateStars", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "resetGame", name: "ResetGame", object: nil)
         var json = DataManager.instance.lerArquivoJson()
         var fases = DataManager.instance.arrayDaFaseAntes(1)
         var estrelas:Int!
         
+        var arrayDasEstrelas = [estrelasFase1,estrelasFase2,estrelasFase3,estrelasFase4,estrelasFase5,estrelasFase6,estrelasFase7,estrelasFase8,estrelasFase9]
+        var arrayDosPlanetas = [primeiraFase,segundaFase,terceiraFase,quartaFase,quintaFase,sextaFase,setimaFase,oitavaFase,nonaFase]
         
         for index in 1...json.count{
-                fases = DataManager.instance.arrayDaFaseAntes(index)
-                estrelas = fases["quantasEstrelasPegou"] as! Int
-
+            fases = DataManager.instance.arrayDaFaseAntes(index)
+            estrelas = fases["quantasEstrelasPegou"] as! Int
+            let jaJogou = fases["jaJogou"] as! Bool
+           
+            var nomeImagemEstrela = String()
+            
+            if index == 5 {
+                
+            }
+            
             if estrelas == 1 {
-                mudarEstrelas(UIImage(named: "estrela_1.png")!, fase: index+1)
+                nomeImagemEstrela = "estrela_1.png"
             }
             else if estrelas == 2 {
-                mudarEstrelas(UIImage(named: "estrela_2.png")!, fase: index+1)
+                nomeImagemEstrela = "estrela_2.png"
             }
             else if estrelas == 3 {
-                mudarEstrelas(UIImage(named: "estrela_3.png")!, fase: index+1)
+                nomeImagemEstrela = "estrela_3.png"
             }
-        
-        
+            
+            
+            
+            arrayDasEstrelas[index-1].image = UIImage(named: nomeImagemEstrela)
+            
+            if index < json.count {
+                if jaJogou  {
+                    arrayDosPlanetas[index].enabled = true
+                }
+                else {
+                    arrayDosPlanetas[index].enabled = false
+                }
+            }
+            
+            
         }
+        
+        
+
+        
+        
+
        
     }
     
@@ -95,60 +136,26 @@ class EscolhaDaFaseViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+
     func mudarEstrelas (imagem:UIImage,fase:Int) {
         var estrelas = UIImageView(image: imagem)
-        switch fase {
-        case 1:
-            posicaoEstrelas(estrelas, fase: primeiraFase)
-            
-            break
-        case 2:
-            posicaoEstrelas(estrelas, fase: segundaFase)
-            break
-        case 3:
-            posicaoEstrelas(estrelas, fase: terceiraFase)
-            break
-        case 4:
-            posicaoEstrelas(estrelas, fase: quartaFase)
-            break
-        case 5:
-            posicaoEstrelas(estrelas, fase: quintaFase)
-            break
-        case 6:
-            posicaoEstrelas(estrelas, fase: sextaFase)
-            break
-        case 7:
-            posicaoEstrelas(estrelas, fase: setimaFase)
-            break
-        case 8:
-            posicaoEstrelas(estrelas, fase: oitavaFase)
-            break
-        case 9:
-            posicaoEstrelas(estrelas, fase: nonaFase)
-            break
-        default:
-            break
-        }
+        
         
         estrelas.frame.size = CGSize(width: 225/1.7, height: 81/1.7)
-        self.view.addSubview(estrelas)
+        viewPlanetas.addSubview(estrelas)
     }
     
-    func posicaoEstrelas (estrelas:UIImageView,fase:UIButton) {
-            estrelas.layer.position = CGPoint(x: fase.layer.position.x - fase.frame.width*(5/4) - 5, y: fase.layer.position.y - fase.frame.height*(3/4) + 20)
+
+    
+    func updateStars () {
+        viewDidLoad()
+        
     
     }
 
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        faseAtual = segue.destinationViewController as! GameViewController
     }
-    */
 
 }

@@ -2,8 +2,8 @@
     "local": [
               {
               "palavra": "casa",
-              "jaJogou": true,
-              "quantasEstrelasPegou": 2,
+              "jaJogou": false,
+              "quantasEstrelasPegou": 0,
               "letras": [
                          {
                          "angulo": 3.1459,
@@ -86,7 +86,7 @@
               {
               "palavra": "agua",
               "jaJogou": false,
-              "quantasEstrelasPegou": 3,
+              "quantasEstrelasPegou": 0,
               "letras": [
                          {
                          "angulo": 3.1459,
@@ -262,7 +262,7 @@
                            ]
               },
               {
-              "palavra": "calça",
+              "palavra": "calca",
               "jaJogou": false,
               "quantasEstrelasPegou": 0,
               "letras": [
@@ -303,7 +303,7 @@
                          "imagem": "Ç.png"
                          },
                          {
-                         "nome": "S",
+                         "nome": "s",
                          "planeta": "planeta3",
                          "angulo": 3.1459,
                          "imagem": "S.png"
@@ -656,7 +656,7 @@
                          "nome": "t",
                          "planeta": "planeta1",
                          "angulo": 4.71238,
-                         "imagem": "t.png"
+                         "imagem": "T.png"
                          },
                          {
                          "nome": "a",

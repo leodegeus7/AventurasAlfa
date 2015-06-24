@@ -53,6 +53,7 @@
 		1ADD86221B37BDF600E26261 /* Hospital.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD861A1B37BDF600E26261 /* Hospital.png */; };
 		1ADD86231B37BDF600E26261 /* Olho.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD861B1B37BDF600E26261 /* Olho.png */; };
 		1ADFB1D11B38C60100A05137 /* janela2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ADFB1D01B38C60100A05137 /* janela2.png */; };
+		1AE01D511B39D99C0052BD17 /* planetaCinza.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AE01D501B39D99C0052BD17 /* planetaCinza.png */; };
 		1AE4A36E1B3371DA00C21087 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE4A36D1B3371DA00C21087 /* DataManager.swift */; };
 		1AE4A3721B3387E900C21087 /* EscolhaDaFaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE4A3711B3387E900C21087 /* EscolhaDaFaseViewController.swift */; };
 		A75C33ED1B37B6BD005FF4FD /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A75C33EC1B37B6BD005FF4FD /* logo.jpg */; };
@@ -66,8 +67,8 @@
 		A7DA6D4B1B37C72C00BD9476 /* number3.png in Resources */ = {isa = PBXBuildFile; fileRef = A7DA6D421B37C72C00BD9476 /* number3.png */; };
 		A7DA6D4C1B37C72C00BD9476 /* number4.png in Resources */ = {isa = PBXBuildFile; fileRef = A7DA6D431B37C72C00BD9476 /* number4.png */; };
 		A7DA6D4E1B37C9FE00BD9476 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA6D4D1B37C9FE00BD9476 /* InitialViewController.swift */; };
-		A7DA6D521B37CCAA00BD9476 /* menu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A7DA6D4F1B37CCAA00BD9476 /* menu.mp3 */; };
-		A7DA6D531B37CCAA00BD9476 /* ambiente.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A7DA6D501B37CCAA00BD9476 /* ambiente.mp3 */; };
+		A7DA6D521B37CCAA00BD9476 /* ambiente.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A7DA6D4F1B37CCAA00BD9476 /* ambiente.mp3 */; };
+		A7DA6D531B37CCAA00BD9476 /* menu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A7DA6D501B37CCAA00BD9476 /* menu.mp3 */; };
 		A7DA6D541B37CCAA00BD9476 /* vitoria.mp3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A7DA6D511B37CCAA00BD9476 /* vitoria.mp3.mp3 */; };
 		A7DA6D581B37D68600BD9476 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7DA6D571B37D68600BD9476 /* Main.storyboard */; };
 		A7DA6D5A1B37D6E800BD9476 /* som.png in Resources */ = {isa = PBXBuildFile; fileRef = A7DA6D591B37D6E800BD9476 /* som.png */; };
@@ -195,6 +196,7 @@
 		1ADD861A1B37BDF600E26261 /* Hospital.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hospital.png; sourceTree = "<group>"; };
 		1ADD861B1B37BDF600E26261 /* Olho.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Olho.png; sourceTree = "<group>"; };
 		1ADFB1D01B38C60100A05137 /* janela2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = janela2.png; sourceTree = "<group>"; };
+		1AE01D501B39D99C0052BD17 /* planetaCinza.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = planetaCinza.png; sourceTree = "<group>"; };
 		1AE4A36D1B3371DA00C21087 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		1AE4A3711B3387E900C21087 /* EscolhaDaFaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EscolhaDaFaseViewController.swift; sourceTree = "<group>"; };
 		A75C33EC1B37B6BD005FF4FD /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo.jpg; sourceTree = "<group>"; };
@@ -208,8 +210,8 @@
 		A7DA6D421B37C72C00BD9476 /* number3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = number3.png; sourceTree = "<group>"; };
 		A7DA6D431B37C72C00BD9476 /* number4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = number4.png; sourceTree = "<group>"; };
 		A7DA6D4D1B37C9FE00BD9476 /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
-		A7DA6D4F1B37CCAA00BD9476 /* menu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = menu.mp3; sourceTree = "<group>"; };
-		A7DA6D501B37CCAA00BD9476 /* ambiente.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ambiente.mp3; sourceTree = "<group>"; };
+		A7DA6D4F1B37CCAA00BD9476 /* ambiente.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ambiente.mp3; sourceTree = "<group>"; };
+		A7DA6D501B37CCAA00BD9476 /* menu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = menu.mp3; sourceTree = "<group>"; };
 		A7DA6D511B37CCAA00BD9476 /* vitoria.mp3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = vitoria.mp3.mp3; sourceTree = "<group>"; };
 		A7DA6D571B37D68600BD9476 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A7DA6D591B37D6E800BD9476 /* som.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = som.png; sourceTree = "<group>"; };
@@ -371,8 +373,8 @@
 		A7DA6D561B37CCC600BD9476 /* Music */ = {
 			isa = PBXGroup;
 			children = (
-				A7DA6D4F1B37CCAA00BD9476 /* menu.mp3 */,
-				A7DA6D501B37CCAA00BD9476 /* ambiente.mp3 */,
+				A7DA6D4F1B37CCAA00BD9476 /* ambiente.mp3 */,
+				A7DA6D501B37CCAA00BD9476 /* menu.mp3 */,
 			);
 			name = Music;
 			sourceTree = "<group>";
@@ -594,6 +596,7 @@
 		CDD691A61B373AAE002A64C7 /* Planetas */ = {
 			isa = PBXGroup;
 			children = (
+				1AE01D501B39D99C0052BD17 /* planetaCinza.png */,
 				CDD691AD1B373F1D002A64C7 /* planetavermelho.png */,
 				CDD691B11B373F25002A64C7 /* planetaverde.png */,
 				CDD691AF1B373F21002A64C7 /* planetaazul.png */,
@@ -684,6 +687,7 @@
 				TargetAttributes = {
 					CD8BFA541B2A1A4500FB3356 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = CA952UST77;
 					};
 					CD8BFA6D1B2A1A4500FB3356 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -736,11 +740,12 @@
 				A7DA6D471B37C72C00BD9476 /* number6.png in Resources */,
 				1ADD86091B37995500E26261 /* Q.png in Resources */,
 				CDD691CA1B374D17002A64C7 /* Personagem_feliz_2.png in Resources */,
+				1AE01D511B39D99C0052BD17 /* planetaCinza.png in Resources */,
 				CD15DF741B377A3700DC50BD /* hospital.wav in Resources */,
 				CD15DF6C1B377A3700DC50BD /* agua.wav in Resources */,
 				CD6A5A991B34ADB000C9E48C /* x.gif in Resources */,
 				CD8BFA7F1B2A1BD800FB3356 /* star.png in Resources */,
-				A7DA6D521B37CCAA00BD9476 /* menu.mp3 in Resources */,
+				A7DA6D521B37CCAA00BD9476 /* ambiente.mp3 in Resources */,
 				1ADD858C1B3770FC00E26261 /* estrelaApagada.png in Resources */,
 				A7DA6D481B37C72C00BD9476 /* number7.png in Resources */,
 				1ADD860D1B37995500E26261 /* U.png in Resources */,
@@ -777,7 +782,7 @@
 				1ADD86041B37995500E26261 /* L.png in Resources */,
 				AFF482A21B38A1B300EE4223 /* jump5.wav in Resources */,
 				A7DA6D5A1B37D6E800BD9476 /* som.png in Resources */,
-				A7DA6D531B37CCAA00BD9476 /* ambiente.mp3 in Resources */,
+				A7DA6D531B37CCAA00BD9476 /* menu.mp3 in Resources */,
 				1ADD858A1B376E0300E26261 /* sound copy.png in Resources */,
 				CD15DF6F1B377A3700DC50BD /* casa.wav in Resources */,
 				AFB7D27C1B363B0B0073C367 /* data.json in Resources */,
@@ -981,10 +986,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Rock Box/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -994,10 +1002,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Rock Box/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
