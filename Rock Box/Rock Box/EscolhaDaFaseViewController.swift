@@ -112,7 +112,7 @@ class EscolhaDaFaseViewController: UIViewController {
                     arrayDosPlanetas[index].enabled = true
                 }
                 else {
-                    arrayDosPlanetas[index].enabled = false
+                    //arrayDosPlanetas[index].enabled = false
                 }
             }
             
