@@ -97,7 +97,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let backgroundNode = SKSpriteNode(imageNamed: "background.jpg")
         backgroundNode.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
-        backgroundNode.size = CGSize(width: self.size.width*4, height: self.size.height*4)
+        backgroundNode.size = CGSize(width: self.size.width*5.5, height: self.size.height*5.5)
         backgroundNode.zPosition = -10
         gameNode.addChild(backgroundNode)
         

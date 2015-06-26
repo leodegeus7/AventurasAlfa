@@ -359,7 +359,7 @@ class GameViewController: UIViewController {
         case "chuva":
             var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("chuva", ofType: "wav")!)
             audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
-        case "calca":
+        case "calça":
             var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("calca", ofType: "wav")!)
             audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
         case "agua":

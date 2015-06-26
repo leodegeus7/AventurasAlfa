@@ -62,10 +62,10 @@
               "planetas": [
                            {
                            "imagem": "planetaazul.png",
-                           "coordenadaX": -400,
-                           "coordenadaY": 400,
-                           "raioPlaneta": 50,
-                           "raioAtmosfera": 220
+                           "coordenadaX": -429.28,
+                           "coordenadaY": 429.29,
+                           "raioPlaneta": 100,
+                           "raioAtmosfera": 200
                            },
                            {
                            "imagem": "planetaverde.png",
@@ -145,10 +145,10 @@
               "planetas": [
                            {
                            "imagem": "planetaazul.png",
-                           "coordenadaX": -400,
-                           "coordenadaY": 400,
-                           "raioPlaneta": 50,
-                           "raioAtmosfera": 220
+                           "coordenadaX": -641.41,
+                           "coordenadaY": -641.41,
+                           "raioPlaneta": 400,
+                           "raioAtmosfera": 200
                            },
                            {
                            "imagem": "planetaverde.png",
@@ -159,9 +159,9 @@
                            },
                            {
                            "imagem": "planetavermelho.png",
-                           "coordenadaX": 500,
-                           "coordenadaY": 500,
-                           "raioPlaneta": 200,
+                           "coordenadaX": -606.06,
+                           "coordenadaY": 606.06,
+                           "raioPlaneta": 350,
                            "raioAtmosfera": 200
                            }
                            ]
@@ -211,96 +211,7 @@
                          "nome": "a",
                          "planeta": "planeta2",
                          "angulo": 4.71238,
-                         "imagem": "R.png"
-                         },
-                         {
-                         "nome": "S",
-                         "planeta": "planeta3",
-                         "angulo": 3.1459,
-                         "imagem": "S.png"
-                         }
-                         ],
-              "estrelas": [
-                           {
-                           "angulo": 3.3459,
-                           "planeta": "planeta3",
-                           "imagem": "estrela.png"
-                           },
-                           {
-                           "angulo": 3.3459,
-                           "planeta": "planeta2",
-                           "imagem": "estrela.png"
-                           },
-                           {
-                           "planeta": "planeta1",
-                           "angulo": 1.57079,
-                           "imagem": "estrela.png"
-                           }
-                           ],
-              "planetas": [
-                           {
-                           "imagem": "planetaazul.png",
-                           "coordenadaX": -400,
-                           "coordenadaY": 400,
-                           "raioPlaneta": 50,
-                           "raioAtmosfera": 220
-                           },
-                           {
-                           "imagem": "planetaverde.png",
-                           "coordenadaX": 0,
-                           "coordenadaY": 0,
-                           "raioPlaneta": 200,
-                           "raioAtmosfera": 200
-                           },
-                           {
-                           "imagem": "planetavermelho.png",
-                           "coordenadaX": 500,
-                           "coordenadaY": 500,
-                           "raioPlaneta": 200,
-                           "raioAtmosfera": 200
-                           }
-                           ]
-              },
-              {
-              "palavra": "calca",
-              "jaJogou": false,
-              "quantasEstrelasPegou": 0,
-              "letras": [
-                         {
-                         "angulo": 3.1459,
-                         "nome": "c",
-                         "planeta": "planeta1",
-                         "imagem": "C.png"
-                         },
-                         {
-                         "nome": "k",
-                         "planeta": "planeta3",
-                         "angulo": 4.7123889804,
-                         "imagem": "K.png"
-                         },
-                         {
-                         "nome": "a",
-                         "angulo": 1.9,
-                         "planeta": "planeta2",
-                         "imagem": "a.png"
-                         },
-                         {
-                         "nome": "l",
-                         "angulo": 1.5707,
-                         "planeta": "planeta2",
-                         "imagem": "L.png"
-                         },
-                         {
-                         "nome": "u",
-                         "planeta": "planeta1",
-                         "angulo": 0,
-                         "imagem": "U.png"
-                         },
-                         {
-                         "nome": "ç",
-                         "planeta": "planeta1",
-                         "angulo": 4.71238,
-                         "imagem": "Ç.png"
+                         "imagem": "A.png"
                          },
                          {
                          "nome": "s",
@@ -329,22 +240,117 @@
               "planetas": [
                            {
                            "imagem": "planetaazul.png",
-                           "coordenadaX": -400,
-                           "coordenadaY": 400,
-                           "raioPlaneta": 50,
-                           "raioAtmosfera": 220
+                           "coordenadaX": -464,
+                           "coordenadaY": -464,
+                           "raioPlaneta": 150,
+                           "raioAtmosfera": 200
                            },
                            {
-                           "imagem": "planetaverde.png",
+                           "imagem": "planetavermelho.png",
                            "coordenadaX": 0,
                            "coordenadaY": 0,
                            "raioPlaneta": 200,
                            "raioAtmosfera": 200
                            },
                            {
-                           "imagem": "planetavermelho.png",
+                           "imagem": "planetaverde.png",
                            "coordenadaX": 500,
-                           "coordenadaY": 500,
+                           "coordenadaY": -500,
+                           "raioPlaneta": 200,
+                           "raioAtmosfera": 200
+                           }
+                           ]
+              },
+              {
+              "palavra": "calça",
+              "jaJogou": false,
+              "quantasEstrelasPegou": 0,
+              "letras": [
+                         {
+                         "angulo": 3.1459,
+                         "nome": "c",
+                         "planeta": "planeta1",
+                         "imagem": "C.png"
+                         },
+                         {
+                         "nome": "k",
+                         "planeta": "planeta3",
+                         "angulo": 4.7123889804,
+                         "imagem": "K.png"
+                         },
+                         {
+                         "nome": "a",
+                         "angulo": 1.9,
+                         "planeta": "planeta2",
+                         "imagem": "A.png"
+                         },
+                         {
+                         "nome": "l",
+                         "angulo": 1.5707,
+                         "planeta": "planeta2",
+                         "imagem": "L.png"
+                         },
+                         {
+                         "nome": "u",
+                         "planeta": "planeta1",
+                         "angulo": 0,
+                         "imagem": "U.png"
+                         },
+                         {
+                         "nome": "ç",
+                         "planeta": "planeta1",
+                         "angulo": 4.71238,
+                         "imagem": "Ç.png"
+                         },
+                         {
+                         "nome": "s",
+                         "planeta": "planeta3",
+                         "angulo": 3.1459,
+                         "imagem": "S.png"
+                         },
+                         {
+                         "nome": "a",
+                         "planeta": "planeta2",
+                         "angulo": 0.1459,
+                         "imagem": "A.png"
+                         }
+                         ],
+              "estrelas": [
+                           {
+                           "angulo": 3.3459,
+                           "planeta": "planeta3",
+                           "imagem": "estrela.png"
+                           },
+                           {
+                           "angulo": 3.3459,
+                           "planeta": "planeta2",
+                           "imagem": "estrela.png"
+                           },
+                           {
+                           "planeta": "planeta1",
+                           "angulo": 1.57079,
+                           "imagem": "estrela.png"
+                           }
+                           ],
+              "planetas": [
+                           {
+                           "imagem": "planetavermelho.png",
+                           "coordenadaX": 0,
+                           "coordenadaY": 707,
+                           "raioPlaneta": 200,
+                           "raioAtmosfera": 200
+                           },
+                           {
+                           "imagem": "planetaazul.png",
+                           "coordenadaX": 0,
+                           "coordenadaY": 0,
+                           "raioPlaneta": 200,
+                           "raioAtmosfera": 200
+                           },
+                           {
+                           "imagem": "planetaverde.png",
+                           "coordenadaX": 0,
+                           "coordenadaY": -707,
                            "raioPlaneta": 200,
                            "raioAtmosfera": 200
                            }
@@ -418,22 +424,22 @@
               "planetas": [
                            {
                            "imagem": "planetaazul.png",
-                           "coordenadaX": -400,
-                           "coordenadaY": 400,
-                           "raioPlaneta": 50,
-                           "raioAtmosfera": 220
+                           "coordenadaX": -1057.1,
+                           "coordenadaY": 0,
+                           "raioPlaneta": 550,
+                           "raioAtmosfera": 200
                            },
                            {
-                           "imagem": "planetaverde.png",
+                           "imagem": "planetavermelho.png",
                            "coordenadaX": 0,
                            "coordenadaY": 0,
                            "raioPlaneta": 200,
                            "raioAtmosfera": 200
                            },
                            {
-                           "imagem": "planetavermelho.png",
-                           "coordenadaX": 500,
-                           "coordenadaY": 500,
+                           "imagem": "planetaazul.png",
+                           "coordenadaX": 707.1,
+                           "coordenadaY": 0,
                            "raioPlaneta": 200,
                            "raioAtmosfera": 200
                            }
@@ -507,10 +513,10 @@
               "planetas": [
                            {
                            "imagem": "planetaazul.png",
-                           "coordenadaX": -400,
-                           "coordenadaY": 400,
-                           "raioPlaneta": 50,
-                           "raioAtmosfera": 220
+                           "coordenadaX": -471.7,
+                           "coordenadaY": -471.7,
+                           "raioPlaneta": 160,
+                           "raioAtmosfera": 200
                            },
                            {
                            "imagem": "planetaverde.png",
@@ -521,9 +527,9 @@
                            },
                            {
                            "imagem": "planetavermelho.png",
-                           "coordenadaX": 500,
-                           "coordenadaY": 500,
-                           "raioPlaneta": 200,
+                           "coordenadaX": 521.2,
+                           "coordenadaY": 521.2,
+                           "raioPlaneta": 230,
                            "raioAtmosfera": 200
                            }
                            ]
@@ -570,10 +576,10 @@
                          "imagem": "O.png"
                          },
                          {
-                         "nome": "r",
+                         "nome": "i",
                          "planeta": "planeta3",
                          "angulo": 3.1459,
-                         "imagem": "R.png"
+                         "imagem": "I.png"
                          }
                          ],
               "estrelas": [
@@ -596,22 +602,22 @@
               "planetas": [
                            {
                            "imagem": "planetaazul.png",
-                           "coordenadaX": -400,
-                           "coordenadaY": 400,
-                           "raioPlaneta": 50,
-                           "raioAtmosfera": 220
-                           },
-                           {
-                           "imagem": "planetaverde.png",
-                           "coordenadaX": 0,
+                           "coordenadaX": -1107.1,
                            "coordenadaY": 0,
-                           "raioPlaneta": 200,
+                           "raioPlaneta": 100,
                            "raioAtmosfera": 200
                            },
                            {
                            "imagem": "planetavermelho.png",
-                           "coordenadaX": 500,
-                           "coordenadaY": 500,
+                           "coordenadaX": 0,
+                           "coordenadaY": 0,
+                           "raioPlaneta": 700,
+                           "raioAtmosfera": 200
+                           },
+                           {
+                           "imagem": "planetaverde.png",
+                           "coordenadaX": 853.12,
+                           "coordenadaY": 853.12,
                            "raioPlaneta": 200,
                            "raioAtmosfera": 200
                            }
@@ -697,22 +703,22 @@
               "planetas": [
                            {
                            "imagem": "planetaazul.png",
-                           "coordenadaX": -400,
-                           "coordenadaY": 400,
-                           "raioPlaneta": 50,
-                           "raioAtmosfera": 220
-                           },
-                           {
-                           "imagem": "planetaverde.png",
                            "coordenadaX": 0,
-                           "coordenadaY": 0,
-                           "raioPlaneta": 200,
+                           "coordenadaY": 1057.1,
+                           "raioPlaneta": 250,
                            "raioAtmosfera": 200
                            },
                            {
                            "imagem": "planetavermelho.png",
-                           "coordenadaX": 500,
-                           "coordenadaY": 500,
+                           "coordenadaX": 0,
+                           "coordenadaY": 0,
+                           "raioPlaneta": 500,
+                           "raioAtmosfera": 200
+                           },
+                           {
+                           "imagem": "planetaazul.png",
+                           "coordenadaX": 0,
+                           "coordenadaY": -1007.1,
                            "raioPlaneta": 200,
                            "raioAtmosfera": 200
                            }
