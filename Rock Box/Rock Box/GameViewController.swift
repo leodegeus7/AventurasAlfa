@@ -190,7 +190,10 @@ class GameViewController: UIViewController {
         reiniciarFasesOutlet.hidden = false
     }
     @IBAction func somPalavra(sender: UIButton) {
+        if !audioPlayer.playing
+        {
         playSound()
+        }
     }
     
     
@@ -420,7 +423,9 @@ class GameViewController: UIViewController {
         arrayDasLetrasPause.removeAll(keepCapacity: false)
     }
     @IBAction func repetirSom(sender: AnyObject) {
+        if !audioPlayer.playing{
         playSound()
+        }
     }
     
     @IBAction func voltarPrasFases(sender: AnyObject) {

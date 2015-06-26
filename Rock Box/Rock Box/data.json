@@ -269,7 +269,7 @@
                          {
                          "angulo": 3.1459,
                          "nome": "c",
-                         "planeta": "planeta1",
+                         "planeta": "planeta3",
                          "imagem": "C.png"
                          },
                          {
@@ -280,8 +280,8 @@
                          },
                          {
                          "nome": "a",
-                         "angulo": 1.9,
-                         "planeta": "planeta2",
+                         "angulo": 2.9,
+                         "planeta": "planeta1",
                          "imagem": "A.png"
                          },
                          {
@@ -305,13 +305,13 @@
                          {
                          "nome": "s",
                          "planeta": "planeta3",
-                         "angulo": 3.1459,
+                         "angulo": 2.1459,
                          "imagem": "S.png"
                          },
                          {
                          "nome": "a",
                          "planeta": "planeta2",
-                         "angulo": 0.1459,
+                         "angulo": 0.1059,
                          "imagem": "A.png"
                          }
                          ],

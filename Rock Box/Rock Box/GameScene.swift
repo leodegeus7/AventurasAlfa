@@ -65,9 +65,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var personagemVoando = [SKTexture]()
     var audioPlayer = AVAudioPlayer()
+    
+    var jumpTestDelay = 1.0
+    var lastJumpTime = CFTimeInterval()
     var isJumping = false
+    
     var isChangingPlanet = false
     var numeroEstrelasJson = 0
+    
+    var alfaSpeaking = false
+    
     enum moveDirection{
         case left
         case right
@@ -270,6 +277,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 if name == "jogador" && !(DataManager.instance.pausar)
                 {
                     
+                    
                     var random = arc4random_uniform(4)
                     var sound = SKAction()
                     switch random {
@@ -284,7 +292,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     default:
                         sound = SKAction.playSoundFileNamed("vamos_la.wav", waitForCompletion: true)
                     }
-                    self.runAction(sound)
+                   
+                    if (!alfaSpeaking) {
+                        alfaSpeaking = true
+                        cameraNode.runAction(sound, completion: { () -> Void in
+                            self.alfaSpeaking = false
+                        })
+                    }
                     personagemFelizAnimacao()
                     
                     
@@ -326,11 +340,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     let jumpVector = CGVector(dx: jumpVectorSize * cos(anguloAtual), dy: jumpVectorSize * sin(anguloAtual))
                 
                     isJumping = true
+                    lastJumpTime = lastUpdateTime
                 
                     personagemPulando()
-                    
+
                 
                     jogador.physicsBody?.applyImpulse(jumpVector)
+                    
+//                    let jumpAction = SKAction.moveBy(jumpVector, duration: 0.5)
+//                    
+//                    jogador.runAction(jumpAction)
+                    
+                    
                 
                 }
             }
@@ -447,7 +468,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if contact.bodyA.categoryBitMask == BitMasks.personagem || contact.bodyB.categoryBitMask == BitMasks.personagem
             && contact.bodyA.categoryBitMask == BitMasks.planeta || contact.bodyB.categoryBitMask == BitMasks.planeta {
                 isChangingPlanet = false
-                isJumping = false
+                
+                if(lastUpdateTime - lastJumpTime > jumpTestDelay) {
+                    isJumping = false
+                }
         }
     }
     
