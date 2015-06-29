@@ -20,8 +20,6 @@ struct BitMasks {
     static let campo:UInt32 = 0x06
 }
 
-
-
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var jsonResult:NSDictionary!
@@ -89,8 +87,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         numeroDeEstrelasAtual = 0
         
         
-        // Configuracoes do mundo e a camera
-        
+        // Configuracoes do mundo e a câmera
         
         self.physicsWorld.gravity = CGVectorMake(0.0, 0.0)
         self.physicsWorld.contactDelegate = self
@@ -110,6 +107,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         //CRIAR PLANETAS
+        
         var fase = DataManager.instance.arrayDaFase(DataManager.instance.faseEscolhida)
         for planetas in fase {
             var planetasDic = planetas as! Dictionary<String,AnyObject>
@@ -120,11 +118,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         planetaAtual = arrayPlanetas[1]
         
         
-        
-        
         //CRIAR PERSONAGEM
-        
-        
         
         jogador.size = CGSize(width: 274/5, height: 471/5)
         
@@ -161,8 +155,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameNode.addChild(jogador)
         
         
-        
-        
         //CRIAR LETRAS
         
         var letras = DataManager.instance.arrayDasLetras(DataManager.instance.faseEscolhida)
@@ -192,9 +184,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             
         }
-        
-        
-        
         
         
         //CRIAR ESTRELAS
@@ -229,21 +218,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         var arquivo = (((DataManager.instance.lerArquivoJson())[DataManager.instance.faseEscolhida - 1] as! Dictionary<String,AnyObject>)["palavra"] as! String)
         
-        
-        
-        
         palavraDaFaseArray = Array(arquivo)
-        
-        
-        
-        //OUTROS
-        
-        
-        //        let pular = UISwipeGestureRecognizer(target: self, action: Selector("swipeUp:"))
-        //        pular.direction = .Up
-        //        view.addGestureRecognizer(pular)
-        //
-        
         
         
         //ESTRELAS PARTÍCULAS
@@ -256,7 +231,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         particulasEstrelas.alpha = 0.7
         gameNode.addChild(particulasEstrelas)
      
-        //initSprite()
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
@@ -350,7 +324,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //                    let jumpAction = SKAction.moveBy(jumpVector, duration: 0.5)
 //                    
 //                    jogador.runAction(jumpAction)
-                    
                     
                 
                 }
@@ -517,7 +490,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         else {
             self.paused = false
         }
-        
         
         
     }

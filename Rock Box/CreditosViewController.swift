@@ -10,14 +10,11 @@ import UIKit
 
 class CreditosViewController: UIViewController {
 
-    @IBOutlet weak var alfa: UIImageView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        alfa.transform = CGAffineTransformMakeRotation(6.02138592)
 
-        // Do any additional setup after loading the view.
     }
     
     override func prefersStatusBarHidden() -> Bool {
@@ -29,15 +26,8 @@ class CreditosViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func back(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
-    */
 
 }

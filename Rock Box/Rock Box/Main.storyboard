@@ -20,190 +20,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="eXp-fg-qG3">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="creditos.png" translatesAutoresizingMaskIntoConstraints="NO" id="YQB-zq-e9b">
                                 <rect key="frame" x="-4" y="0.0" width="608" height="620"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSp-3u-QtW">
-                                <rect key="frame" x="57" y="355" width="236" height="17"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Leonardo Alexandre de Geus">
-                                        <attributes>
-                                            <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <font key="NSFont" size="17" name="HoeflerText-Black"/>
-                                            <font key="NSOriginalFont" size="17" name="HoeflerText-Black"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ii2-px-zoP">
-                                <rect key="frame" x="61" y="376" width="230" height="17"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Leonardo Augusto Piovezan">
-                                        <attributes>
-                                            <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <font key="NSFont" size="17" name="HoeflerText-Black"/>
-                                            <font key="NSOriginalFont" size="17" name="HoeflerText-Black"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="91e-mJ-jav">
-                                <rect key="frame" x="67" y="397" width="218" height="17"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Leonardo Koppe Malanski">
-                                        <attributes>
-                                            <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <font key="NSFont" size="17" name="HoeflerText-Black"/>
-                                            <font key="NSOriginalFont" size="17" name="HoeflerText-Black"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gkT-VB-hvL">
-                                <rect key="frame" x="74" y="418" width="204" height="17"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Ramon Martinez Pereira">
-                                        <attributes>
-                                            <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <font key="NSFont" size="17" name="HoeflerText-Black"/>
-                                            <font key="NSOriginalFont" size="17" name="HoeflerText-Black"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZc-c3-gEQ">
-                                <rect key="frame" x="116" y="485" width="117" height="48"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Design">
-                                        <attributes>
-                                            <color key="NSColor" red="0.5607843137254902" green="0.8784313725490196" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="38" name="BradleyHandITCTT-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3da-Az-p9N">
-                                <rect key="frame" x="86" y="558" width="176" height="17"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Alessandra B. G. Luis">
-                                        <attributes>
-                                            <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <font key="NSFont" size="17" name="HoeflerText-Black"/>
-                                            <font key="NSOriginalFont" size="17" name="HoeflerText-Black"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nL-Yd-kXu">
-                                <rect key="frame" x="109" y="579" width="131" height="17"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Giuliano Bulara">
-                                        <attributes>
-                                            <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <font key="NSFont" size="17" name="HoeflerText-Black"/>
-                                            <font key="NSOriginalFont" size="17" name="HoeflerText-Black"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bepidLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="pdm-KC-KZ1">
-                                <rect key="frame" x="-75" y="56" width="500" height="227"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sp3-1y-Ed0">
+                                <rect key="frame" x="11" y="50" width="125" height="65"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="pdm-KC-KZ1" secondAttribute="height" multiplier="53:24" id="UZK-fr-X8N"/>
-                                    <constraint firstAttribute="width" constant="500" id="zbt-gt-eoU"/>
+                                    <constraint firstAttribute="width" secondItem="sp3-1y-Ed0" secondAttribute="height" multiplier="125:65" id="aBV-KD-wrg"/>
+                                    <constraint firstAttribute="width" constant="125" id="efz-q5-cmC"/>
                                 </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="planetavermelho.png" translatesAutoresizingMaskIntoConstraints="NO" id="qfc-ak-j0H">
-                                <rect key="frame" x="234" y="409" width="600" height="600"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="600" id="naL-db-5zH"/>
-                                    <constraint firstAttribute="width" secondItem="qfc-ak-j0H" secondAttribute="height" multiplier="1:1" id="pjF-CW-JiS"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Personagem_voando_1.png" translatesAutoresizingMaskIntoConstraints="NO" id="ft6-DN-ALu">
-                                <rect key="frame" x="416" y="270" width="118" height="193"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="ft6-DN-ALu" secondAttribute="height" multiplier="118:193" id="LWM-bl-ark"/>
-                                    <constraint firstAttribute="height" constant="193" id="wld-AY-dUq"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rb3-TY-r1h">
-                                <rect key="frame" x="48" y="283" width="255" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="rb3-TY-r1h" secondAttribute="height" multiplier="209:39" id="Kvu-yP-dhC"/>
-                                </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment content="Development">
-                                        <attributes>
-                                            <color key="NSColor" red="0.76078431369999999" green="0.15686274510000001" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="38" name="BradleyHandITCTT-Bold"/>
-                                            <font key="NSOriginalFont" size="17" name="ChalkboardSE-Regular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" image="voltar.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="back:" destination="fhS-nN-piY" eventType="touchUpInside" id="qaZ-pp-WaR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9nL-Yd-kXu" firstAttribute="top" secondItem="3da-Az-p9N" secondAttribute="bottom" constant="4" id="15j-oO-ukx"/>
-                            <constraint firstItem="gkT-VB-hvL" firstAttribute="top" secondItem="91e-mJ-jav" secondAttribute="bottom" constant="1" id="3eW-bQ-WUx"/>
-                            <constraint firstItem="eXp-fg-qG3" firstAttribute="top" secondItem="xsY-Kh-260" secondAttribute="bottom" constant="-20" id="7GG-j2-StM"/>
-                            <constraint firstItem="pdm-KC-KZ1" firstAttribute="centerX" secondItem="rb3-TY-r1h" secondAttribute="centerX" id="8jZ-aO-EnX"/>
-                            <constraint firstItem="qfc-ak-j0H" firstAttribute="top" secondItem="xsY-Kh-260" secondAttribute="bottom" constant="389" id="Aq1-M2-UhB"/>
-                            <constraint firstItem="91e-mJ-jav" firstAttribute="top" secondItem="ii2-px-zoP" secondAttribute="bottom" constant="4" id="BBm-uj-7ij"/>
-                            <constraint firstItem="xZc-c3-gEQ" firstAttribute="top" secondItem="gkT-VB-hvL" secondAttribute="bottom" constant="50" id="CHA-y3-ijo"/>
-                            <constraint firstItem="91e-mJ-jav" firstAttribute="centerX" secondItem="ii2-px-zoP" secondAttribute="centerX" id="CwQ-AQ-b7l"/>
-                            <constraint firstItem="sE0-Ri-9MX" firstAttribute="top" secondItem="eXp-fg-qG3" secondAttribute="bottom" constant="-20" id="DuE-q0-4dm"/>
-                            <constraint firstItem="91e-mJ-jav" firstAttribute="centerX" secondItem="gkT-VB-hvL" secondAttribute="centerX" id="JUp-sS-I1e"/>
-                            <constraint firstItem="WSp-3u-QtW" firstAttribute="top" secondItem="rb3-TY-r1h" secondAttribute="bottom" constant="25" id="Kic-b0-Ah5"/>
-                            <constraint firstItem="3da-Az-p9N" firstAttribute="top" secondItem="xZc-c3-gEQ" secondAttribute="bottom" constant="25" id="N2u-ez-m0F"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="qfc-ak-j0H" secondAttribute="trailing" constant="-250" id="P9H-75-RUe"/>
-                            <constraint firstItem="xZc-c3-gEQ" firstAttribute="centerX" secondItem="gkT-VB-hvL" secondAttribute="centerX" id="QXv-Pw-GtP"/>
-                            <constraint firstAttribute="centerX" secondItem="pdm-KC-KZ1" secondAttribute="centerX" constant="125" id="V8y-Vt-jCJ"/>
-                            <constraint firstItem="WSp-3u-QtW" firstAttribute="centerX" secondItem="ii2-px-zoP" secondAttribute="centerX" id="XKg-hX-RxC"/>
-                            <constraint firstItem="ft6-DN-ALu" firstAttribute="trailing" secondItem="T52-mh-voW" secondAttribute="trailingMargin" constant="-50" id="Xfe-ou-AMS"/>
-                            <constraint firstItem="3da-Az-p9N" firstAttribute="centerX" secondItem="9nL-Yd-kXu" secondAttribute="centerX" id="bEG-mp-yiK"/>
-                            <constraint firstItem="xZc-c3-gEQ" firstAttribute="centerX" secondItem="3da-Az-p9N" secondAttribute="centerX" id="blx-ce-Fq2"/>
-                            <constraint firstItem="gkT-VB-hvL" firstAttribute="top" secondItem="91e-mJ-jav" secondAttribute="bottom" constant="4" id="cEg-0R-46x"/>
-                            <constraint firstItem="rb3-TY-r1h" firstAttribute="top" secondItem="pdm-KC-KZ1" secondAttribute="bottom" id="f7x-wa-ekb"/>
-                            <constraint firstItem="pdm-KC-KZ1" firstAttribute="top" secondItem="xsY-Kh-260" secondAttribute="bottom" constant="36" id="kxJ-lN-Bb0"/>
-                            <constraint firstItem="WSp-3u-QtW" firstAttribute="centerX" secondItem="rb3-TY-r1h" secondAttribute="centerX" id="oJI-HE-nMa"/>
-                            <constraint firstItem="eXp-fg-qG3" firstAttribute="leading" secondItem="T52-mh-voW" secondAttribute="leadingMargin" constant="-20" id="oPq-cs-Dbn"/>
-                            <constraint firstItem="qfc-ak-j0H" firstAttribute="leading" secondItem="T52-mh-voW" secondAttribute="leadingMargin" constant="398" id="q1K-vI-6lv"/>
-                            <constraint firstItem="ii2-px-zoP" firstAttribute="top" secondItem="WSp-3u-QtW" secondAttribute="bottom" constant="4" id="tCe-Lj-bOv"/>
-                            <constraint firstItem="ft6-DN-ALu" firstAttribute="top" secondItem="xsY-Kh-260" secondAttribute="bottom" constant="250" id="uRU-g9-Gpi"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="eXp-fg-qG3" secondAttribute="trailing" constant="-20" id="ub7-vg-nH6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YQB-zq-e9b" secondAttribute="trailing" constant="-20" id="5x8-aU-40K"/>
+                            <constraint firstItem="sp3-1y-Ed0" firstAttribute="top" secondItem="xsY-Kh-260" secondAttribute="bottom" constant="30" id="E4c-BQ-mlL"/>
+                            <constraint firstItem="sp3-1y-Ed0" firstAttribute="leading" secondItem="T52-mh-voW" secondAttribute="leadingMargin" constant="-5" id="Km7-lO-O9p"/>
+                            <constraint firstItem="YQB-zq-e9b" firstAttribute="leading" secondItem="T52-mh-voW" secondAttribute="leadingMargin" constant="-20" id="Pko-BK-nab"/>
+                            <constraint firstItem="YQB-zq-e9b" firstAttribute="top" secondItem="xsY-Kh-260" secondAttribute="bottom" constant="-20" id="Yh3-yb-CxN"/>
+                            <constraint firstItem="YQB-zq-e9b" firstAttribute="top" secondItem="xsY-Kh-260" secondAttribute="bottom" constant="-20" id="bi1-hl-GaM"/>
+                            <constraint firstItem="sE0-Ri-9MX" firstAttribute="top" secondItem="YQB-zq-e9b" secondAttribute="bottom" constant="-20" id="hvk-di-q15"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="3eW-bQ-WUx"/>
-                                <exclude reference="q1K-vI-6lv"/>
+                                <exclude reference="Yh3-yb-CxN"/>
                             </mask>
                         </variation>
                     </view>
-                    <connections>
-                        <outlet property="alfa" destination="ft6-DN-ALu" id="Buo-Q9-5Hh"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ed-GY-Cvy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-686" y="406"/>
+            <point key="canvasLocation" x="-612" y="503"/>
         </scene>
         <!--Initial View Controller-->
         <scene sceneID="eO3-Nl-9yl">
@@ -221,23 +74,29 @@
                                 <rect key="frame" x="-4" y="0.0" width="608" height="600"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aH4-LJ-t62">
-                                <rect key="frame" x="265" y="620" width="70" height="73"/>
-                                <state key="normal" image="prosseguir.png">
+                                <rect key="frame" x="188" y="620" width="225" height="50"/>
+                                <state key="normal" image="jogarButton.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="41e-L6-GeB" kind="show" id="94G-Fp-BKg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iyo-WF-40G">
-                                <rect key="frame" x="46" y="535" width="80" height="80"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iyo-WF-40G">
+                                <rect key="frame" x="11" y="50" width="125" height="65"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="a0p-ox-CoT"/>
-                                    <constraint firstAttribute="width" secondItem="iyo-WF-40G" secondAttribute="height" multiplier="1:1" id="fBV-Oz-nfe"/>
+                                    <constraint firstAttribute="width" constant="125" id="cqR-WE-zjj"/>
+                                    <constraint firstAttribute="width" secondItem="iyo-WF-40G" secondAttribute="height" multiplier="125:65" id="fBV-Oz-nfe"/>
                                 </constraints>
-                                <state key="normal">
+                                <state key="normal" image="voltar.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="a0p-ox-CoT"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <segue destination="fhS-nN-piY" kind="show" id="dHq-ac-Ayz"/>
                                 </connections>
@@ -249,10 +108,10 @@
                             <constraint firstItem="Cbc-6t-fza" firstAttribute="top" secondItem="OHG-Ds-fnA" secondAttribute="bottom" id="8Pn-fi-BTP"/>
                             <constraint firstItem="aH4-LJ-t62" firstAttribute="leading" secondItem="5fi-7g-os3" secondAttribute="leadingMargin" constant="281" id="YT4-YF-fLe"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iyo-WF-40G" secondAttribute="trailing" constant="20" id="bzQ-48-cEj"/>
-                            <constraint firstItem="iyo-WF-40G" firstAttribute="top" secondItem="Qng-ow-vW1" secondAttribute="bottom" constant="515" id="dI0-F3-dFf"/>
+                            <constraint firstItem="iyo-WF-40G" firstAttribute="top" secondItem="Qng-ow-vW1" secondAttribute="bottom" constant="30" id="dI0-F3-dFf"/>
                             <constraint firstItem="OHG-Ds-fnA" firstAttribute="top" secondItem="Qng-ow-vW1" secondAttribute="bottom" constant="-20" id="etd-dh-7gG"/>
                             <constraint firstItem="OHG-Ds-fnA" firstAttribute="leading" secondItem="5fi-7g-os3" secondAttribute="leadingMargin" constant="-20" id="o5H-3S-9IG"/>
-                            <constraint firstItem="iyo-WF-40G" firstAttribute="leading" secondItem="5fi-7g-os3" secondAttribute="leadingMargin" constant="30" id="oga-lG-0Jn"/>
+                            <constraint firstItem="iyo-WF-40G" firstAttribute="leading" secondItem="5fi-7g-os3" secondAttribute="leadingMargin" constant="-5" id="oga-lG-0Jn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="OHG-Ds-fnA" secondAttribute="trailing" constant="-20" id="tYh-0w-lk0"/>
                             <constraint firstItem="OHG-Ds-fnA" firstAttribute="top" secondItem="Qng-ow-vW1" secondAttribute="bottom" constant="-20" id="xXx-46-7rN"/>
                             <constraint firstAttribute="centerX" secondItem="aH4-LJ-t62" secondAttribute="centerX" id="zeo-2k-rgp"/>
@@ -1017,16 +876,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="354" y="1297"/>
+            <point key="canvasLocation" x="291" y="1312"/>
         </scene>
     </scenes>
     <resources>
         <image name="Casa.png" width="4181" height="4146"/>
         <image name="JogarNovamente.png" width="85" height="73"/>
-        <image name="Personagem_voando_1.png" width="274" height="471"/>
         <image name="PlaceHolder HUD.jpg" width="672" height="504"/>
         <image name="background.jpg" width="2048" height="1536"/>
-        <image name="bepidLogo.png" width="2488" height="1080"/>
+        <image name="creditos.png" width="2048" height="1536"/>
         <image name="estrela.png" width="96" height="92"/>
         <image name="estrelaApagada.png" width="86" height="82"/>
         <image name="estrela_3.png" width="225" height="81"/>
@@ -1034,6 +892,7 @@
         <image name="fecharJanela.png" width="82" height="82"/>
         <image name="fundoDoHud.png" width="2048" height="312"/>
         <image name="janela2.png" width="1328" height="936"/>
+        <image name="jogarButton.png" width="225" height="50"/>
         <image name="logo.jpg" width="2048" height="1536"/>
         <image name="number1.png" width="80" height="125"/>
         <image name="number2.png" width="122" height="152"/>
@@ -1049,6 +908,7 @@
         <image name="prosseguir.png" width="70" height="73"/>
         <image name="som.png" width="85" height="65"/>
         <image name="sound copy.png" width="147" height="147"/>
+        <image name="voltar.png" width="70" height="73"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zAL-Yd-5Dg"/>
