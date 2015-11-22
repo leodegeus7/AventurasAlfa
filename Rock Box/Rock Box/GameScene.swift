@@ -100,9 +100,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameNode.xScale = 1.5
         gameNode.yScale = 1.5
         gameNode.addChild(cameraNode)
-        let timer = NSTimer(timeInterval: 20, target: self, selector: "update:", userInfo: nil, repeats: true)
-        timer.fire()
-        
+
         let backgroundNode = SKSpriteNode(imageNamed: "background.jpg")
         backgroundNode.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
         backgroundNode.size = CGSize(width: self.size.width*5.5, height: self.size.height*5.5)
