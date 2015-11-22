@@ -454,7 +454,6 @@ class GameViewController: UIViewController {
         audioPlayer2.stop()
         updateTheStars()
         
-        
     }
     @IBAction func jogarNovamente(sender: AnyObject) {
         tirarOsRisquinhos()
@@ -463,9 +462,6 @@ class GameViewController: UIViewController {
         
         self.viewDidLoad()
     }
-    
-
-    
     
     @IBAction func irParaProximaFase(sender: AnyObject) {
         DataManager.instance.pausar = true

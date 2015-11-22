@@ -112,19 +112,13 @@ class EscolhaDaFaseViewController: UIViewController {
                     arrayDosPlanetas[index].enabled = true
                 }
                 else {
-                    //arrayDosPlanetas[index].enabled = false
+                    arrayDosPlanetas[index].enabled = false
                 }
             }
             
             
         }
-        
-        
 
-        
-        
-
-       
     }
     
     override func prefersStatusBarHidden() -> Bool {
@@ -144,15 +138,12 @@ class EscolhaDaFaseViewController: UIViewController {
         estrelas.frame.size = CGSize(width: 225/1.7, height: 81/1.7)
         viewPlanetas.addSubview(estrelas)
     }
-    
 
     
     func updateStars () {
         viewDidLoad()
-        
     
     }
-
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         faseAtual = segue.destinationViewController as! GameViewController
