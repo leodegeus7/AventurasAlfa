@@ -83,7 +83,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMoveToView(view: SKView) {
         
-        println(DataManager.instance.faseEscolhida)
+        print(DataManager.instance.faseEscolhida)
         
         numeroDaLetraAtual = 0
         numeroDeEstrelasAtual = 0
@@ -100,7 +100,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameNode.xScale = 1.5
         gameNode.yScale = 1.5
         gameNode.addChild(cameraNode)
-        
+        let timer = NSTimer(timeInterval: 20, target: self, selector: "update:", userInfo: nil, repeats: true)
+        timer.fire()
         
         let backgroundNode = SKSpriteNode(imageNamed: "background.jpg")
         backgroundNode.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
@@ -110,11 +111,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         //CRIAR PLANETAS
-        var fase = DataManager.instance.arrayDaFase(DataManager.instance.faseEscolhida)
+        let fase = DataManager.instance.arrayDaFase(DataManager.instance.faseEscolhida)
         for planetas in fase {
             var planetasDic = planetas as! Dictionary<String,AnyObject>
-            var stringImagem =  planetasDic["imagem"] as! String
-            var planetasSprite:SKSpriteNode = criarPlanetasComPosicao(CGPoint(x: CGFloat(planetasDic["coordenadaX"] as! CGFloat), y: CGFloat(planetasDic["coordenadaY"] as! CGFloat)), raio: CGFloat(planetasDic["raioPlaneta"] as! CGFloat), habilitarRegiao: true, raioAtmosfera: Float(planetasDic["raioAtmosfera"] as! Float), falloff: 0.5, strenght: 0.5, imagem: "\(stringImagem)", nome: "Planeta \(arrayPlanetas.count)")
+            let stringImagem =  planetasDic["imagem"] as! String
+            let planetasSprite:SKSpriteNode = criarPlanetasComPosicao(CGPoint(x: CGFloat(planetasDic["coordenadaX"] as! CGFloat), y: CGFloat(planetasDic["coordenadaY"] as! CGFloat)), raio: CGFloat(planetasDic["raioPlaneta"] as! CGFloat), habilitarRegiao: true, raioAtmosfera: Float(planetasDic["raioAtmosfera"] as! Float), falloff: 0.5, strenght: 0.5, imagem: "\(stringImagem)", nome: "Planeta \(arrayPlanetas.count)")
             arrayPlanetas.append(planetasSprite)
         }
         planetaAtual = arrayPlanetas[1]
@@ -152,7 +153,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var animFrames = [SKTexture]()
         for index in 1...4 {
             animFrames.append(SKTexture(imageNamed: String(format:"Personagem_voando_%d.png", index)))
-            print(String(format:"Personagem_voando_%2d.png", index))}
+            print(String(format:"Personagem_voando_%2d.png", index), terminator: "")}
         let fps = 8.0
         let anim = SKAction.customActionWithDuration(1.0, actionBlock: { node, time in
             let index = Int((fps * Double(time))) % animFrames.count
@@ -165,29 +166,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         //CRIAR LETRAS
         
-        var letras = DataManager.instance.arrayDasLetras(DataManager.instance.faseEscolhida)
+        let letras = DataManager.instance.arrayDasLetras(DataManager.instance.faseEscolhida)
         
         for letra in letras {
             var letrasDic = letra as! Dictionary<String,AnyObject>
             
             if letrasDic["planeta"] as! String == "planeta1" {
                 
-                var letraSprite:SKSpriteNode =  criarLetras(arrayPlanetas[0], angulo: letrasDic["angulo"] as! CGFloat, imagem: letrasDic["imagem"] as! String, nome: letrasDic["nome"] as! String)
+                let letraSprite:SKSpriteNode =  criarLetras(arrayPlanetas[0], angulo: letrasDic["angulo"] as! CGFloat, imagem: letrasDic["imagem"] as! String, nome: letrasDic["nome"] as! String)
                 arrayPlanetas.append(letraSprite)
             }
             else  if letrasDic["planeta"] as! String == "planeta2" {
                 
-                var letraSprite:SKSpriteNode =  criarLetras(arrayPlanetas[1], angulo: letrasDic["angulo"] as! CGFloat, imagem: letrasDic["imagem"] as! String, nome: letrasDic["nome"] as! String)
+                let letraSprite:SKSpriteNode =  criarLetras(arrayPlanetas[1], angulo: letrasDic["angulo"] as! CGFloat, imagem: letrasDic["imagem"] as! String, nome: letrasDic["nome"] as! String)
                 arrayPlanetas.append(letraSprite)
             }
             else  if letrasDic["planeta"] as! String == "planeta3" {
                 
-                var letraSprite:SKSpriteNode =  criarLetras(arrayPlanetas[2], angulo: letrasDic["angulo"] as! CGFloat, imagem: letrasDic["imagem"] as! String, nome: letrasDic["nome"] as! String)
+                let letraSprite:SKSpriteNode =  criarLetras(arrayPlanetas[2], angulo: letrasDic["angulo"] as! CGFloat, imagem: letrasDic["imagem"] as! String, nome: letrasDic["nome"] as! String)
                 arrayPlanetas.append(letraSprite)
             }
             else  if letrasDic["planeta"] as! String == "planeta4" {
                 
-                var letraSprite:SKSpriteNode =  criarLetras(arrayPlanetas[3], angulo: letrasDic["angulo"] as! CGFloat, imagem: letrasDic["imagem"] as! String, nome: letrasDic["nome"] as! String)
+                let letraSprite:SKSpriteNode =  criarLetras(arrayPlanetas[3], angulo: letrasDic["angulo"] as! CGFloat, imagem: letrasDic["imagem"] as! String, nome: letrasDic["nome"] as! String)
                 arrayPlanetas.append(letraSprite)
             }
             
@@ -199,40 +200,40 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         //CRIAR ESTRELAS
         
-        var estrelas = DataManager.instance.arrayDasEstrelas(DataManager.instance.faseEscolhida)
+        let estrelas = DataManager.instance.arrayDasEstrelas(DataManager.instance.faseEscolhida)
         
         for estrela  in estrelas {
             var estrelasDic = estrela as! Dictionary<String,AnyObject>
             
             if estrelasDic["planeta"] as! String == "planeta1" {
                 
-                var estrelaSprite:SKSpriteNode =  criarEstrelas(arrayPlanetas[0], angulo: estrelasDic["angulo"] as! CGFloat)
+                let estrelaSprite:SKSpriteNode =  criarEstrelas(arrayPlanetas[0], angulo: estrelasDic["angulo"] as! CGFloat)
                 arrayPlanetas.append(estrelaSprite)
             }
             else  if estrelasDic["planeta"] as! String == "planeta2" {
                 
-                var estrelaSprite:SKSpriteNode =  criarEstrelas(arrayPlanetas[1], angulo: estrelasDic["angulo"] as! CGFloat)
+                let estrelaSprite:SKSpriteNode =  criarEstrelas(arrayPlanetas[1], angulo: estrelasDic["angulo"] as! CGFloat)
                 arrayPlanetas.append(estrelaSprite)
             }
             else  if estrelasDic["planeta"] as! String == "planeta3" {
                 
-                var estrelaSprite:SKSpriteNode =  criarEstrelas(arrayPlanetas[2], angulo: estrelasDic["angulo"] as! CGFloat)
+                let estrelaSprite:SKSpriteNode =  criarEstrelas(arrayPlanetas[2], angulo: estrelasDic["angulo"] as! CGFloat)
                 arrayPlanetas.append(estrelaSprite)
             }
             else  if estrelasDic["planeta"] as! String == "planeta4" {
                 
-                var estrelaSprite:SKSpriteNode =  criarEstrelas(arrayPlanetas[3], angulo: estrelasDic["angulo"] as! CGFloat)
+                let estrelaSprite:SKSpriteNode =  criarEstrelas(arrayPlanetas[3], angulo: estrelasDic["angulo"] as! CGFloat)
                 arrayPlanetas.append(estrelaSprite)
             }
             
         }
         
-        var arquivo = (((DataManager.instance.lerArquivoJson())[DataManager.instance.faseEscolhida - 1] as! Dictionary<String,AnyObject>)["palavra"] as! String)
+        let arquivo = (((DataManager.instance.lerArquivoJson())[DataManager.instance.faseEscolhida - 1] as! Dictionary<String,AnyObject>)["palavra"] as! String)
         
         
         
         
-        palavraDaFaseArray = Array(arquivo)
+        palavraDaFaseArray = Array(arquivo.characters)
         
         
         
@@ -248,18 +249,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         //ESTRELAS PARTÍCULAS
         
-        var particulasEstrelas = SKEmitterNode(fileNamed: "stars.sks")
+        let particulasEstrelas = SKEmitterNode(fileNamed: "stars.sks")
         
 
-        particulasEstrelas.position = CGPoint(x: -400, y: self.frame.height / 2)
-        particulasEstrelas.zPosition = -1
-        particulasEstrelas.alpha = 0.7
-        gameNode.addChild(particulasEstrelas)
+        particulasEstrelas!.position = CGPoint(x: -400, y: self.frame.height / 2)
+        particulasEstrelas!.zPosition = -1
+        particulasEstrelas!.alpha = 0.7
+        gameNode.addChild(particulasEstrelas!)
+        self.paused = true
      
         //initSprite()
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         for touch: AnyObject in touches {
             
             let location = touch.locationInNode(self)
@@ -278,7 +280,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 {
                     
                     
-                    var random = arc4random_uniform(4)
+                    let random = arc4random_uniform(4)
                     var sound = SKAction()
                     switch random {
                     case 0:
@@ -308,7 +310,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         for touch: AnyObject in touches {
             
             let location = touch.locationInNode(self)
@@ -321,7 +323,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         for touch: AnyObject in touches {
             
             let location = touch.locationInNode(self)
@@ -362,8 +364,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func didBeginContact(contact: SKPhysicsContact) {
         if contact.bodyA.categoryBitMask == BitMasks.personagem && contact.bodyB.categoryBitMask == BitMasks.letra {
-            var bodyA = contact.bodyA
-            var bodyB = contact.bodyB
+            //var bodyA = contact.bodyA
+            let bodyB = contact.bodyB
             
             if  (numeroDaLetraAtual < palavraDaFaseArray.count) && String(palavraDaFaseArray[numeroDaLetraAtual]) == bodyB.node!.name
             {
@@ -396,8 +398,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         if contact.bodyA.categoryBitMask == BitMasks.letra && contact.bodyB.categoryBitMask == BitMasks.personagem {
-            var bodyA = contact.bodyA
-            var bodyB = contact.bodyB
+            let bodyA = contact.bodyA
+            //var bodyB = contact.bodyB
             
             if (numeroDaLetraAtual < palavraDaFaseArray.count) && String(palavraDaFaseArray[numeroDaLetraAtual]) == bodyA.node!.name
             {
@@ -411,8 +413,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         if contact.bodyA.categoryBitMask == BitMasks.estrela && contact.bodyB.categoryBitMask == BitMasks.personagem {
-            var bodyA = contact.bodyA
-            var bodyB = contact.bodyB
+            let bodyA = contact.bodyA
+            //var bodyB = contact.bodyB
             
             bodyA.node?.removeFromParent()
             DataManager.instance.numeroEstrelas++
@@ -425,8 +427,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         if contact.bodyA.categoryBitMask == BitMasks.personagem && contact.bodyB.categoryBitMask == BitMasks.estrela {
-            var bodyA = contact.bodyA
-            var bodyB = contact.bodyB
+            //var bodyA = contact.bodyA
+            let bodyB = contact.bodyB
             bodyB.node?.removeFromParent()
             DataManager.instance.numeroEstrelas++
             numeroDeEstrelasAtual++
@@ -454,14 +456,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 for planeta in arrayPlanetas {
                     if planeta.name == regiao.name {
                         planetaAtual = planeta
-                        println("trocou para \(planeta.name)")
+                        print("trocou para \(planeta.name)")
                         movePlayerWithDirection(.planet)
                     }
                 }
                 
             }
             
-            println(regiao.name)
+            print(regiao.name)
             
         }
         
@@ -478,8 +480,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func didEndContact(contact: SKPhysicsContact) {
         if contact.bodyA.categoryBitMask == BitMasks.personagem && contact.bodyB.categoryBitMask == BitMasks.letra {
-            var bodyA = contact.bodyA
-            var bodyB = contact.bodyB
+            //var bodyA = contact.bodyA
+            let bodyB = contact.bodyB
             
             if !((numeroDaLetraAtual < palavraDaFaseArray.count) && String(palavraDaFaseArray[numeroDaLetraAtual]) == bodyB.node!.name)
             {
@@ -491,8 +493,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         if contact.bodyA.categoryBitMask == BitMasks.letra && contact.bodyB.categoryBitMask == BitMasks.personagem {
-            var bodyA = contact.bodyA
-            var bodyB = contact.bodyB
+            let bodyA = contact.bodyA
+            //var bodyB = contact.bodyB
             
             if !(String(palavraDaFaseArray[0]) == bodyA.node!.name && (numeroDaLetraAtual < palavraDaFaseArray.count))
             {
@@ -504,19 +506,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     }
     
+
+    
     override func update(currentTime: CFTimeInterval) {
         
         lastUpdateTime = currentTime
         
         handleLongPressWithUpdate(currentTime)
         
-        if DataManager.instance.pausar {
-            self.paused = true
-            
-        }
-        else {
-            self.paused = false
-        }
+//        if DataManager.instance.pausar {
+//            self.paused = true
+//            
+//        }
+//        else {
+//            self.paused = false
+//        }
         
         
         
@@ -525,94 +529,105 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     ///FUNCAO DE CRIAR OS NODES - PLANETAS,ESTRELAS E LETRAS
     
     func criarPlanetasComPosicao(posicao: CGPoint, raio:CGFloat, habilitarRegiao:Bool, raioAtmosfera:Float, falloff:Float, strenght:Float, imagem: String, nome: String) -> SKSpriteNode {
-        var fieldNode = SKFieldNode.radialGravityField()
-        fieldNode.falloff = falloff
-        fieldNode.strength = strenght;
-        fieldNode.animationSpeed = 0.5
-        fieldNode.name = "fieldNode"
-        if (habilitarRegiao){fieldNode.region = SKRegion(radius: Float(raio) + raioAtmosfera)}
-        fieldNode.position = posicao
-        fieldNode.enabled = true
-        fieldNode.physicsBody = SKPhysicsBody(circleOfRadius: raio)
-        fieldNode.physicsBody?.dynamic = false
-        let fieldCategory: UInt32 = 0x1 << 1
-        fieldNode.categoryBitMask = BitMasks.campo
-        fieldNode.physicsBody?.allowsRotation = false
-        fieldNode.physicsBody?.applyAngularImpulse(100)
-        var imageFieldNode = SKSpriteNode(imageNamed: imagem)
-        imageFieldNode.name = nome
-        imageFieldNode.size = CGSizeMake(raio*2, raio*2)
-        imageFieldNode.physicsBody = SKPhysicsBody(circleOfRadius: raio)
-        imageFieldNode.physicsBody?.dynamic = false
-        imageFieldNode.position = CGPoint(x: 0, y: 0)
-        imageFieldNode.physicsBody?.collisionBitMask = BitMasks.planeta
-        imageFieldNode.physicsBody?.contactTestBitMask = BitMasks.planeta
-        imageFieldNode.physicsBody?.fieldBitMask = BitMasks.planeta
-        imageFieldNode.physicsBody?.categoryBitMask = BitMasks.planeta
-        imageFieldNode.physicsBody?.affectedByGravity = false
-        imageFieldNode.physicsBody?.applyAngularImpulse(100)
-        fieldNode.addChild(imageFieldNode)
-        fieldNode.zPosition = 10.0
-        cameraNode.addChild(fieldNode)
-        
-        var regiaoPlaneta = SKSpriteNode()
-        regiaoPlaneta.position = CGPoint(x: 0, y: 0)
-        regiaoPlaneta.physicsBody = SKPhysicsBody(circleOfRadius: raio + CGFloat(raioAtmosfera))
-        regiaoPlaneta.color = UIColor.redColor()
-        regiaoPlaneta.physicsBody?.dynamic = false
-        regiaoPlaneta.physicsBody?.affectedByGravity = false
-        regiaoPlaneta.physicsBody?.fieldBitMask = 0x0
-        regiaoPlaneta.physicsBody?.categoryBitMask = BitMasks.regiao
-        regiaoPlaneta.physicsBody?.contactTestBitMask = BitMasks.regiao | BitMasks.personagem | BitMasks.particulas
-        regiaoPlaneta.physicsBody?.collisionBitMask = BitMasks.regiao
-        regiaoPlaneta.name = nome
-        fieldNode.addChild(regiaoPlaneta)
-        var particulas = SKEmitterNode()
-        switch imagem {
+        if #available(iOS 8.0, *) {
+            let fieldNode = SKFieldNode.radialGravityField()
+            fieldNode.falloff = falloff
+            fieldNode.strength = strenght;
+            fieldNode.animationSpeed = 0.5
+            fieldNode.name = "fieldNode"
+            if (habilitarRegiao){fieldNode.region = SKRegion(radius: Float(raio) + raioAtmosfera)}
+            fieldNode.position = posicao
+            fieldNode.enabled = true
+            fieldNode.physicsBody = SKPhysicsBody(circleOfRadius: raio)
+            fieldNode.physicsBody?.dynamic = false
+            //let fieldCategory: UInt32 = 0x1 << 1
+            fieldNode.categoryBitMask = BitMasks.campo
+            fieldNode.physicsBody?.allowsRotation = false
+            fieldNode.physicsBody?.applyAngularImpulse(100)
+            let imageFieldNode = SKSpriteNode(imageNamed: imagem)
+            imageFieldNode.name = nome
+            imageFieldNode.size = CGSizeMake(raio*2, raio*2)
+            imageFieldNode.physicsBody = SKPhysicsBody(circleOfRadius: raio)
+            imageFieldNode.physicsBody?.dynamic = false
+            imageFieldNode.position = CGPoint(x: 0, y: 0)
+            imageFieldNode.physicsBody?.collisionBitMask = BitMasks.planeta
+            imageFieldNode.physicsBody?.contactTestBitMask = BitMasks.planeta
+            imageFieldNode.physicsBody?.fieldBitMask = BitMasks.planeta
+            imageFieldNode.physicsBody?.categoryBitMask = BitMasks.planeta
+            imageFieldNode.physicsBody?.affectedByGravity = false
+            imageFieldNode.physicsBody?.applyAngularImpulse(100)
+            fieldNode.addChild(imageFieldNode)
+            fieldNode.zPosition = 10.0
+            cameraNode.addChild(fieldNode)
+            
+            
+            let regiaoPlaneta = SKSpriteNode()
+            regiaoPlaneta.position = CGPoint(x: 0, y: 0)
+            regiaoPlaneta.physicsBody = SKPhysicsBody(circleOfRadius: raio + CGFloat(raioAtmosfera))
+            regiaoPlaneta.color = UIColor.redColor()
+            regiaoPlaneta.physicsBody?.dynamic = false
+            regiaoPlaneta.physicsBody?.affectedByGravity = false
+                regiaoPlaneta.physicsBody?.fieldBitMask = 0x0
+            regiaoPlaneta.physicsBody?.categoryBitMask = BitMasks.regiao
+            regiaoPlaneta.physicsBody?.contactTestBitMask = BitMasks.regiao | BitMasks.personagem | BitMasks.particulas
+            regiaoPlaneta.physicsBody?.collisionBitMask = BitMasks.regiao
+            regiaoPlaneta.name = nome
+            fieldNode.addChild(regiaoPlaneta)
+            var particulas = SKEmitterNode()
+            switch imagem {
             case "planetaverde.png":
-                    particulas = SKEmitterNode(fileNamed: "verde.sks")
+                particulas = SKEmitterNode(fileNamed: "verde.sks")!
             case "planetavermelho.png":
-                    particulas = SKEmitterNode(fileNamed: "vermelho.sks")
+                particulas = SKEmitterNode(fileNamed: "vermelho.sks")!
             case "planetaazul.png":
-                    particulas = SKEmitterNode(fileNamed: "azul.sks")
+                particulas = SKEmitterNode(fileNamed: "azul.sks")!
             default:
-                    particulas = SKEmitterNode(fileNamed: "azul.sks")
-        
-        }
+                particulas = SKEmitterNode(fileNamed: "azul.sks")!
+                
+            }
+            
+            if raio < 80 { //condicoes de planeta mt pequeno
+                particulas.particleLifetime = 5
+                particulas.particleBirthRate = 30
+                particulas.speed = 3
+                particulas.particleColor = UIColor.redColor()
+                particulas.particlePositionRange = CGVector(dx: 1.7*(raio + CGFloat(raioAtmosfera)), dy: 1.7*(raio + CGFloat(raioAtmosfera)))}
+            particulas.position = CGPoint(x: 0, y: 0)
+            particulas.zPosition = -1
+            if raio >= 80 {
+                particulas.particlePositionRange = CGVector(dx: 1.7*(raio + CGFloat(raioAtmosfera)), dy: 1.7*(raio + CGFloat(raioAtmosfera)))
+            }
+            particulas.alpha = 0.7
+            particulas.fieldBitMask = BitMasks.particulas | BitMasks.regiao
+            
+            regiaoPlaneta.addChild(particulas)
+            return imageFieldNode
 
-        if raio < 80 { //condicoes de planeta mt pequeno
-            particulas.particleLifetime = 5
-            particulas.particleBirthRate = 30
-            particulas.speed = 3
-            particulas.particleColor = UIColor.redColor()
-            particulas.particlePositionRange = CGVector(dx: 1.7*(raio + CGFloat(raioAtmosfera)), dy: 1.7*(raio + CGFloat(raioAtmosfera)))}
-        particulas.position = CGPoint(x: 0, y: 0)
-        particulas.zPosition = -1
-        if raio >= 80 {
-            particulas.particlePositionRange = CGVector(dx: 1.7*(raio + CGFloat(raioAtmosfera)), dy: 1.7*(raio + CGFloat(raioAtmosfera)))
+
+        } else {
+            return SKSpriteNode()
         }
-        particulas.alpha = 0.7
-        particulas.fieldBitMask = BitMasks.particulas | BitMasks.regiao
-        
-        regiaoPlaneta.addChild(particulas)
-        return imageFieldNode
-    }
+      }
     
     func criarLetras(node:SKSpriteNode, angulo:CGFloat, imagem:String, nome:String) -> SKSpriteNode {
-        var letra = SKSpriteNode(imageNamed: imagem)
-        var raio = node.size.height / 2
+        let letra = SKSpriteNode(imageNamed: imagem)
+        let raio = node.size.height / 2
         letra.size = CGSize (width: 299/6, height: 299/6)
         letra.position = CGPoint(x: (raio*sin(angulo))+letra.size.height*sin(angulo)/2, y: (raio*cos(angulo)+letra.size.height*cos(angulo)/2))
         letra.physicsBody = SKPhysicsBody(rectangleOfSize: letra.size)
         letra.physicsBody?.affectedByGravity = false
         letra.physicsBody?.dynamic = false
         letra.physicsBody?.mass = 1
-        var anguloF = (3.1415 - angulo) + CGFloat(M_PI)
+        let anguloF = (3.1415 - angulo) + CGFloat(M_PI)
         letra.zRotation = CGFloat(anguloF)
         letra.physicsBody?.collisionBitMask = 0
         letra.physicsBody?.contactTestBitMask = BitMasks.personagem
         letra.physicsBody?.categoryBitMask = BitMasks.letra
-        letra.physicsBody?.fieldBitMask = BitMasks.letra
+        if #available(iOS 8.0, *) {
+            letra.physicsBody?.fieldBitMask = BitMasks.letra
+        } else {
+            // Fallback on earlier versions
+        }
         letra.name = nome
         node.addChild(letra)
         
@@ -621,20 +636,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func criarEstrelas(node:SKSpriteNode, angulo:CGFloat) -> SKSpriteNode{
-        var estrela = SKSpriteNode(imageNamed: "estrela.png")
-        var raio = node.size.height / 2
+        let estrela = SKSpriteNode(imageNamed: "estrela.png")
+        let raio = node.size.height / 2
         estrela.size = CGSize (width: 299/10, height: 299/10)
         estrela.position = CGPoint(x: (raio*sin(angulo))+estrela.size.height*sin(angulo)/2, y: (raio*cos(angulo)+estrela.size.height*cos(angulo)/2))
         estrela.physicsBody = SKPhysicsBody(rectangleOfSize: estrela.size)
         estrela.physicsBody?.affectedByGravity = false
         estrela.physicsBody?.dynamic = false
-        estrela.physicsBody?.mass = 1
-        var anguloF = (3.1415 - angulo) + CGFloat(M_PI)
+         let anguloF = (3.1415 - angulo) + CGFloat(M_PI)
         estrela.zRotation = CGFloat(anguloF)
         estrela.physicsBody?.collisionBitMask = BitMasks.estrela | BitMasks.personagem
         estrela.physicsBody?.contactTestBitMask = BitMasks.estrela | BitMasks.personagem
         estrela.physicsBody?.categoryBitMask = BitMasks.estrela
-        estrela.physicsBody?.fieldBitMask = BitMasks.estrela
+        if #available(iOS 8.0, *) {
+            estrela.physicsBody?.fieldBitMask = BitMasks.estrela
+        } else {
+            // Fallback on earlier versions
+        }
         node.addChild(estrela)
         
         return estrela
@@ -668,8 +686,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let posX = origem.x + raio * cos(anguloAtual)
             let posY = origem.y + raio * sin(anguloAtual)
         
-            let posX2 = cameraNode.position.x + origem.x + raio * cos(anguloAtual)
-            let posY2 = cameraNode.position.y + origem.y + raio * sin(anguloAtual)
+//            let posX2 = cameraNode.position.x + origem.x + raio * cos(anguloAtual)
+//            let posY2 = cameraNode.position.y + origem.y + raio * sin(anguloAtual)
         
         
             let translacao = SKAction.moveTo(CGPoint(x: posX, y: posY), duration: moveDuration)
@@ -705,7 +723,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let index = Int((fps * Double(time))) % animFrames.count
             (node as! SKSpriteNode).texture = animFrames[index]})
         
-        var random = arc4random_uniform(5)
+        let random = arc4random_uniform(5)
         var sound = SKAction()
         switch random {
         case 0:
@@ -734,11 +752,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         else {
             if (currentTime - lastUntouchedTime > longPressMinInterval) {
-                println("longPress!!!")
+                print("longPress!!!")
             
                 if (currentTime - lastMoveTime > moveDelay) {
-                    println(swipePoints.initial.x)
-                    println((jogador.position.x * gameNode.xScale))
+                    print(swipePoints.initial.x)
+                    print((jogador.position.x * gameNode.xScale))
                     if swipePoints.actual.x > self.size.height/2 {
                         movePlayerWithDirection(moveDirection.right)
                     }

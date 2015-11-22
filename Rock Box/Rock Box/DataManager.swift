@@ -47,7 +47,7 @@ class DataManager: NSObject {
         
         var arrayComAsFases = lerArquivoJson()
         // println(arrayComAsFases)
-        var dictionaryDaFase = arrayComAsFases[fase - 1] as! Dictionary<String, AnyObject>
+        let dictionaryDaFase = arrayComAsFases[fase - 1] as! Dictionary<String, AnyObject>
         
         
         
@@ -63,7 +63,7 @@ class DataManager: NSObject {
         var arrayComAsFases = lerArquivoJson()
        // println(arrayComAsFases)
         var dictionaryDaFase = arrayComAsFases[fase - 1] as! Dictionary<String, AnyObject>
-        println("dictionaryDaFase")
+        print("dictionaryDaFase")
 
     
         return dictionaryDaFase["planetas"] as! Array<AnyObject>
@@ -109,13 +109,13 @@ class DataManager: NSObject {
         
         let path = caminhoDocs()
         let jsonData = NSData(contentsOfFile: path)
-        var jsonResult = NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers, error: nil) as! Dictionary<String, AnyObject>
+        var jsonResult = (try! NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers)) as! Dictionary<String, AnyObject>
         var meuArray = jsonResult["local"] as! Array<AnyObject>
         var fase1 = meuArray[0] as! Dictionary<String,AnyObject>
-        var planetasFase1 = fase1["planetas"] as! Array<AnyObject>
-        var planet1 = planetasFase1[0] as! Dictionary<String, AnyObject>
-        var planet2 = planetasFase1[1] as! Dictionary<String, AnyObject>
-        var planet3 = planetasFase1[2] as! Dictionary<String, AnyObject>
+        //var planetasFase1 = fase1["planetas"] as! Array<AnyObject>
+//        var planet1 = planetasFase1[0] as! Dictionary<String, AnyObject>
+//        var planet2 = planetasFase1[1] as! Dictionary<String, AnyObject>
+//        var planet3 = planetasFase1[2] as! Dictionary<String, AnyObject>
         
         
         return meuArray
@@ -124,20 +124,20 @@ class DataManager: NSObject {
     
     
     func moverJsonParaDocuments () {
-        var fileManager = NSFileManager.defaultManager()
+        let fileManager = NSFileManager.defaultManager()
         if fileManager.fileExistsAtPath(caminhoDocs()){
-            println("Achoou")
+            print("Achoou")
         }
         else {
             let caminhoBundle = NSBundle.mainBundle().pathForResource("data", ofType: "json")
             let caminhoDispositivo = caminhoDocs()
-            if fileManager.copyItemAtPath(caminhoBundle!, toPath:caminhoDispositivo, error:nil) {
+            do {
+                try fileManager.copyItemAtPath(caminhoBundle!, toPath:caminhoDispositivo)
             // success
-                println("sucesso")
-                print(caminhoDispositivo)
-            }
-            else {
-                println("nao sucesso")// failure
+                print("sucesso")
+                print(caminhoDispositivo, terminator: "")
+            } catch _ {
+                print("nao sucesso")// failure
             }
         }
         
@@ -146,9 +146,9 @@ class DataManager: NSObject {
     }
     
     func caminhoDocs() -> String {
-        let pathToDocumentsFolder = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
-        println(pathToDocumentsFolder)
-        return pathToDocumentsFolder.stringByAppendingPathComponent("/data.json")
+        let pathToDocumentsFolder = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] 
+        print(pathToDocumentsFolder)
+        return (pathToDocumentsFolder as NSString).stringByAppendingPathComponent("/data.json")
         
     }
     
@@ -164,9 +164,9 @@ class DataManager: NSObject {
         arquivoAnterior[fase - 1] = dicionario
        
         let dicionarioJson = Dictionary(dictionaryLiteral: ("local",arquivoAnterior))
-        println(dicionarioJson)
-        let dataJson = NSJSONSerialization.dataWithJSONObject(dicionarioJson, options: NSJSONWritingOptions.PrettyPrinted, error: nil)
-        println(caminhoDocs())
+        print(dicionarioJson)
+        let dataJson = try? NSJSONSerialization.dataWithJSONObject(dicionarioJson, options: NSJSONWritingOptions.PrettyPrinted)
+        print(caminhoDocs())
         dataJson?.writeToFile(caminhoDocs(), atomically: true)
         
     }

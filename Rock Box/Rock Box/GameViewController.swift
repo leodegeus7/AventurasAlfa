@@ -14,8 +14,8 @@ import AVFoundation
 extension SKNode {
     class func unarchiveFromFile(file : String) -> SKNode? {
         if let path = NSBundle.mainBundle().pathForResource(file, ofType: "sks") {
-            var sceneData = NSData(contentsOfFile: path, options: .DataReadingMappedIfSafe, error: nil)!
-            var archiver = NSKeyedUnarchiver(forReadingWithData: sceneData)
+            let sceneData = try! NSData(contentsOfFile: path, options: .DataReadingMappedIfSafe)
+            let archiver = NSKeyedUnarchiver(forReadingWithData: sceneData)
             
             archiver.setClass(self.classForKeyedUnarchiver(), forClassName: "SKScene")
             let scene = archiver.decodeObjectForKey(NSKeyedArchiveRootObjectKey) as! GameScene
@@ -138,8 +138,16 @@ class GameViewController: UIViewController {
             // Configure the view.
             let skView = self.view as! SKView
             skView.showsFPS = true
-            skView.showsPhysics = false
-            skView.showsFields = false
+            if #available(iOS 8.0, *) {
+                skView.showsPhysics = false
+            } else {
+                // Fallback on earlier versions
+            }
+            if #available(iOS 8.0, *) {
+                skView.showsFields = false
+            } else {
+                // Fallback on earlier versions
+            }
             skView.showsNodeCount = true
             /* Sprite Kit applies additional optimizations to improve rendering performance */
             skView.ignoresSiblingOrder = true
@@ -162,11 +170,11 @@ class GameViewController: UIViewController {
         return true
     }
 
-    override func supportedInterfaceOrientations() -> Int {
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            return Int(UIInterfaceOrientationMask.AllButUpsideDown.rawValue)
+            return UIInterfaceOrientationMask.AllButUpsideDown
         } else {
-            return Int(UIInterfaceOrientationMask.All.rawValue)
+            return UIInterfaceOrientationMask.All
         }
     }
 
@@ -200,6 +208,8 @@ class GameViewController: UIViewController {
     @IBAction func exitButton(sender: AnyObject) {
         viewPalavra.hidden = true
         DataManager.instance.pausar = false
+        gameScene.paused = false
+        
         
     }
     
@@ -223,9 +233,9 @@ class GameViewController: UIViewController {
     
     func criarRiscosELetrasHud () {
         
-        var arquivo = (((DataManager.instance.lerArquivoJson())[DataManager.instance.faseEscolhida - 1] as! Dictionary<String,AnyObject>)["palavra"] as! String)
+        let arquivo = (((DataManager.instance.lerArquivoJson())[DataManager.instance.faseEscolhida - 1] as! Dictionary<String,AnyObject>)["palavra"] as! String)
         
-        var palavraFase = Array(arquivo)
+        var palavraFase = Array(arquivo.characters)
         
         let posicaoInicial = CGPoint(x: 370 , y: 98.0)
         let posicaoFinal = CGPoint(x: 620 , y: 98.0)
@@ -240,7 +250,7 @@ class GameViewController: UIViewController {
         
         for var i = 0; i < palavraFase.count; i++ {
             
-            var riscoDasLetrasHud = UIImageView(image: UIImage(named: "Line.png"))
+            let riscoDasLetrasHud = UIImageView(image: UIImage(named: "Line.png"))
             riscoDasLetrasHud.bounds.size = CGSize(width: tamanhoRisco, height: riscoDasLetrasHud.bounds.size.height)
             
             riscoDasLetrasHud.layer.position = CGPoint(x: posicaoInicial.x + CGFloat(i) * (tamanhoRisco + tamanhoEspaco), y: posicaoInicial.y)
@@ -264,9 +274,9 @@ class GameViewController: UIViewController {
     
     func criarRiscosELetrasPause () {
         
-        var arquivo = (((DataManager.instance.lerArquivoJson())[DataManager.instance.faseEscolhida - 1] as! Dictionary<String,AnyObject>)["palavra"] as! String)
+        let arquivo = (((DataManager.instance.lerArquivoJson())[DataManager.instance.faseEscolhida - 1] as! Dictionary<String,AnyObject>)["palavra"] as! String)
         
-        var palavraFase = Array(arquivo)
+        var palavraFase = Array(arquivo.characters)
         
         
         let posicaoInicial = CGPoint(x: 88 , y: 280)
@@ -282,7 +292,7 @@ class GameViewController: UIViewController {
         
         
         for var i = 0; i < palavraFase.count; i++ {
-            var riscoDasLetrasPause = UIImageView(image: UIImage(named: "Line.png"))
+            let riscoDasLetrasPause = UIImageView(image: UIImage(named: "Line.png"))
             riscoDasLetrasPause.bounds.size = CGSize(width: tamanhoRisco, height: riscoDasLetrasPause.bounds.size.height)
             
             riscoDasLetrasPause.layer.position = CGPoint(x: posicaoInicial.x + CGFloat(i) * (tamanhoRisco + tamanhoEspaco), y: posicaoInicial.y)
@@ -300,7 +310,7 @@ class GameViewController: UIViewController {
             
         }
         
-        println("Inicial: \(posicaoInicial) Final: \(posicaoFinal)")
+        print("Inicial: \(posicaoInicial) Final: \(posicaoFinal)")
 
         
         
@@ -348,36 +358,36 @@ class GameViewController: UIViewController {
     
     func playSound() {
         var fase = DataManager.instance.arrayDaFaseAntes(DataManager.instance.faseEscolhida)
-        var stringFase = fase["palavra"] as! String
+        let stringFase = fase["palavra"] as! String
         switch stringFase {
         case "casa":
-            var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("casa", ofType: "wav")!)
-            audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
+            let som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("casa", ofType: "wav")!)
+            audioPlayer = try! AVAudioPlayer(contentsOfURL: som)
         case "olho":
-            var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("olho", ofType: "wav")!)
-            audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
+            let som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("olho", ofType: "wav")!)
+            audioPlayer = try! AVAudioPlayer(contentsOfURL: som)
         case "cenoura":
-            var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("cenoura", ofType: "wav")!)
-            audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
+            let som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("cenoura", ofType: "wav")!)
+            audioPlayer = try! AVAudioPlayer(contentsOfURL: som)
         case "chuva":
-            var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("chuva", ofType: "wav")!)
-            audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
+            let som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("chuva", ofType: "wav")!)
+            audioPlayer = try! AVAudioPlayer(contentsOfURL: som)
         case "calça":
-            var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("calca", ofType: "wav")!)
-            audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
+            let som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("calca", ofType: "wav")!)
+            audioPlayer = try! AVAudioPlayer(contentsOfURL: som)
         case "agua":
-            var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("agua", ofType: "wav")!)
-            audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
+            let som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("agua", ofType: "wav")!)
+            audioPlayer = try! AVAudioPlayer(contentsOfURL: som)
         case "carro":
-            var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("carro", ofType: "wav")!)
-            audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
+            let som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("carro", ofType: "wav")!)
+            audioPlayer = try! AVAudioPlayer(contentsOfURL: som)
         case "hospital":
-            var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("hospital", ofType: "wav")!)
-            audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
+            let som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("hospital", ofType: "wav")!)
+            audioPlayer = try! AVAudioPlayer(contentsOfURL: som)
         default:
-            println("NAO ACHOU SOOM")
-            var som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("eu_sou_o_alfa", ofType: "wav")!)
-            audioPlayer = AVAudioPlayer(contentsOfURL: som, error: nil)
+            print("NAO ACHOU SOOM")
+            let som = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("eu_sou_o_alfa", ofType: "wav")!)
+            audioPlayer = try! AVAudioPlayer(contentsOfURL: som)
             
         }
         
@@ -430,6 +440,7 @@ class GameViewController: UIViewController {
     
     @IBAction func voltarPrasFases(sender: AnyObject) {
         DataManager.instance.pausar = true
+        gameScene.paused = true
         viewFundo.image = UIImage(named: "janela1.png")
         viewPalavra.hidden = false
         aparecerBotoes()

@@ -17,7 +17,10 @@ class StarNode: SKSpriteNode {
         sprite.yScale = 0.075
         sprite.position = location
         
-        sprite.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "star.png"), alphaThreshold: 1, size: sprite.size)
+        if #available(iOS 8.0, *) {
+            sprite.physicsBody = SKPhysicsBody(texture: SKTexture(imageNamed: "star.png"), alphaThreshold: 1, size: sprite.size)
+        } else {
+        }
         if let physics = sprite.physicsBody {
             physics.affectedByGravity = true
             physics.allowsRotation = true

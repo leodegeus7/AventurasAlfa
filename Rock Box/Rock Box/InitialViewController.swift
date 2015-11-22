@@ -18,17 +18,34 @@ class InitialViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        var er:NSError?
-        var music1 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("menu", ofType: "mp3")!)
-        var music2 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("ambiente", ofType: "mp3")!)
+        //var er:NSError?
+        let music1 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("menu", ofType: "mp3")!)
+        let music2 = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("ambiente", ofType: "mp3")!)
         
         var erro:NSError?
-        audioPlayer1 = AVAudioPlayer(contentsOfURL: music1, error: &erro)
-        AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, error: nil)
-        AVAudioSession.sharedInstance().setActive(true, error: &erro)
+        do {
+            audioPlayer1 = try AVAudioPlayer(contentsOfURL: music1)
+        } catch let error as NSError {
+            erro = error
+            audioPlayer1.pause()
+        }
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+        } catch _ {
+        }
+        do {
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch let error as NSError {
+            erro = error
+        }
         audioPlayer1.play()
         
-        audioPlayer2 = AVAudioPlayer(contentsOfURL: music2, error: &erro)
+        do {
+            audioPlayer2 = try AVAudioPlayer(contentsOfURL: music2)
+        } catch let error as NSError {
+            erro = error
+            audioPlayer2.pause()
+        }
         audioPlayer2.prepareToPlay()
         
         // Do any additional setup after loading the view.

@@ -75,7 +75,7 @@ class EscolhaDaFaseViewController: UIViewController {
         super.viewDidLoad()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateStars", name: "UpdateStars", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "resetGame", name: "ResetGame", object: nil)
-        var json = DataManager.instance.lerArquivoJson()
+        let json = DataManager.instance.lerArquivoJson()
         var fases = DataManager.instance.arrayDaFaseAntes(1)
         var estrelas:Int!
         
@@ -138,7 +138,7 @@ class EscolhaDaFaseViewController: UIViewController {
     
 
     func mudarEstrelas (imagem:UIImage,fase:Int) {
-        var estrelas = UIImageView(image: imagem)
+        let estrelas = UIImageView(image: imagem)
         
         
         estrelas.frame.size = CGSize(width: 225/1.7, height: 81/1.7)
