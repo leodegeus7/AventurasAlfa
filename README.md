@@ -1,4 +1,4 @@
-# AventurasAlfa
+# As Aventuras de Alfa
 As Aventuras de Alfa é um jogo desenvolvido especialmente para crianças em fase de alfabetização.
 
 * Este projeto foi desenvolvido para o Mini Challenge da Apple Academy, o código é antigo e não remete ao meu jeito de programar atual. Este projeto é mantido apenas para fins de portfólio.
